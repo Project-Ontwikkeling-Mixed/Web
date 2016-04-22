@@ -1,0 +1,57 @@
+//buttons
+
+.btn{
+  border-radius: 0px;
+  font-family: $button-text;
+  text-transform: uppercase;
+  font-size: 16px;
+  border: none;
+  padding: 8px 25px;
+}
+
+.btn-lg{
+  @extend .btn;
+  font-size: 18px;
+  padding: 15px 32px;
+}
+
+.btn-default{
+  background: $default-button-background;
+}
+
+.btn-primary{
+  background: $primary-button-background;
+}
+
+.btn-primary:hover{
+  background: darken($primary-button-background, 5%);
+}
+
+.btn-red{
+  background: $red-button-background;
+  color: white;
+}
+
+.btn-red:hover{
+  background: darken($red-button-background, 5%);
+  color: white;
+}
+
+.border-button{
+  margin: -2px;
+}
+
+//forms
+
+.form-control{
+  border: 2px solid $input-border-color;
+  background: $input-background-color;
+  border-radius: 0px;
+  outline: none;
+  text-transform: uppercase;
+}
+
+.form-control:focus{
+  box-shadow: none;
+  border: 2px solid $input-glow-color;
+}

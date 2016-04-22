@@ -1,0 +1,42 @@
+body{
+  margin: 0; padding: 0;
+  background: $body-background;
+  font-family: $regular-text-font;
+}
+
+h1, h2{
+  font-family: $title-font;
+  text-transform: uppercase;
+}
+
+h2{
+  font-size: 34px;
+  color: #555;
+}
+
+h3{
+  font-family: $subtitle-font;
+  font-size: 42px;
+  color: #444;
+}
+
+h4{
+  font-family: $subtitle-font;
+  font-size: 24px;
+  color: $main-blue;
+  text-transform: uppercase;
+  font-weight: 200;
+}
+
+p{
+  font-family: $regular-text-font;
+  font-size: 16px;
+}
+
+section{
+  padding: 25px;
+}
+
+.page-title{
+  padding: 25px 0px;
+}

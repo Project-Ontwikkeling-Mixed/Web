@@ -1,0 +1,36 @@
+
+.logo{
+  margin: -10px;
+  margin-bottom: -11px;
+  margin-right: 10px;
+}
+
+.navbar-default{
+  background: $navbar-background;
+  //box-shadow: -2px 0px 3px lightgray;
+  border: none;
+  border-bottom: 1px solid lightgray;
+}
+
+.navbar-brand{
+  font-family: $brand-font;
+  color: $brand-color;
+  font-size: 24px;
+
+}
+
+.navbar-header{
+  padding: 10px;
+}
+
+.nav.navbar-nav{
+  li{
+    border-left: 1px solid lightgray;
+    padding: 10px;
+    font-size: 16px;
+    text-transform: uppercase;
+  }
+  li:hover{
+    background: $navbar-button-hover-bg;
+  }
+}

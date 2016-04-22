@@ -1,0 +1,84 @@
+
+
+//image browser main page-title
+
+.image-large-holder{
+  overflow: hidden;
+}
+
+.image-large-holder img{
+  height: 450px;
+}
+
+.image-list{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.image-list li{
+  overflow: hidden;
+  width: 100px;
+  height: 100px;
+  margin: 0; padding: 0;
+  margin-bottom: 10px;
+  transition: all .5s ease;
+}
+
+.image-list li:hover{
+  opacity: .7;
+}
+
+.image-list li img{
+  height: 100px;
+}
+
+.image-list li img:hover{
+  cursor: pointer;
+}
+
+//Timeline components
+
+.tijdlijn-progress{
+
+}
+
+.tijdlijn-fase-ballon{
+  background: $ballon-color;
+  color: white;
+  font-family: $button-text;
+  font-size: 21px;
+  display: inline-block;
+  padding: 5px;
+  width: 140px;
+  text-align: center;
+}
+
+.ballon-left{
+  float: left;
+  padding-left: 20px;
+}
+
+.ballon-left::after{
+  content: ' ';
+  padding: 8px;
+  height: 10px;
+  background: $ballon-color;
+  display: inline-block;
+  transform: translate(10px, 2px) rotate(45deg);
+}
+
+.ballon-right{
+  float: right;
+  padding-right: 20px;
+}
+
+.ballon-right::before{
+  content: ' ';
+  padding: 8px;
+  height: 10px;
+  background: $ballon-color;
+  display: inline-block;
+  transform: translate(-10px, 2px) rotate(45deg);
+}
