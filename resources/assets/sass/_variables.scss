@@ -3,8 +3,10 @@
 $main-blue: #0A9CC1;
 $main-red: #DC003C;
 
-$body-background: #FFF;
+$body-background: #f9f9f9;
 $body-foreground: #333;
+
+$container-background: white;
 
 //text
 
@@ -34,6 +36,17 @@ $input-border-color: #A9A9A9;
 $input-background-color: #F5F5F5;
 $input-glow-color: #0A9CC1;
 
+//project
+
+$project-title-bg-color: #f9f9f9;
+
 //tijdlijn
 
-$ballon-color: $main-red;
+$ballon-color: gray;
+$ballon-done-color: $main-red;
+
+//administratie
+
+$admin-menu-bg-color: gray;
+$admin-menu-color: white;
+$admin-content-border-color: lightgray;

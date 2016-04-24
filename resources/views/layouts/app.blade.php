@@ -44,6 +44,15 @@
 
   @yield('content')
 
+  <footer>
+    <div class="footer-title">
+      Project: Mixed
+    </div>
+    <div class="footer-subtext">
+      Project Voor antwerpen door mixed
+    </div>
+  </footer>
+
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </body>
 </html>

@@ -28,6 +28,7 @@
 }
 
 .btn-red{
+  @extend .btn;
   background: $red-button-background;
   color: white;
 }
@@ -37,9 +38,12 @@
   color: white;
 }
 
-.border-button{
-  margin: -2px;
+.btn-project{
+  @extend .btn-red;
+  padding: 12px 30px;
+  margin-top: 15px;
 }
+
 
 //forms
 
@@ -48,7 +52,6 @@
   background: $input-background-color;
   border-radius: 0px;
   outline: none;
-  text-transform: uppercase;
 }
 
 .form-control:focus{

@@ -11,15 +11,16 @@
     </div>
   </div>
 </div>
-<section class="container">
-  <div class="row" style="height: 350px;">
-    <div class="col-md-8">
-      <h2>Populaire projecten</h2>
+<section class="container-fluid body-white">
+  <section class="container">
+    <div class="row" style="height: 350px;">
+      <div class="col-md-8">
+        <h2>Populaire projecten</h2>
+      </div>
+      <div class="col-md-4">
+        <h2>Ontdek de app</h2>
+      </div>
     </div>
-    <div class="col-md-4">
-      <h2>Ontdek de app</h2>
-    </div>
-  </div>
-
+  </section>
 </section>
 @endsection

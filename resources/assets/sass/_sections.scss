@@ -11,22 +11,28 @@
   padding: 25px;
   width: 500px;
   margin: auto;
+  border: 1px solid lightgray;
+  margin-bottom: 80px;
 }
 
 .login-box{
   h1{
     padding: 0;
     margin: 0px 0px 25px 0px;
+    margin-left: -25px;
+    margin-right: -25px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    border-bottom: 1px solid lightgray;
   }
 }
-
 
 //hero
 
 .hero{
   background: url(../img/antwerpen.jpg);
   background-size: cover;
-  margin-top: -20px;
+  margin-top: -55px;
 }
 
 .hero-overlay{
@@ -37,6 +43,7 @@
     padding: 35px; margin: 0;
     color: white;
     font-size: 54px;
+    text-transform: none;
   }
 }
 
@@ -47,12 +54,6 @@
 //maps button-text
 
 .map-box{
-  border: 2px solid lightgray;
-  height: 400px;
-}
-
-.map-holder{
-  border-left: 2px solid lightgray;
   height: 400px;
 }
 
@@ -67,6 +68,54 @@
 
 //project details
 
+.kies-project-box{
+  padding: 25px 30px;
+  border: 1px solid lightgray;
+  border-bottom: 0px;
+  font-size: 16px;
+}
+
+.map-box{
+  background: url('../img/map.png');
+  height: 350px;
+}
+
+.project-title{
+  padding: 40px 25px;
+  border: 1px solid lightgray;
+  background: $project-title-bg-color;
+  h1{
+    padding: 0;
+  }
+}
+
+.project-holder{
+  border: 1px solid lightgray;
+  border-top: 0px;
+  padding: 0px 25px;
+}
+
 .project-text{
   padding: 50px 15px;
+}
+
+//inspraakvragen
+
+.inspraakvragen-box{
+  padding: 25px;
+}
+
+//administratie
+
+.admin-container{
+  border: 1px solid $admin-content-border-color;
+}
+
+.admin-title{
+  padding: 15px;
+  border-bottom: 1px solid $admin-content-border-color;
+}
+
+.admin-menu{
+  
 }

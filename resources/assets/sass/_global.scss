@@ -4,6 +4,7 @@ body{
   font-family: $regular-text-font;
 }
 
+
 h1, h2{
   font-family: $title-font;
   text-transform: uppercase;
@@ -37,6 +38,27 @@ section{
   padding: 25px;
 }
 
+.separator-right{
+  border-right: 1px solid lightgray;
+}
+
+.separator-top{
+  border-top: 1px solid lightgray;
+}
+
 .page-title{
-  padding: 25px 0px;
+  padding: 15px 0px 25px 0px;
+}
+
+.tijdlijn-title{
+  padding-left: 25px;
+}
+
+.container{
+  background: $container-background;
+  margin-bottom: 80px;
+}
+
+.body-white{
+  background: white;
 }

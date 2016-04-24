@@ -19,8 +19,8 @@
 
 .image-list li{
   overflow: hidden;
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   margin: 0; padding: 0;
   margin-bottom: 10px;
   transition: all .5s ease;
@@ -31,7 +31,7 @@
 }
 
 .image-list li img{
-  height: 100px;
+  height: 80px;
 }
 
 .image-list li img:hover{
@@ -51,34 +51,26 @@
   font-size: 21px;
   display: inline-block;
   padding: 5px;
-  width: 140px;
   text-align: center;
+  margin-bottom: 65px;
+  padding-right: 25px;
 }
 
-.ballon-left{
-  float: left;
-  padding-left: 20px;
-}
-
-.ballon-left::after{
-  content: ' ';
-  padding: 8px;
-  height: 10px;
+.tijdlijn-fase-ballon::before{
+  content: '';
+  padding: 10px;
+  height: 12px;
   background: $ballon-color;
   display: inline-block;
-  transform: translate(10px, 2px) rotate(45deg);
+  transform: translate(-10px, 4px) rotate(45deg);
 }
 
-.ballon-right{
-  float: right;
-  padding-right: 20px;
+.tijdlijn-fase-ballon-done{
+  @extend .tijdlijn-fase-ballon;
+  background: $ballon-done-color;
 }
 
-.ballon-right::before{
-  content: ' ';
-  padding: 8px;
-  height: 10px;
-  background: $ballon-color;
-  display: inline-block;
-  transform: translate(-10px, 2px) rotate(45deg);
+.tijdlijn-fase-ballon-done::before{
+  @extend .tijdlijn-fase-ballon::before;
+  background: $ballon-done-color;
 }
