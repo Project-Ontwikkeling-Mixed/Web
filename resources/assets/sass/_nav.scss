@@ -51,21 +51,44 @@ Administratie navigatie
 
 */
 
-.admin-opties-menu{
-  background: $admin-menu-bg-color;
-  margin: 0; padding: 0;
+.admin-menu{
+  padding: 0;
+  background: #f7f7f7;
+  nav ul {
+    margin: 0; padding: 0;
+    li{
+      margin: 0; padding: 0;
+      list-style: none;
+      a{
+        display: block;
+        padding: 25px;
+        background: $admin-menu-bg-color;
+        border-bottom: 1px solid lightgray;
+        color: #333;
+      }
+      a:hover{
+        background: $admin-menu-bg-hover-color;
+        text-decoration: none;
+      }
+    }
+  }
 }
 
-.admin-optie{
-  a{
-    padding: 20px 10px;
-    display: block;
-    text-decoration: none;
-    font-size: 16px;
-    color: $admin-menu-color;
-    text-align: center;
-  }
-  a:hover{
-    background: darken($admin-menu-bg-color, 5%);
-  }
+.admin-menu nav .admin-menu-title{
+  padding: 10px;
+  padding-left: 25px;
+  font-size: 21px;
+  text-transform: uppercase;
+  background: white;
+  border-bottom: 1px solid lightgray;
+}
+
+.admin-menu nav li .nieuw-project{
+  color: white;
+  background: $primary-button-background;
+  transition: background .5s ease;
+  border: none;
+}
+.admin-menu nav li .nieuw-project:hover{
+  background: lighten($primary-button-background, 5%);
 }
