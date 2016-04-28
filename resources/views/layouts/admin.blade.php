@@ -56,7 +56,7 @@
             <li><a href="{{ url('admin/project/new') }}" class="nieuw-project">Nieuw Project</a></li>
             <li class="admin-menu-title">Huidige Projecten</li>
             @foreach ($projecten as $project)
-              <li><a href="">{{ $project->naam }}</a></li>
+              <li><a href="{{ url('admin/project/' . $project->id)}}">{{ $project->naam }}</a></li>
             @endforeach
           </ul>
         </nav>

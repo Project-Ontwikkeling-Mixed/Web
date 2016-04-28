@@ -42,4 +42,12 @@ class AdminController extends Controller
       $projecten = $project->getAll();
       return view('admin/project/new', ['projecten' => $projecten, 'title' => 'Nieuw Project']);
     }
+
+    public function get($id, Request $request){
+      $project = new Project();
+      $thisProject = $project->getById($id);
+      $projecten = $project->getAll();
+
+      return view('admin/project/project', ['projecten' => $projecten, 'project' => $thisProject, 'title' => $thisProject->naam]);
+    }
 }

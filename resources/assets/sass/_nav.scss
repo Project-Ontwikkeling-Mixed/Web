@@ -21,7 +21,6 @@ Globale navigatie
   font-family: $brand-font;
   color: $brand-color;
   font-size: 24px;
-
 }
 
 .navbar-header{
@@ -89,6 +88,7 @@ Administratie navigatie
   transition: background .5s ease;
   border: none;
 }
+
 .admin-menu nav li .nieuw-project:hover{
   background: lighten($primary-button-background, 5%);
 }

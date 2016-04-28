@@ -18,4 +18,8 @@ class Project extends Model
         'beschrijving' => $beschrijving
       ]);
     }
+
+    public function getById($id){
+      return DB::table('project')->find($id);
+    }
 }
