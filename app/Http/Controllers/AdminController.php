@@ -32,10 +32,11 @@ class AdminController extends Controller
 
         $naam = $request->input('naam');
         $beschrijving = $request->input('beschrijving');
+        $locatie = $request->input('locatie');
 
-        $project->createNew($naam, $beschrijving);
+        $project->createNew($naam, $beschrijving, $locatie);
 
-        return $request->redirect('admin/');
+        return redirect('admin/');
 
       }
 

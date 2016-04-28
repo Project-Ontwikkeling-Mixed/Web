@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateProjectTable extends Migration
+class AddLocatieToProjectTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,14 +12,9 @@ class CreateProjectTable extends Migration
      */
     public function up()
     {
-        Schema::create('project', function(Blueprint $table){
-          $table->increments('id');
-          $table->string('naam')->unique();
-          $table->text('beschrijving');
-            
+        Schema::table('project', function(Blueprint $table) {
+            $table->string('locatie');
         });
-        
-    
     }
 
     /**
@@ -29,6 +24,6 @@ class CreateProjectTable extends Migration
      */
     public function down()
     {
-        Schema::drop('project');
+        //
     }
 }
