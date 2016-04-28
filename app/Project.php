@@ -12,10 +12,11 @@ class Project extends Model
       return DB::table('project')->get();
     }
 
-    public function createNew($naam, $beschrijving){
+    public function createNew($naam, $beschrijving, $locatie){
       return DB::table('project')->insert([
         'naam' => $naam,
-        'beschrijving' => $beschrijving
+        'beschrijving' => $beschrijving,
+        'locatie' => $locatie
       ]);
     }
 
