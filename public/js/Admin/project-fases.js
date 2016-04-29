@@ -32,7 +32,7 @@ new Vue({
     },
 
     nieuwProject: function(){
-      this.selectedFase.id = 'new';
+      this.$set('selectedFase', {id:'new'});
     }
   }
 })

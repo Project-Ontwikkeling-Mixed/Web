@@ -24,13 +24,21 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/admin', 'AdminController@index');
     Route::get('/admin/project/new', 'AdminController@create');
     Route::post('/admin/project/new', 'AdminController@create');
+
+    //project routes
     Route::get('/project/{id}', 'AdminController@get');
 
+    //fase routes
     Route::post('/fase/new', 'ProjectFaseController@create');
     Route::post('/fase/{fase_id}', 'ProjectFaseController@update');
+
+    //media routes
+    Route::post('/media/{fase_id}', 'ProjectMediaController@create');
+
 
     //JSON endpoints
     Route::get('/json/project/all', 'ProjectController@allJson');
     Route::get('/json/project/{project_id}', 'ProjectController@getProjectJson');
+    Route::get('/json/media/all', 'ProjectMediaController@getJson');
 
 });

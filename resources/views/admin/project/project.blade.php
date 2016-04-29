@@ -21,8 +21,6 @@
     </div>
 
     <div class="spacer"></div>
-
-
       <form action="/fase/@{{ selectedFase.id }}" method="post">
 
         {!! csrf_field() !!}
@@ -54,6 +52,25 @@
         </div>
         <div class="form-group">
           <input type="submit" name="name" class="btn btn-primary" value="Project fase toevoegen/aanpassen">
+        </div>
+      </form>
+      <form v-if="selectedFase.id != 'new'" action="/media/@{{ selectedFase.id }}" method="post">
+        {!! csrf_field() !!}
+        <div class="form-group">
+          <input type="radio" name="type[]" v-model="type" value="youtube"> Youtube link
+          <input type="radio" name="type[]" v-model="type" value="image"> Afbeelding
+          <input type="radio" name="type[]" v-model="type" value="video"> Video
+        </div>
+        <div class="form-group">
+          <div v-if="type == 'youtube'">
+            <input type="text" class="form-control" name="link" placeholder="Plaats Youtube link hier">
+          </div>
+          <div v-else>
+            <input type="file" name="file">
+          </div>
+        </div>
+        <div class="form-group">
+          <input type="submit" class="btn btn-primary" value="Media toevoegen aan fase">
         </div>
       </form>
 

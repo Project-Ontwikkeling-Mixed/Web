@@ -16,10 +16,10 @@ class ProjectMediaTable extends Migration
         $table->increments('id');
         $table->string('link');
         $table->string('type');
-        $table->integer('project_id')->unsigned();
-        $table->foreign('project_id')
+        $table->integer('fase_id')->unsigned();
+        $table->foreign('fase_id')
           ->references('id')
-          ->on('project');
+          ->on('project_fase');
       });
     }
 
