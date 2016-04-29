@@ -15,21 +15,22 @@
     <div class="form-group">
     <label for="locatie">Locatie project</label>
     <p id=locatie-status></p>
-    <a id="admin-map-link" href="javascript:void(0)">Klik hier om een locatie aan te duiden op de kaart</a>
-    <input id="locatie-input" type="text" name="locatie" hidden>
-  </div>
-  <div id="admin-map"></div>
+    Kies een locatie
+    <div class="spacer"></div>
+    <div id="admin-map"></div>
+    <input id="locatie-input" type="hidden" name="locatie">
 
+  </div>
   <div class="form-group">
     <input type="submit" class="btn btn-primary" value="Maak Project">
   </div>
 </form>
 
-<script src="{{ asset('js/vendor/jquery.min.js') }}"></script>
-<script src="http://maps.google.com/maps/api/js"></script>
-<script src="{{ asset('js/vendor/gmaps.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/UI/google-maps-config.js') }}"></script>
+@endsection
 
-
-
+@section('scripts')
+  <script src="{{ asset('js/vendor/jquery.min.js') }}"></script>
+  <script src="http://maps.google.com/maps/api/js"></script>
+  <script src="{{ asset('js/vendor/gmaps.js') }}"></script>
+  <script type="text/javascript" src="{{ asset('js/UI/google-maps-config.js') }}"></script>
 @endsection

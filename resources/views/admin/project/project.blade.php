@@ -2,21 +2,12 @@
 
 @section('content')
   <div id="project-page" data-id='{{ $id }}' >
-      <div v-for="proj in project.project">
-        <h1>@{{ proj.naam }}</h1>
-        <p>
-          @{{ proj.beschrijving }}
-        </p>
-      </div>
-
-    <!--
-    <div>
-      <h1>{{ $project->naam }}</h1>
+    <div v-for="proj in project.project">
+      <h1>@{{ proj.naam }}</h1>
       <p>
-        {{ $project->beschrijving }}
+        @{{ proj.beschrijving }}
       </p>
     </div>
-    -->
 
     <div class="spacer"></div>
 
@@ -30,14 +21,7 @@
     </div>
 
     <div class="spacer"></div>
-
-        <span v-if="nieuw == true">
-          <form class="" action="/fase/new" method="post">
-        </span>
-
-        <span v-else="nieuw == false">
-          <form class="" action="/project/@{{ selectedFase.id }}" method="post">
-        </span>
+      <form action="/fase/@{{ selectedFase.id }}" method="post">
 
         {!! csrf_field() !!}
         <input type="hidden" name="project_id" value="{{ $id }}">
@@ -70,10 +54,29 @@
           <input type="submit" name="name" class="btn btn-primary" value="Project fase toevoegen/aanpassen">
         </div>
       </form>
+      <form v-if="selectedFase.id != 'new'" action="/media/@{{ selectedFase.id }}" method="post">
+        {!! csrf_field() !!}
+        <div class="form-group">
+          <input type="radio" name="type[]" v-model="type" value="youtube"> Youtube link
+          <input type="radio" name="type[]" v-model="type" value="image"> Afbeelding
+          <input type="radio" name="type[]" v-model="type" value="video"> Video
+        </div>
+        <div class="form-group">
+          <div v-if="type == 'youtube'">
+            <input type="text" class="form-control" name="link" placeholder="Plaats Youtube link hier">
+          </div>
+          <div v-else>
+            <input type="file" name="file">
+          </div>
+        </div>
+        <div class="form-group">
+          <input type="submit" class="btn btn-primary" value="Media toevoegen aan fase">
+        </div>
+      </form>
 
-  </div>
-@endsection
+    </div>
+  @endsection
 
-@section('scripts')
+  @section('scripts')
     <script type="text/javascript" src="{{ asset('js/Admin/project-fases.js')}}"></script>
-@endsection
+  @endsection

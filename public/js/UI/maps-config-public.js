@@ -4,7 +4,7 @@ var map = new GMaps({
         lng: 4.409795,
         zoom: 12
     });
-new Vue({    
+new Vue({
   el: '#home-page',
 
   ready: function(){
@@ -15,11 +15,11 @@ new Vue({
     fetchProjects: function(){
         var thisThing = this;
       this.$http.get('/json/project/all', function(projects){
-          
+
           $.each(projects,function(index,value){
-              
+
              var location = value.locatie.split(",");
-             
+
               map.addMarker({
                   lat: location[0],
                   lng: location[1],
@@ -38,7 +38,7 @@ new Vue({
           })
       });
     }
-        
-    
+
+
   }
 });
