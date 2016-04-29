@@ -19,6 +19,7 @@
     <input id="locatie-input" type="text" name="locatie" hidden>
   </div>
   <div id="admin-map"></div>
+
   <div class="form-group">
     <input type="submit" class="btn btn-primary" value="Maak Project">
   </div>

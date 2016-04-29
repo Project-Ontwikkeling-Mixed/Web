@@ -89,7 +89,9 @@
   </div>
 </div>
 
-<script src="{{ asset('js/vendor/jquery.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/vendor/vue.min.js')}}"></script>
-<script type="text/javascript" src="{{ asset('js/UI/image-browser.js') }}"></script>
+@endsection
+
+@section('scripts')
+  <script type="text/javascript" src="{{ asset('js/vendor/vue.min.js')}}"></script>
+  <script type="text/javascript" src="{{ asset('js/UI/image-browser.js') }}"></script>
 @endsection
