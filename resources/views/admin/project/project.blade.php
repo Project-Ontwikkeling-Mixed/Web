@@ -21,7 +21,7 @@
     <div class="spacer"></div>
 
     <div class="btn-group">
-      <button type="button" class="btn btn-default" id="nieuw-project-fase">
+      <button type="button" class="btn btn-default" id="nieuw-project-fase" v-on:click="nieuwProject">
         Nieuwe gebeurtenis/fase
       </button>
       <span v-if="project.fases.length > 0">
@@ -31,7 +31,17 @@
 
     <div class="spacer"></div>
 
-      <form class="" action="/admin/project/@{{ selectedFase.id }}" method="post">
+        <span v-if="nieuw">
+          <form class="" action="/fase/new" method="post">
+        </span>
+
+        <span v-else="!nieuw">
+          <form class="" action="/project/@{{ selectedFase.id }}" method="post">
+        </span>
+
+        {!! csrf_field() !!}
+        <input type="hidden" name="project_id" value="{{ $id }}">
+
         <div class="form-group">
           <label for="naam">Naam</label>
           <input type="text" class="form-control" value="@{{ selectedFase.naam }}" name="naam" placeholder="Typ fasenaam hier">
@@ -39,20 +49,20 @@
         <div class="form-group">
           <div><label for="beschrijving">Beschrijving</label></div>
           <div>
-            <textarea class="form-control" name="beschrijving" rows="8" cols="40" value="@{{ selectedFase.beschrijving }}" placeholder="Typ fasebeschrijving hier"></textarea>
+            <textarea class="form-control" name="beschrijving" rows="8" cols="40" placeholder="Typ fasebeschrijving hier">@{{ selectedFase.beschrijving }}</textarea>
           </div>
         </div>
         <div class="row">
           <div class="col-md-6">
             <div class="form-group">
               <label for="begin">Begin</label>
-              <input type="date" class="form-control" name="begin" value="@{{ selectedFase.begin }}"placeholder="Typ begin van fase">
+              <input type="datetime" class="form-control" name="begin" value="@{{ selectedFase.begin }}" placeholder="Typ begin van fase">
             </div>
           </div>
           <div class="col-md-6">
             <div class="form-group">
               <label for="einde">Einde</label>
-              <input type="date" class="form-control" name="einde" value="@{{ selectedFase.einde }}"placeholder="Typ einde van fase">
+              <input type="datetime" class="form-control" name="einde" value="@{{ selectedFase.einde }}"placeholder="Typ einde van fase">
             </div>
           </div>
         </div>

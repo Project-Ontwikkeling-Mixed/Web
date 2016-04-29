@@ -3,7 +3,8 @@ new Vue({
 
   data: {
     project: '',
-    selectedFase: ''
+    selectedFase: '',
+    nieuw: true
   },
 
   ready: function(){
@@ -21,9 +22,14 @@ new Vue({
     tabFase: function(event){
       faseId = event.target.id;
 
+      this.$data.nieuw = true;
       project = this.$data.project;
 
       this.$set('selectedFase', project.fases[faseId - 1]);
+    },
+
+    nieuwProject: function(){
+      this.$data.nieuw = true;
     }
   }
 })

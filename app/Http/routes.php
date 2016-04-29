@@ -24,7 +24,9 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/admin', 'AdminController@index');
     Route::get('/admin/project/new', 'AdminController@create');
     Route::post('/admin/project/new', 'AdminController@create');
-    Route::get('/admin/project/{id}', 'AdminController@get');
+    Route::get('/project/{id}', 'AdminController@get');
+
+    Route::post('/fase/new', 'ProjectFaseController@create');
 
     //JSON endpoints
     Route::get('/json/project/all', 'ProjectController@allJson');

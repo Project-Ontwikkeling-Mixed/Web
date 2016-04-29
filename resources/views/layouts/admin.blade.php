@@ -56,7 +56,7 @@
             <li><a href="{{ url('admin/project/new') }}" class="nieuw-project">Nieuw Project</a></li>
             <li class="admin-menu-title">Huidige Projecten</li>
             <li v-for="project in projects">
-              <a href="/admin/project/@{{ project.id }}">@{{ project.naam }}</a>
+              <a href="/project/@{{ project.id }}">@{{ project.naam }}</a>
             </li>
           </ul>
         </nav>
