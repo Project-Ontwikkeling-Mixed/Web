@@ -92,4 +92,7 @@
 <script src="{{ asset('js/vendor/jquery.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/vendor/vue.min.js')}}"></script>
 <script type="text/javascript" src="{{ asset('js/UI/image-browser.js') }}"></script>
+<script src="http://maps.google.com/maps/api/js"></script>
+<script src="{{ asset('js/vendor/gmaps.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/UI/maps-config-public.js') }}"></script>
 @endsection
