@@ -21,6 +21,8 @@ class Project extends Model
     }
 
     public function getById($id){
-      return DB::table('project')->find($id);
+      return DB::table('project')
+        ->where('id', $id)
+        ->get();
     }
 }

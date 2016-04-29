@@ -5946,6 +5946,9 @@ section {
 .separator-top {
   border-top: 1px solid lightgray; }
 
+.spacer {
+  height: 15px; }
+
 .page-title {
   padding: 15px 0px 25px 0px; }
 
@@ -6212,7 +6215,7 @@ Administratie navigatie
   padding: 15px 32px; }
 
 .btn-default {
-  background: #444; }
+  background: #ddd; }
 
 .btn-primary {
   background: #0A9CC1; }

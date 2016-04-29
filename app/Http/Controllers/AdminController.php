@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Project as Project;
+use App\Fase as Fase;
 
 use Illuminate\Http\Request;
 use App\Http\Requests;
@@ -15,9 +16,14 @@ class AdminController extends Controller
 
     public function index()
     {
-      $project = new Project();
-      $projecten = $project->getAll();
-      return view('admin/index', ['projecten' => $projecten, 'title' => 'home']);
+      $projectfase = new Fase();
+
+      $projectfases = $projectfase->getAll();
+
+      return view('admin/index', [
+        'title' => 'home',
+        'projectfases' => $projectfases
+      ]);
     }
 
     /*
@@ -27,9 +33,9 @@ class AdminController extends Controller
     public function create(Request $request)
     {
       $project = new Project();
+      $projectfase = new Fase();
 
       if($request->isMethod('post')){
-
         $naam = $request->input('naam');
         $beschrijving = $request->input('beschrijving');
         $locatie = $request->input('locatie');
@@ -37,7 +43,6 @@ class AdminController extends Controller
         $project->createNew($naam, $beschrijving, $locatie);
 
         return redirect('admin/');
-
       }
 
       $projecten = $project->getAll();
@@ -45,10 +50,19 @@ class AdminController extends Controller
     }
 
     public function get($id, Request $request){
+      //$project = new Project();
+      //$thisProject = $project->getById($id);
       $project = new Project();
-      $thisProject = $project->getById($id);
-      $projecten = $project->getAll();
+      $fase = new Fase();
 
-      return view('admin/project/project', ['projecten' => $projecten, 'project' => $thisProject, 'title' => $thisProject->naam]);
+      $projecten = $project->getById($id);
+      $fases = $fase->getByProject($id);
+
+      return view('admin/project/project', [
+        'id' => $id,
+        'title' => 'Project',
+        'project' => $projecten[0],
+        'fases' => $fases
+      ]);
     }
 }

@@ -52,12 +52,12 @@
     <div class="row">
       <div class="col-md-3 admin-menu">
         <nav>
-          <ul>
+          <ul id="admin-menu">
             <li><a href="{{ url('admin/project/new') }}" class="nieuw-project">Nieuw Project</a></li>
             <li class="admin-menu-title">Huidige Projecten</li>
-            @foreach ($projecten as $project)
-              <li><a href="{{ url('admin/project/' . $project->id)}}">{{ $project->naam }}</a></li>
-            @endforeach
+            <li v-for="project in projects">
+              <a href="/admin/project/@{{ project.id }}">@{{ project.naam }}</a>
+            </li>
           </ul>
         </nav>
       </div>
@@ -67,6 +67,11 @@
     </div>
   </div>
 
+  <script src="{{ asset('js/vendor/jquery.min.js') }}"></script>
+  <script type="text/javascript" src="{{ asset('js/vendor/vue.min.js')}}"></script>
+  <script type="text/javascript" src="{{ asset('js/vendor/vue-resource.min.js')}}"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="{{ asset('js/Admin/admin-menu.js')}}"></script>
+  @yield('scripts')
 </body>
 </html>

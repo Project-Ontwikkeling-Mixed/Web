@@ -26,4 +26,8 @@ Route::group(['middleware' => ['web']], function () {
     Route::post('/admin/project/new', 'AdminController@create');
     Route::get('/admin/project/{id}', 'AdminController@get');
 
+    //JSON endpoints
+    Route::get('/json/project/all', 'ProjectController@allJson');
+    Route::get('/json/project/{project_id}', 'ProjectController@getProjectJson');
+
 });
