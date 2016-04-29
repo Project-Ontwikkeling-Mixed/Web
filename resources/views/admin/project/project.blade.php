@@ -2,21 +2,12 @@
 
 @section('content')
   <div id="project-page" data-id='{{ $id }}' >
-      <div v-for="proj in project.project">
-        <h1>@{{ proj.naam }}</h1>
-        <p>
-          @{{ proj.beschrijving }}
-        </p>
-      </div>
-
-    <!--
-    <div>
-      <h1>{{ $project->naam }}</h1>
+    <div v-for="proj in project.project">
+      <h1>@{{ proj.naam }}</h1>
       <p>
-        {{ $project->beschrijving }}
+        @{{ proj.beschrijving }}
       </p>
     </div>
-    -->
 
     <div class="spacer"></div>
 
@@ -31,13 +22,8 @@
 
     <div class="spacer"></div>
 
-        <span v-if="nieuw == true">
-          <form class="" action="/fase/new" method="post">
-        </span>
 
-        <span v-else="nieuw == false">
-          <form class="" action="/project/@{{ selectedFase.id }}" method="post">
-        </span>
+      <form action="/fase/@{{ selectedFase.id }}" method="post">
 
         {!! csrf_field() !!}
         <input type="hidden" name="project_id" value="{{ $id }}">
@@ -71,9 +57,9 @@
         </div>
       </form>
 
-  </div>
-@endsection
+    </div>
+  @endsection
 
-@section('scripts')
+  @section('scripts')
     <script type="text/javascript" src="{{ asset('js/Admin/project-fases.js')}}"></script>
-@endsection
+  @endsection

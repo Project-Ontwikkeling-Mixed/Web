@@ -12,17 +12,16 @@ class Fase extends Model
       return DB::table('project_fase')->get();
     }
 
-    public function createNew($naam, $begin, $einde, $datum, $project_id){
-      return DB::table('project_fase')->insert([
-        'naam' => $naam,
-        'begin' => $begin,
-        'einde' => $einde,
-        'datum_precisie' => $datum,
-        'project_id' => $project_id
-      ]);
+    public function createNew($fase){
+      return DB::table('project_fase')->insert($fase);
     }
 
     public function getByProject($id){
       return DB::table('project_fase')->where('project_id', $id)->get();
+    }
+
+    public function updateFase($id, $fase)
+    {
+      return DB::table('project_fase')->where('id', $id)->update($fase);
     }
 }

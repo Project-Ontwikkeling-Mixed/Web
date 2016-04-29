@@ -27,6 +27,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/project/{id}', 'AdminController@get');
 
     Route::post('/fase/new', 'ProjectFaseController@create');
+    Route::post('/fase/{fase_id}', 'ProjectFaseController@update');
 
     //JSON endpoints
     Route::get('/json/project/all', 'ProjectController@allJson');
