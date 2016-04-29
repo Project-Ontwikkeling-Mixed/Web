@@ -31,11 +31,11 @@
 
     <div class="spacer"></div>
 
-        <span v-if="nieuw">
+        <span v-if="nieuw == true">
           <form class="" action="/fase/new" method="post">
         </span>
 
-        <span v-else="!nieuw">
+        <span v-else="nieuw == false">
           <form class="" action="/project/@{{ selectedFase.id }}" method="post">
         </span>
 

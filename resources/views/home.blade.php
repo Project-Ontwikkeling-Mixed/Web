@@ -23,7 +23,7 @@
         <div class="col-md-8 separator-right">
           <div class="page-title">
             <h2>Project details</h2>
-            <h4>Huidige fase: Projectfase</h4>
+
           </div>
           <div class="project-description">
             <div class="row">
@@ -42,9 +42,14 @@
             <div class="row">
               <div class="col-md-12 project-text">
                 <p>
-                  De heraanleg van de groenplaats is een mijlpunt in de geschiedenis van onze wondermooie stad.
-                  We hebben voor jullie wat ideetjes al gemaakt en zouden graag je inspraak hebben over bepaalde onderwerpbeslissingen.
+                  @{{ proj.beschrijving }}
                 </p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12 separator-top">
+                <h4>Huidige fase: Projectfase</h4>
+
               </div>
             </div>
             <div class="row">
