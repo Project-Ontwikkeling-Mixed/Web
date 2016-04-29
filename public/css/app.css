@@ -6176,6 +6176,29 @@ Administratie navigatie
 .image-list li img:hover {
   cursor: pointer; }
 
+.tijdpunt {
+  border-radius: 50%;
+  width: 50%;
+  height: 5px;
+  padding-top: 50%;
+  background: gray; }
+
+.tijdpunt-done {
+  background: #DC003C; }
+
+.tijdlijnstuk {
+  background: gray;
+  height: 70px;
+  width: 5px;
+  margin: 0 15px;
+  display: inline-block; }
+
+.tijdlijnstuk-done {
+  background: #DC003C; }
+
+.tijdlijn-progress {
+  padding-left: 40 px; }
+
 .tijdlijn-fase-ballon, .tijdlijn-fase-ballon-done {
   background: gray;
   color: white;

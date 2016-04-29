@@ -81,10 +81,10 @@
                 </div>
               </div>
               <div class="col-md-8">
-                <div class="tijdlijn-fase-ballon">
+                <div class="tijdlijn-fase-ballon-done">
                   ontwerpfase
                 </div>
-                <div class="tijdlijn-fase-ballon-done">
+                <div class="tijdlijn-fase-ballon">
                   designfase
                 </div>
               </div>
