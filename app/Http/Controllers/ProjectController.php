@@ -25,10 +25,17 @@ class ProjectController extends Controller
 
     $projectId = $myProject[0]->id;
 
-    return response()->json([
-      'project' => $myProject,
-      'fases' => $fase->getByProject($projectId),
-      'media' => $media->getByProject($projectId)
-    ]);
+
+
+    return response()->json(
+      array(
+        "id" => $myProject[0]->id,
+        "naam" => $myProject[0]->naam,
+        "beschrijving" => $myProject[0]->beschrijving,
+        "locatie" => $myProject[0]->locatie,
+        "media" => $media->getByProject($projectId),
+        "fases" => $fase->getByProject($projectId)
+      )
+    );
   }
 }

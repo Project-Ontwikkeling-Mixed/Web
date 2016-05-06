@@ -1,4 +1,5 @@
 var elixir = require('laravel-elixir');
+var BrowserSync = require('laravel-elixir-browsersync2');
 
 /*
  |--------------------------------------------------------------------------
@@ -13,4 +14,16 @@ var elixir = require('laravel-elixir');
 
 elixir(function(mix) {
     mix.sass('**/*.scss');
+});
+
+elixir(function(mix) {
+    BrowserSync.init();
+    mix.BrowserSync(
+    {
+        proxy           : "projectontwikkeling.mixed",
+        logPrefix       : "Laravel Elixir BrowserSync",
+        logConnections  : false,
+        reloadOnRestart : false,
+        notify          : false
+    });
 });

@@ -57,9 +57,15 @@
       <form v-if="selectedFase.id != 'new'" action="/media/@{{ selectedFase.id }}" method="post">
         {!! csrf_field() !!}
         <div class="form-group">
-          <input type="radio" name="type[]" v-model="type" value="youtube"> Youtube link
-          <input type="radio" name="type[]" v-model="type" value="image"> Afbeelding
-          <input type="radio" name="type[]" v-model="type" value="video"> Video
+          <label>
+            <input type="radio" name="type[]" v-model="type" value="youtube"> Youtube link
+          </label>
+          <label>
+            <input type="radio" name="type[]" v-model="type" value="image"> Afbeelding
+          </label>
+          <label>
+            <input type="radio" name="type[]" v-model="type" value="video"> Video
+          </label>
         </div>
         <div class="form-group">
           <div v-if="type == 'youtube'">

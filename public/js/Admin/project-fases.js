@@ -5,7 +5,7 @@ new Vue({
     return{
       nieuw: true,
       selectedFase: 'new'
-    }
+    };
   },
 
   ready: function(){
@@ -19,7 +19,7 @@ new Vue({
     fetchProject: function(id){
       this.$http.get('/json/project/' + id, function(project){
         this.$set('project', project);
-      })
+      });
     },
 
     tabFase: function(event){
@@ -35,4 +35,4 @@ new Vue({
       this.$set('selectedFase', {id:'new'});
     }
   }
-})
+});
