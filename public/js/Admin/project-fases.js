@@ -14,10 +14,12 @@ new Vue({
     this.$set('selectedFase', {id: 'new'});
     this.fetchProject(id);
 
-
+    //activeer datetimepicker voor begindatum
     $('#begin').datetimepicker({
       format: 'YYYY-MM-DD hh:mm:ss'
     });
+
+    //activeer datetimepicker voor einddatum
     $('#einde').datetimepicker({
       format: 'YYYY-MM-DD hh:mm:ss'
     });
