@@ -107,7 +107,6 @@ src="@{{ medium.link }}">
 
 @section('scripts')
   <script type="text/javascript" src="{{ asset('js/UI/image-browser.js') }}"></script>
-  <script type="text/javascript" src="{{ asset('js/UI/media-items.js') }}"></script>
   <script src="http://maps.google.com/maps/api/js"></script>
   <script src="{{ asset('js/vendor/gmaps.js') }}"></script>
   <script type="text/javascript" src="{{ asset('js/UI/maps-config-public.js') }}"></script>
