@@ -25,4 +25,18 @@ class Project extends Model
         ->where('id', $id)
         ->get();
     }
+
+    public function updateProject($id, $project)
+    {
+      return DB::table('project')
+      ->where('id', $id)
+      ->update($project);
+    }
+
+    public function deleteProject($id)
+    {
+      return DB::table('project')
+        ->where('id', $id)
+        ->delete();
+    }
 }

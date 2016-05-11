@@ -2,10 +2,12 @@
 
 @section('content')
   <div id="project-page" data-id='{{ $id }}' >
-    <div v-for="proj in project.project">
-      <h1>@{{ proj.naam }}</h1>
+    <a href="/project/delete/{{ $id }}" class="btn btn-red">Project verwijderen</a>
+    <a href="/project/update/{{ $id }}" class="btn btn-primary">Project Aanpassen</a>
+    <div>
+      <h1>@{{ project.naam }}</h1>
       <p>
-        @{{ proj.beschrijving }}
+        @{{ project.beschrijving }}
       </p>
     </div>
 
@@ -60,10 +62,17 @@
             </div>
           </div>
         </div>
-        <div class="form-group">
-          <input type="submit" name="name" class="btn btn-primary" value="Project fase toevoegen/aanpassen">
-        </div>
+
+        <input type="submit" name="name" class="btn btn-primary" value="Project fase toevoegen/aanpassen">
+
+        <span v-if="selectedFase.id != 'new'">
+          <a href="/fase/delete/@{{ selectedFase.id }}" class="btn btn-red">Project fase verwijderen</a>
+        </span>
+
       </form>
+
+      <div class="spacer"></div>
+
       <form v-if="selectedFase.id != 'new'" action="/media/@{{ selectedFase.id }}" method="post">
         {!! csrf_field() !!}
         <div class="form-group">
@@ -94,7 +103,6 @@
   @endsection
 
   @section('scripts')
-
     <script type="text/javascript" src="{{ asset('js/vendor/moment.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/vendor/datetimepicker.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/Admin/project-fases.js') }}"></script>

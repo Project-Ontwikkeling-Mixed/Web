@@ -6404,6 +6404,9 @@ Administratie navigatie
 .tijdlijn-fase-ballon-done::before {
   background: #DC003C; }
 
+.alert {
+  border-radius: 0px; }
+
 .btn, .btn-lg, .btn-group-lg > .btn, .btn-red, .btn-project {
   border-radius: 0px;
   font-family: "SunAntwerpenBold";

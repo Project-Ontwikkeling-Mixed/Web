@@ -31,6 +31,15 @@ class Fase extends Model
 
     public function updateFase($id, $fase)
     {
-      return DB::table('project_fase')->where('id', $id)->update($fase);
+      return DB::table('project_fase')
+      ->where('id', $id)
+      ->update($fase);
+    }
+
+    public function deleteFase($id)
+    {
+      return DB::table('project_fase')
+      ->where('id', $id)
+      ->delete();
     }
 }

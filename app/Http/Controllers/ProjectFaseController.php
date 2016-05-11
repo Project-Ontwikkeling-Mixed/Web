@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Fase as Fase;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 class ProjectFaseController extends Controller
 {
@@ -52,6 +53,15 @@ class ProjectFaseController extends Controller
 
     $project_id = $request->input('project_id');
     return redirect('project/' . $project_id);
+  }
+
+  public function delete($fase_id, Request $request)
+  {
+    $fase = new Fase();
+    $fase->deleteFase($fase_id);
+
+    $request->session()->put('message', 'Project fase succesvol verwijderd');
+    return redirect('admin/');
   }
 
 }

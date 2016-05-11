@@ -74,3 +74,7 @@
   @extend .tijdlijn-fase-ballon::before;
   background: $ballon-done-color;
 }
+
+.alert{
+  border-radius: 0px;
+}
