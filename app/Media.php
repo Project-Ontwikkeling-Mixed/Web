@@ -18,6 +18,16 @@ class Media extends Model
 
     public function createNew($media)
     {
-      return DB::table('project_media')->insert($media);
+      if($media['type'] == 'youtube'){
+        $link = explode('/', $media['link']);
+        $link = "http://www.youtube.be/embed/" . substr(array_pop($link), 8);
+      }
+
+      return DB::table('project_media')->insert([
+        'link' => $link,
+        'type' => $media['type'],
+        'fase_id' => $media['fase_id']
+      ]);
+
     }
 }

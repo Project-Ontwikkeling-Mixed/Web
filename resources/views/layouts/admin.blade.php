@@ -14,8 +14,8 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a href="{{ url('/') }}" class="pull-left logo"><img src="{{ asset('img/logo.jpg') }}" height="71"></a>
-        <a class="navbar-brand" href="{{ url('/') }}">Projectplatform</a>
+        <a href="{{ url('/home') }}" class="pull-left logo"><img src="{{ asset('img/logo.jpg') }}" height="71"></a>
+        <a class="navbar-brand" href="{{ url('/home') }}">Projectplatform</a>
       </div>
 
       <div id="navbar" class="navbar-collapse collapse">

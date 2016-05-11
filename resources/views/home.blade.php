@@ -10,10 +10,10 @@
       <div class="col-md-12 map-holder"></div>
     </div>
   </div>
-    <div v-for="proj in project.project">
+    <div>
       <div class="row project-title">
         <div class="col-md-10">
-          <h1>@{{ proj.naam }}</h1>
+          <h1>@{{ project.naam }}</h1>
         </div>
         <div class="col-md-2">
           <button class="btn-project horizontal-center"><span class="icon-abonnement"></span> Abonneer</button>
@@ -23,26 +23,37 @@
         <div class="col-md-8 separator-right">
           <div class="page-title">
             <h2>Project details</h2>
-
           </div>
           <div class="project-description">
             <div class="row">
               <div class="col-md-10">
                 <div class="image-large-holder">
-                  <img src="" alt="" />
+                  <iframe width="100" height="100"
+src="@{{ medium.link }}">
+</iframe>
                 </div>
               </div>
               <div class="col-md-2">
                 <ul class="image-list">
-                  <li><img src="{{ asset('img/antwerpen.jpg') }}" alt="" /></li>
-                  <li><img src="{{ asset('img/logo.jpg') }}" alt="" /></li>
+                  <li v-for="medium in project.media">
+                    <span v-if="medium.type == 'youtube'" data-type="youtube">
+                      <iframe width="100" height="100" src="@{{ medium.link }}"></iframe>
+                      <img src="" alt="" />
+                    </span>
+                    <span v-if="medium.type == 'image'">
+                      <img src="@{{ medium.link }}" alt=""  data-type="image"/>
+                    </span>
+                    <span v-if="medium.type == 'video'">
+                      <video src="@{{ medium.link }}" data-type="video"></video>
+                    </span>
+                  </li>
                 </ul>
               </div>
             </div>
             <div class="row">
               <div class="col-md-12 project-text">
                 <p>
-                  @{{ proj.beschrijving }}
+                  @{{ project.beschrijving }}
                 </p>
               </div>
             </div>
@@ -81,11 +92,16 @@
                 </div>
               </div>
               <div class="col-md-8">
+<<<<<<< HEAD
                 <div class="tijdlijn-fase-ballon-done">
                   ontwerpfase
                 </div>
                 <div class="tijdlijn-fase-ballon">
                   designfase
+=======
+                <div v-for="fase in project.fases" class="tijdlijn-fase-ballon">
+                  @{{ fase.naam }}
+>>>>>>> df244dc00ad3f477d96a0f2799fd8ba00566f118
                 </div>
               </div>
             </div>
@@ -99,10 +115,9 @@
 @endsection
 
 @section('scripts')
-  <script type="text/javascript" src="{{ asset('js/vendor/vue.min.js')}}"></script>
-<script type="text/javascript" src="{{ asset('js/vendor/vue-resource.min.js' )}}"></script>
   <script type="text/javascript" src="{{ asset('js/UI/image-browser.js') }}"></script>
+  <script type="text/javascript" src="{{ asset('js/UI/media-items.js') }}"></script>
   <script src="http://maps.google.com/maps/api/js"></script>
-<script src="{{ asset('js/vendor/gmaps.js') }}"></script>
+  <script src="{{ asset('js/vendor/gmaps.js') }}"></script>
   <script type="text/javascript" src="{{ asset('js/UI/maps-config-public.js') }}"></script>
 @endsection

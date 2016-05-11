@@ -6,10 +6,10 @@ var ImageBrowser = function(){
   }
 
   init = function(){
-    $('.image-list li img').click(enlargePhoto);
+    $('.image-list li span').click(enlargePhoto);
 
     var initialSource = $('.image-list li img').attr('src');
-    $('.image-large-holder img').attr('src', initialSource);
+    $('.image-large-holder span').attr('src', initialSource);
   }
 
   init();

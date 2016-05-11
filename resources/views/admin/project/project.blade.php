@@ -40,13 +40,23 @@
           <div class="col-md-6">
             <div class="form-group">
               <label for="begin">Begin</label>
-              <input type="datetime" class="form-control" name="begin" value="@{{ selectedFase.begin }}" placeholder="Typ begin van fase">
+              <div class='input-group date' id='begin'>
+                    <input type='text' class="form-control" name="begin" value="@{{ selectedFase.begin }}" placeholder="Typ begin van fase"/>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
             </div>
           </div>
           <div class="col-md-6">
             <div class="form-group">
               <label for="einde">Einde</label>
-              <input type="datetime" class="form-control" name="einde" value="@{{ selectedFase.einde }}"placeholder="Typ einde van fase">
+              <div class='input-group date' id='einde'>
+                    <input type='text' class="form-control" name="einde" value="@{{ selectedFase.einde }}" placeholder="Typ het einde van fase"/>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
             </div>
           </div>
         </div>
@@ -57,9 +67,15 @@
       <form v-if="selectedFase.id != 'new'" action="/media/@{{ selectedFase.id }}" method="post">
         {!! csrf_field() !!}
         <div class="form-group">
-          <input type="radio" name="type[]" v-model="type" value="youtube"> Youtube link
-          <input type="radio" name="type[]" v-model="type" value="image"> Afbeelding
-          <input type="radio" name="type[]" v-model="type" value="video"> Video
+          <label>
+            <input type="radio" name="type[]" v-model="type" value="youtube"> Youtube link
+          </label>
+          <label>
+            <input type="radio" name="type[]" v-model="type" value="image"> Afbeelding
+          </label>
+          <label>
+            <input type="radio" name="type[]" v-model="type" value="video"> Video
+          </label>
         </div>
         <div class="form-group">
           <div v-if="type == 'youtube'">
@@ -78,5 +94,8 @@
   @endsection
 
   @section('scripts')
-    <script type="text/javascript" src="{{ asset('js/Admin/project-fases.js')}}"></script>
+
+    <script type="text/javascript" src="{{ asset('js/vendor/moment.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/vendor/datetimepicker.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/Admin/project-fases.js') }}"></script>
   @endsection

@@ -16,6 +16,12 @@ class ProjectFaseController extends Controller
     return response()->json($myFase);
   }
 
+  public function getFaseJson($fase_id){
+    $fase = new Fase();
+    $myFase = $fase->getFaseById($fase_id);
+    return response()->json($myFase);
+  }
+
   public function create(Request $request)
   {
     $fase = new Fase();

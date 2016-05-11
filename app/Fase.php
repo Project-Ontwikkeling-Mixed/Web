@@ -16,8 +16,17 @@ class Fase extends Model
       return DB::table('project_fase')->insert($fase);
     }
 
+    public function getFaseById($id)
+    {
+      return DB::table('project_fase')
+      ->where('id', $id)
+      ->get();
+    }
+
     public function getByProject($id){
-      return DB::table('project_fase')->where('project_id', $id)->get();
+      return DB::table('project_fase')
+      ->where('project_id', $id)
+      ->get();
     }
 
     public function updateFase($id, $fase)
