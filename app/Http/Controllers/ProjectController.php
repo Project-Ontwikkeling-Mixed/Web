@@ -61,12 +61,14 @@ class ProjectController extends Controller
     return view('admin/project/new', ['projecten' => $projecten, 'title' => 'Nieuw Project']);
   }
 
-  public function update($project_id)
+  public function update($project_id, Request $request)
   {
     $fase = new Project();
 
     $fase->updateProject($project_id,[
-
+      'naam' => $request->input('naam'),
+      'beschrijving' => $request->input('beschrijving'),
+      'locatie' => $request->input('locatie')
     ]);
 
     $project_id = $request->input('project_id');
