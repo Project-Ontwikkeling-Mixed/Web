@@ -4,9 +4,24 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+use DB;
+
 class InspraakVraag extends Model
 {
-    public function getRandomVragen(){
-      
+
+    protected $table = 'inspraakvraag';
+
+    protected $primaryKey = "id";
+
+    function antwoorden(){
+      return $this->hasMany('App\InspraakVraagAntwoord', 'inspraakvraag_id');
+    }
+
+    public function getRandomVragen($aantal){
+
+      return $this->with('antwoorden')
+              ->orderBy(DB::raw('RAND()'))
+              ->take($aantal)
+              ->get();
     }
 }
