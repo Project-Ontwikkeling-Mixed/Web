@@ -23,6 +23,12 @@ class Authenticate
             } else {
                 return redirect()->guest('login');
             }
+        }else if(Auth::guard($guard)->user()){
+          if($request->ajax() || $request->wantsJson()){
+            return response('Authenticated', 200);
+          }else{
+            return redirect()->user('home');
+          }
         }
 
         return $next($request);

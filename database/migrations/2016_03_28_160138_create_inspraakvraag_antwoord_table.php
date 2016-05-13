@@ -15,7 +15,6 @@ class CreateInspraakvraagAntwoordTable extends Migration
         Schema::create('inspraakvraag_antwoord', function(Blueprint $table){
           $table->increments('id');
           $table->string('antwoord');
-          $table->integer('gekozen');
         });
     }
 
