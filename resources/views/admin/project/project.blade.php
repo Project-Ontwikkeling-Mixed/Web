@@ -73,17 +73,17 @@
 
       <div class="spacer"></div>
 
-      <form v-if="selectedFase.id != 'new'" action="/media/@{{ selectedFase.id }}" method="post">
+      <form v-if="selectedFase.id != 'new'" action="/media/@{{ selectedFase.id }}" method="post" enctype="multipart/form-data">
         {!! csrf_field() !!}
         <div class="form-group">
           <label>
-            <input type="radio" name="type[]" v-model="type" value="youtube"> Youtube link
+            <input type="radio" name="uploadType" v-model="type" value="youtube"> Youtube link
           </label>
           <label>
-            <input type="radio" name="type[]" v-model="type" value="image"> Afbeelding
+            <input type="radio" name="uploadType" v-model="type" value="image"> Afbeelding
           </label>
           <label>
-            <input type="radio" name="type[]" v-model="type" value="video"> Video
+            <input type="radio" name="uploadType" v-model="type" value="video"> Video
           </label>
         </div>
         <div class="form-group">

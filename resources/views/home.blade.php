@@ -81,15 +81,19 @@ src="@{{ medium.link }}">
             </div>
             <div class="row">
               <div class="col-md-4 tijdlijn-progress">
-                <div class="tijdpunt tijdpunt-done">
+                  <div v-for="fase in project.fases">
+                        
+                        <div class="tijdpunt">
 
-                </div>
-                <div class="tijdlijnstuk tijdlijnstuk-done">
+                        </div>
+                      
+                        <div class="tijdlijnstuk">
 
-                </div>
-                <div class="tijdpunt tijdpunt-done">
-
-                </div>
+                        </div>
+                  </div>
+                
+                    
+                
               </div>
               <div class="col-md-8">
                 <div v-for="fase in project.fases" class="tijdlijn-fase-ballon">

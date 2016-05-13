@@ -20,7 +20,7 @@ new Vue({
       var that = this;
       this.$http.get('/json/project/1', function(project){
         that.$set('project', project);
-        console.log(project.project);
+        //console.log(project.project);
       });
     },
 
@@ -41,7 +41,7 @@ new Vue({
           map.addMarker({
             lat: location[0],
             lng: location[1],
-            title: 'Marker #',
+            title: 'Klik hier om het project '+value.naam+'te bekijken.',
             infoWindow: {
               content : value.naam
             },
@@ -58,3 +58,5 @@ new Vue({
     }
   }
 });
+
+

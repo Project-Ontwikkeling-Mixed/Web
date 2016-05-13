@@ -6378,6 +6378,25 @@ Administratie navigatie
 .image-list li img:hover {
   cursor: pointer; }
 
+.tijdpunt, .tijdpunt-done {
+  width: 30px;
+  height: 30px;
+  border-radius: 30px;
+  background-color: gray;
+  margin: 0 auto; }
+
+.tijdpunt-done {
+  background-color: #DC003C; }
+
+.tijdlijnstuk, .tijdlijnstuk-done {
+  width: 5px;
+  height: 80px;
+  margin: 0 auto;
+  background-color: gray; }
+
+.tijdlijnstuk-done {
+  background-color: #DC003C; }
+
 .tijdlijn-fase-ballon, .tijdlijn-fase-ballon-done {
   background: gray;
   color: white;

@@ -7,6 +7,8 @@ use App\Http\Requests;
 
 use App\Media;
 
+use Input;
+
 class ProjectMediaController extends Controller
 {
     public function getJson()
@@ -16,14 +18,45 @@ class ProjectMediaController extends Controller
     }
 
     public function create($fase_id, Request $request){
-      $media = new Media();
+        $uploadType = $request->input('uploadType');
+        
+        if ($uploadType =='youtube'){
+         
+            $media = new Media();
+        
+              $media->createNew([
+                'link' => $request->input('link'),
+                'type' => $request->input('uploadType'),
+                'fase_id' => $fase_id
+              ]);
+            
+            
+        } 
+        elseif($uploadType =='image'){
+            
+            $media = new Media();
+        
+            $file = Input::file('file');
+            
+            $imageName = 'fase-'.$fase_id.'-id-'.$media->id.'-'.$file->getClientOriginalName();
+        
+            
+            $file->move('img/catalog/', $imageName);
+            
+            $filePath = 'img/catalog/'.$imageName;
+            
+            
+        
+              $media->createNew([
+                'link' => $filePath,
+                'type' => $request->input('uploadType'),
+                'fase_id' => $fase_id
+              ]);
+            
+        }
+        
+        
 
-      $media->createNew([
-        'link' => $request->input('link'),
-        'type' => $request->input('type')[0],
-        'fase_id' => $fase_id
-      ]);
-
-      return redirect('/admin');
+      //return redirect('/admin');
     }
 }

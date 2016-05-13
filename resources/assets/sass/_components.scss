@@ -44,6 +44,33 @@
 
 }
 
+.tijdpunt{
+    width:30px;
+    height: 30px;
+    border-radius:30px;
+    background-color: $tijdpunt-color;
+    margin: 0 auto;
+}
+
+.tijdpunt-done{
+    @extend .tijdpunt;
+    background-color: $tijdpunt-done-color;
+}
+
+.tijdlijnstuk{
+    width: 5px;
+    height: 80px;
+    margin: 0 auto;
+    background-color: $tijdpunt-color;
+}
+
+.tijdlijnstuk-done{
+    @extend .tijdlijnstuk;
+    background-color: $tijdlijnstuk-done-color;
+}
+
+
+
 .tijdlijn-fase-ballon{
   background: $ballon-color;
   color: white;

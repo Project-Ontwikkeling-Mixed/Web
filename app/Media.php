@@ -21,6 +21,8 @@ class Media extends Model
       if($media['type'] == 'youtube'){
         $link = explode('/', $media['link']);
         $link = "http://www.youtube.be/embed/" . substr(array_pop($link), 8);
+      }else if($media['type'] == 'image'){
+        $link = $media['link'];
       }
 
       return DB::table('project_media')->insert([
