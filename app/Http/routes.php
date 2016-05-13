@@ -47,4 +47,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/json/fases/all', 'ProjectFaseController@getJson');
     Route::get('/json/fases/{fase_id}', 'ProjectFaseController@getFaseJson');
 
+    //Spel routes
+    Route::get('/spel/genereervragen/{aantal_vragen}', 'VragenController@genereerVragen');
+
 });
