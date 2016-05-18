@@ -75,6 +75,10 @@
 
       <form v-if="selectedFase.id != 'new'" action="/media/@{{ selectedFase.id }}" method="post" enctype="multipart/form-data">
         {!! csrf_field() !!}
+        <label for="">Upload een media item</label>
+        <div class="spacer">
+
+        </div>
         <div class="form-group">
           <label>
             <input type="radio" name="uploadType" v-model="type" value="youtube"> Youtube link
@@ -90,8 +94,13 @@
           <div v-if="type == 'youtube'">
             <input type="text" class="form-control" name="link" placeholder="Plaats Youtube link hier">
           </div>
-          <div v-else>
+          <div v-if="type == 'image' || type == 'video'">
             <input type="file" name="file">
+          </div>
+          <div v-if="type == null">
+            <p>
+              Geen media soort gekozen
+            </p>
           </div>
         </div>
         <div class="form-group">
