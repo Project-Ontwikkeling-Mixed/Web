@@ -1,15 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container" id="home-page">
-  <div class="row kies-project-box">
-    Kies een project van de kaart
-  </div>
-  <div class="row map-box">
-    <div class="col-md-3">
-      <div class="col-md-12 map-holder"></div>
+  <div class="container" id="home-page">
+    <div class="row kies-project-box">
+      Kies een project van de kaart
     </div>
-  </div>
+    <div class="row map-box">
+      <div class="col-md-3">
+        <div class="col-md-12 map-holder"></div>
+      </div>
+    </div>
     <div>
       <div class="row project-title">
         <div class="col-md-10">
@@ -29,82 +29,77 @@
               <div class="col-md-10">
                 <div class="image-large-holder">
                   <iframe width="100" height="100"
-src="@{{ medium.link }}">
-</iframe>
-                </div>
-              </div>
-              <div class="col-md-2">
-                <ul class="image-list">
-                  <li v-for="medium in project.media">
-                    <span v-if="medium.type == 'youtube'" data-type="youtube">
-                      <iframe width="100" height="100" src="@{{ medium.link }}"></iframe>
-                      <img src="" alt="" />
-                    </span>
-                    <span v-if="medium.type == 'image'">
-                      <img src="@{{ medium.link }}" alt=""  data-type="image"/>
-                    </span>
-                    <span v-if="medium.type == 'video'">
-                      <video src="@{{ medium.link }}" data-type="video"></video>
-                    </span>
-                  </li>
-                </ul>
+                  src="@{{ medium.link }}">
+                </iframe>
               </div>
             </div>
-            <div class="row">
-              <div class="col-md-12 project-text">
-                <p>
-                  @{{ project.beschrijving }}
-                </p>
-              </div>
+            <div class="col-md-2">
+              <ul class="image-list">
+                <li v-for="medium in project.media">
+                  <span v-if="medium.type == 'youtube'" data-type="youtube">
+                    <iframe width="100" height="100" src="@{{ medium.link }}"></iframe>
+                    <img src="" alt="" />
+                  </span>
+                  <span v-if="medium.type == 'image'">
+                    <img src="@{{ medium.link }}" alt=""  data-type="image"/>
+                  </span>
+                  <span v-if="medium.type == 'video'">
+                    <video src="@{{ medium.link }}" data-type="video"></video>
+                  </span>
+                </li>
+              </ul>
             </div>
-            <div class="row">
-              <div class="col-md-12 separator-top">
-                <h4>Huidige fase: Projectfase</h4>
+          </div>
+          <div class="row">
+            <div class="col-md-12 project-text">
+              <p>
+                @{{ project.beschrijving }}
+              </p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 separator-top">
+              <h4>Huidige fase: Projectfase</h4>
 
-              </div>
             </div>
-            <div class="row">
-              <div class="col-md-12 inspraakvragen-box separator-top">
-                <h2>Inspraakvragen</h2>
-                <br />
-                <h4>Welke bomen wil je op de groenplaats?</h4>
-              </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 inspraakvragen-box separator-top">
+              <h2>Inspraakvragen</h2>
+              <br />
+              <h4>Welke bomen wil je op de groenplaats?</h4>
             </div>
           </div>
         </div>
-        <div class="col-md-4">
-          <div class="tijdlijn">
-            <div class="row">
-              <div class="page-title tijdlijn-title">
-                <h2>Tijdlijn</h2>
+      </div>
+      <div class="col-md-4">
+        <div class="tijdlijn">
+          <div class="row">
+            <div class="page-title tijdlijn-title">
+              <h2>Tijdlijn</h2>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4 tijdlijn-progress">
+              <div v-for="fase in project.fases">
+                <div class="tijdpunt">
+
+                </div>
+                <div v-if="$index < (project.fases.length - 1)" class="tijdlijnstuk">
+
+                </div>
               </div>
             </div>
-            <div class="row">
-              <div class="col-md-4 tijdlijn-progress">
-                  <div v-for="fase in project.fases">
-                        
-                        <div class="tijdpunt">
-
-                        </div>
-                      
-                        <div class="tijdlijnstuk">
-
-                        </div>
-                  </div>
-                
-                    
-                
-              </div>
-              <div class="col-md-8">
-                <div v-for="fase in project.fases" class="tijdlijn-fase-ballon">
-                  @{{ fase.naam }}
-                </div>
+            <div class="col-md-8">
+              <div v-for="fase in project.fases" class="tijdlijn-fase-ballon">
+                @{{ fase.naam }}
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
 </div>
 
 @endsection

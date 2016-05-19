@@ -36,11 +36,9 @@ new Vue({
       faseId = event.target.id;
 
       this.$http.get('/json/fases/' + faseId, function(currentFase){
-        console.log(currentFase);
         this.$set('selectedFase', currentFase[0]);
         this.nieuw = false;
       });
-
     },
 
     nieuwProject: function(){

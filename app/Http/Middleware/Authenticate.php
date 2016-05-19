@@ -25,7 +25,7 @@ class Authenticate
             }
         }else if(Auth::guard($guard)->user()){
           if($request->ajax() || $request->wantsJson()){
-            return response('Authenticated', 200);
+            return response('Authenticated' => 200);
           }else{
             return redirect()->user('home');
           }

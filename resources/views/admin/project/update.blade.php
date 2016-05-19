@@ -25,7 +25,7 @@
 
     </div>
     <div class="form-group">
-      <input type="submit" class="btn btn-primary" value="Maak Project">
+      <input type="submit" class="btn btn-primary" value="Update Project">
     </div>
   </form>
 
