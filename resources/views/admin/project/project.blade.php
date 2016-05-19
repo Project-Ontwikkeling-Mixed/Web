@@ -2,20 +2,22 @@
 
 @section('content')
   <div id="project-page" data-id='{{ $id }}' >
-    <a href="/project/delete/{{ $id }}" class="btn btn-red">Project verwijderen</a>
-    <a href="/project/update/{{ $id }}" class="btn btn-primary">Project Aanpassen</a>
-    <div>
+    <div class="btn-group">
+      <a href="/project/delete/{{ $id }}" class="btn btn-red">Project verwijderen</a>
+      <a href="/project/update/{{ $id }}" class="btn btn-primary">Project Aanpassen</a>
+    </div>
+    <div class="project-title">
       <h1>@{{ project.naam }}</h1>
       <p>
         @{{ project.beschrijving }}
       </p>
     </div>
 
-    <div class="spacer"></div>
+    <div class="big-spacer"></div>
 
     <div class="btn-group">
-      <button type="button" class="btn btn-default" id="nieuw-project-fase" v-on:click="nieuwProject">
-        Nieuwe gebeurtenis/fase
+      <button type="button" class="btn btn-default btn-darker" id="nieuw-project-fase" v-on:click="nieuwProject">
+        Nieuw
       </button>
       <span v-if="project.fases.length > 0">
         <button v-for="fase in project.fases" type="button" class="btn btn-default" v-on:click="tabFase" id="@{{ fase.id }}">@{{ fase.naam }}</button>
@@ -83,7 +85,13 @@
           </div>
         </div>
 
-        <input type="submit" name="name" class="btn btn-primary" value="Project fase toevoegen/aanpassen">
+        <span v-if="selectedFase.id != 'new'">
+          <input type="submit" name="name" class="btn btn-primary" value="Project fase aanpassen">
+        </span>
+
+        <span v-if="selectedFase.id == 'new'">
+          <input type="submit" name="name" class="btn btn-primary" value="Project fase toevoegen">
+        </span>
 
         <span v-if="selectedFase.id != 'new'">
           <a href="/fase/delete/@{{ selectedFase.id }}" class="btn btn-red">Project fase verwijderen</a>
@@ -95,7 +103,7 @@
 
       <form v-if="selectedFase.id != 'new'" action="/media/@{{ selectedFase.id }}" method="post" enctype="multipart/form-data">
         {!! csrf_field() !!}
-        <label for="">Upload een media item</label>
+        <h5>Upload een media item</h5>
         <div class="spacer">
 
         </div>

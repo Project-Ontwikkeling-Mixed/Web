@@ -25,9 +25,6 @@ class ProjectFaseController extends Controller
 
   public function create(Request $request)
   {
-    $fase = new Fase();
-    $project_id = $request->input('project_id');
-
     $validated = $this->validate($request, [
       'naam' => 'required|unique',
       'beschrijving' => 'required',
@@ -40,15 +37,19 @@ class ProjectFaseController extends Controller
       return $validator->errors()->all();
     }
 
+    $project_id = $request->input('project_id');
+
+    $fase = new Fase();
     $fase->createNew([
       'naam' => $request->input('naam'),
       'beschrijving' => $request->input('beschrijving'),
       'begin' => $request->input('begin'),
       'einde' => $request->input('einde'),
-      'project_id' => $request->input('project_id')
+      'project_id' => $project_id
     ]);
 
     return redirect('project/' . $project_id);
+
   }
 
   public function update($fase_id, Request $request)
