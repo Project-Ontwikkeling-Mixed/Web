@@ -28,6 +28,17 @@ class ProjectFaseController extends Controller
     $fase = new Fase();
     $project_id = $request->input('project_id');
 
+    $validated = $this->validate($request, [
+      'naam' => 'required|unique',
+      'beschrijving' => 'required',
+      'begin' => 'required',
+      'einde' => 'required',
+      'project_id' => 'required'
+    ]);
+
+    if($validated->fails()){
+      return $validator->errors()->all();
+    }
 
     $fase->createNew([
       'naam' => $request->input('naam'),
