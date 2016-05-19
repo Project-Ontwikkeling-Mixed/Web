@@ -2,6 +2,16 @@
 
 @section('content')
 
+@if (count($errors) > 0)
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
 <form class="project-form" action="{{ url('/admin/project/new') }}" method="post">
   {!! csrf_field() !!}
   <div class="form-group">

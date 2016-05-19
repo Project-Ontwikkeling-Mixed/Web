@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Session\Session;
 use App\Http\Requests;
 
+
 class AdminController extends Controller
 {
     public function __construct(){
