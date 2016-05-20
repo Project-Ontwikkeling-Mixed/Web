@@ -17,7 +17,7 @@ class ProjectController extends Controller
     return response()->json($project->getAll());
   }
 
-    
+
   public function getProjectJson($id){
     $project = new Project();
     $fase = new Fase();
@@ -49,13 +49,13 @@ class ProjectController extends Controller
     $projectfase = new Fase();
 
     if($request->isMethod('post')){
-        
+
         $this->validate($request, [
         'naam' => 'required',
         'beschrijving' => 'required',
         'locatie' => 'required'
         ]);
-        
+
       $naam = $request->input('naam');
       $beschrijving = $request->input('beschrijving');
       $locatie = $request->input('locatie');

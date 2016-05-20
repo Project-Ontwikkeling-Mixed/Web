@@ -49,7 +49,6 @@ new Vue({
               //console.log(thisThing);
               thisThing.$http.get('/json/project/' + value.id, function(project){
                 thisThing.$set('project', project);
-                console.log(project.project);
               });
             }
           });
@@ -58,5 +57,3 @@ new Vue({
     }
   }
 });
-
-

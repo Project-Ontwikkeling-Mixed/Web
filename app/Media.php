@@ -16,6 +16,10 @@ class Media extends Model
       return DB::table('project_media')->where('fase_id', $id)->get();
     }
 
+    public function getProjectIdOfMedia($id){
+      return DB::table('project_fase')->where('fase_id', $id)->get('project_id');
+    }
+
     public function createNew($media)
     {
       if($media['type'] == 'youtube'){
