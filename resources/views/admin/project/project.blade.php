@@ -1,4 +1,4 @@
-@extends ('layouts.admin')
+ @extends ('layouts.admin')
 
 @section('content')
   <div id="project-page" data-id='{{ $id }}' >
@@ -107,7 +107,7 @@
         <div class="spacer">
 
         </div>
-        <div class="form-group">
+        <div class="form-group{{ $errors->has('uploadType') ? ' has-error' : '' }}">
           <label>
             <input type="radio" name="uploadType" v-model="type" value="youtube"> Youtube link
           </label>
@@ -117,8 +117,14 @@
           <label>
             <input type="radio" name="uploadType" v-model="type" value="video"> Video
           </label>
+          @if ($errors->has('uploadType'))
+            <span class="help-block">
+              <strong>{{ $errors->first('uploadType') }}</strong>
+            </span>
+          @endif
         </div>
-        <div class="form-group">
+
+        <div class="form-group{{ $errors->has('file') ? ' has-error' : '' }}{{ $errors->has('link') ? ' has-error' : '' }}">
           <div v-if="type == 'youtube'">
             <input type="text" class="form-control" name="link" placeholder="Plaats Youtube link hier">
           </div>
@@ -130,6 +136,16 @@
               Geen media soort gekozen
             </p>
           </div>
+          @if ($errors->has('file'))
+            <span class="help-block">
+              <strong>{{ $errors->first('file') }}</strong>
+            </span>
+          @endif
+          @if ($errors->has('link'))
+            <span class="help-block">
+              <strong>{{ $errors->first('link') }}</strong>
+            </span>
+          @endif
         </div>
         <div class="form-group">
           <input type="submit" class="btn btn-primary" value="Media toevoegen aan fase">

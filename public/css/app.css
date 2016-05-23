@@ -6482,7 +6482,7 @@ Administratie navigatie
   border: 2px solid #0A9CC1; }
 
 input[type="file"] {
-  padding: 15px 0 0 0; }
+  padding: 15px 0 15px 0; }
 
 footer {
   text-align: center;

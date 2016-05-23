@@ -26,16 +26,12 @@ class ProjectFaseController extends Controller
   public function create(Request $request)
   {
     $validated = $this->validate($request, [
-      'naam' => 'required|unique',
+      'naam' => 'required',
       'beschrijving' => 'required',
       'begin' => 'required',
       'einde' => 'required',
       'project_id' => 'required'
     ]);
-
-    if($validated->fails()){
-      return $validator->errors()->all();
-    }
 
     $project_id = $request->input('project_id');
 
@@ -48,7 +44,7 @@ class ProjectFaseController extends Controller
       'project_id' => $project_id
     ]);
 
-    return redirect('project/' . $project_id);
+    return redirect('project/' . $project_id)->withErrors($validated);
 
   }
 

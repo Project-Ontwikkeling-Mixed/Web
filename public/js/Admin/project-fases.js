@@ -44,7 +44,7 @@ new Vue({
         var cookie_value = this_cookie[1];
 
         if(cookie_key == "fase_id"){
-          document.cookie = 'fase_id' + '=; expires=' + Date.now();
+          document.cookie = 'fase_id' + '=; expires=' + Date.now().toString() + '; path=/';
           return cookie_value;
         }
       }
