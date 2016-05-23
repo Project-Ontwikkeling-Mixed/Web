@@ -58,15 +58,14 @@
   background: lighten($default-button-background, 10%);
 }
 
-
-//forms
-
+//Forms
 .input-group-addon{
   border-radius: 0px;
   background: $input-border-color;
   border: 0px solid $input-background-color;
   color: white;
 }
+
 .form-control{
   border: 2px solid $input-border-color;
   background: $input-background-color;

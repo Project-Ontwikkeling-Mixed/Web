@@ -60,13 +60,9 @@ new Vue({
 
         thereIsAMarker = true;
 
-
       });
 
     }
-  },
-
-
-
+  }
 
 });

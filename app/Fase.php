@@ -5,15 +5,28 @@ namespace App;
 use DB;
 use Illuminate\Database\Eloquent\Model;
 
+use Carbon\Carbon;
+
 class Fase extends Model
 {
+
     public function getAll()
     {
       return DB::table('project_fase')->get();
     }
 
-    public function createNew($fase){
-      return DB::table('project_fase')->insert($fase);
+    public function createNew($fase)
+    {
+      $faseOverlap = DB::table('project_fase')
+      ->where('begin', '>', $fase->einde)
+      ->where('einde', '<', $fase->begin)
+      ->get();
+
+      if(empty($faseOverlap)){
+        return DB::table('project_fase')->insert($fase);
+      }else{
+        return false;
+      }
     }
 
     public function getFaseById($id)
@@ -23,9 +36,21 @@ class Fase extends Model
       ->get();
     }
 
-    public function getByProject($id){
+    public function getByProject($id)
+    {
       return DB::table('project_fase')
       ->where('project_id', $id)
+      ->get();
+    }
+
+    public function getActiveByProject($project_id)
+    {
+      $now = Carbon::now();
+
+      return DB::table('project_fase')
+      ->where('project_id', $project_id)
+      ->where('begin', '<', $now)
+      ->where('einde', '>', $now)
       ->get();
     }
 
@@ -42,4 +67,5 @@ class Fase extends Model
       ->where('id', $id)
       ->delete();
     }
+
 }

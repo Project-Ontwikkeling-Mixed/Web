@@ -10,8 +10,8 @@ new Vue({
 
   ready: function(){
     var id = document.getElementById('project-page').getAttribute('data-id');
-    //zet de id eventjes op nieuw zodat het een create formulier is
 
+    //zet de id eventjes op nieuw zodat het een create formulier is
     var active_fase = this.getFaseCookie();
 
     if(active_fase){

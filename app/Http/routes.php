@@ -46,6 +46,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/json/media/all', 'ProjectMediaController@getJson');
     Route::get('/json/fases/all', 'ProjectFaseController@getJson');
     Route::get('/json/fases/{fase_id}', 'ProjectFaseController@getFaseJson');
+    Route::get('/json/fases/active/{project_id}', 'ProjectFaseController@getCurrent');
 
     //Spel routes
     Route::get('/spel/genereervragen/{aantal_vragen}', 'VragenController@genereerVragen');

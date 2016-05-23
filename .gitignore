@@ -3,7 +3,7 @@
 /node_modules
 /config/database.php
 /public/storage
-/public/img/catalog
+/public/img/catalog/*.jpg
 Homestead.yaml
 Homestead.json
 .env

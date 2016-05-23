@@ -58,9 +58,15 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-md-12 separator-top">
-              <h4>Huidige fase: Projectfase</h4>
-
+            <div class="col-md-12">
+              <h4>Huidige fase: @{{ activeFase.naam }}</h4>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 fase-beschrijving">
+              <p>
+                @{{ activeFase.beschrijving }}
+              </p>
             </div>
           </div>
           <div class="row">

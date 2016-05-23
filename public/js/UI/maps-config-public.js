@@ -15,12 +15,18 @@ new Vue({
   },
 
   methods: {
-
     fetchAProject: function(){
       var that = this;
       this.$http.get('/json/project/1', function(project){
         that.$set('project', project);
-        //console.log(project.project);
+        var active = that;
+        active.$http.get('/json/fases/active/1', function(fase){
+          if(fase[0] == null){
+            active.$set('activeFase', {naam: "Geen fase actief"})
+          }else{
+            active.$set('activeFase', fase[0]);
+          }
+        })
       });
     },
 
@@ -41,14 +47,21 @@ new Vue({
           map.addMarker({
             lat: location[0],
             lng: location[1],
-            title: 'Klik hier om het project '+value.naam+'te bekijken.',
+            title: 'Klik hier om het project ' + value.naam + 'te bekijken.',
             infoWindow: {
               content : value.naam
             },
             click: function(e){
-              //console.log(thisThing);
               thisThing.$http.get('/json/project/' + value.id, function(project){
                 thisThing.$set('project', project);
+                var active = thisThing;
+                active.$http.get('/json/fases/active/' + value.id, function(fase){
+                  if(fase[0] == null){
+                    active.$set('activeFase', {naam: "Geen fase actief"})
+                  }else{
+                    active.$set('activeFase', fase[0]);
+                  }
+                })
               });
             }
           });

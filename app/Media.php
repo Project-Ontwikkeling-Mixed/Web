@@ -16,7 +16,8 @@ class Media extends Model
       return DB::table('project_media')->where('fase_id', $id)->get();
     }
 
-    public function getProjectIdOfMedia($id){
+    public function getProjectIdOfMedia($id)
+    {
       return DB::table('project_fase')->where('id', $id)->get()[0]->project_id;
     }
 

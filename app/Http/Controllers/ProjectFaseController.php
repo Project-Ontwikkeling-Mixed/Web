@@ -72,4 +72,12 @@ class ProjectFaseController extends Controller
     return redirect('admin/');
   }
 
+  public function getCurrent($project_id)
+  {
+    $fase = new Fase();
+    $currentFase = $fase->getActiveByProject($project_id);
+
+    return response()->json($currentFase);
+  }
+
 }

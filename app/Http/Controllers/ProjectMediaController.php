@@ -29,7 +29,7 @@ class ProjectMediaController extends Controller
     ]);
 
     if($validator->fails()){
-      return redirect('/project/' . $media->getProjectIdOfMedia($fase_id))
+      return redirect('/project/' . $media->getProjectIdOfMedia($fase_id)) 
       ->withErrors($validator)
       ->withCookie('fase_id', $fase_id, 30, null, null, false, false);
     }
