@@ -39,6 +39,9 @@ Route::group(['middleware' => ['web']], function () {
     //media routes
     Route::post('/media/{fase_id}', 'ProjectMediaController@create');
 
+    //antwoord routes
+    Route::post('/antwoord/{answer_id}', 'VragenController@answer');
+
 
     //JSON endpoints
     Route::get('/json/project/all', 'ProjectController@allJson');
