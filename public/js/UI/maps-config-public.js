@@ -8,6 +8,14 @@ var map = new GMaps({
 new Vue({
   el: '#home-page',
 
+
+  data: function(){
+    return{
+      mediaItem: 0,
+      mediaItems: document.getElementsByClassName('media-item')
+    }
+  },
+
   ready: function(){
     this.fetchAProject();
     this.fetchProjects();
@@ -30,10 +38,43 @@ new Vue({
       });
     },
 
+    setMediaItem: function(){
+      for(var item = 0; item < this.mediaItems.length; item++){
+        this.mediaItems[item].style.display = "none";
+      }
+      var toView = document.getElementById("media-" + this.mediaItem.toString());
+      toView.style.display = "block";
+    },
+
+    next: function(){
+      this.mediaItem++;
+
+      if(this.mediaItem > this.mediaItems.length - 1){
+        this.mediaItem = this.mediaItems.length - 1;
+      }
+
+
+      this.setMediaItem();
+    },
+
+    previous: function(){
+      this.mediaItem--;
+
+      if(this.mediaItem < this.mediaItems.length - 1){
+        this.mediaItem = 0;
+      }
+
+      this.setMediaItem();
+    },
+
     fetchMedia: function(){
       this.$http.get('/json/media/all', function(media){
         this.$set('media', media);
+
+        //prepare image data
+        this.setMediaItem();
       });
+
     },
 
     fetchProjects: function(){

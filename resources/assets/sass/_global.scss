@@ -47,6 +47,10 @@ section{
   padding: 25px;
 }
 
+iframe{
+  border: 0px solid transparent;
+}
+
 .red{
   color: $red-button-background;
 }

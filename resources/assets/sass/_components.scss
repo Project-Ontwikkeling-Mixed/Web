@@ -10,32 +10,16 @@
   height: 450px;
 }
 
-.image-list{
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+.media-controls{
+  padding-top: 0px;
+  div{
+    margin: 0;
+    padding: 0;
+  }
 }
 
-.image-list li{
-  overflow: hidden;
-  width: 80px;
-  height: 80px;
-  margin: 0; padding: 0;
-  margin-bottom: 10px;
-  transition: all .5s ease;
-}
-
-.image-list li:hover{
-  opacity: .7;
-}
-
-.image-list li img{
-  height: 80px;
-}
-
-.image-list li img:hover{
-  cursor: pointer;
+.media-controls > :first-child{
+  border-right: 1px solid gray;
 }
 
 //Timeline components

@@ -29,7 +29,7 @@ class ProjectMediaController extends Controller
     ]);
 
     if($validator->fails()){
-      return redirect('/project/' . $media->getProjectIdOfMedia($fase_id)) 
+      return redirect('/project/' . $media->getProjectIdOfMedia($fase_id))
       ->withErrors($validator)
       ->withCookie('fase_id', $fase_id, 30, null, null, false, false);
     }
@@ -59,7 +59,7 @@ class ProjectMediaController extends Controller
       ]);
 
       if(!$validator->fails()){
-        $file = $request->input('file');
+        $file = Input::file("file");
 
         $imageName = 'fase-'.$fase_id.'-id-'.$media->id.'-'.$file->getClientOriginalName();
 

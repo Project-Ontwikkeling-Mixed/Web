@@ -40,10 +40,11 @@ new Vue({
 
       for(var cookie = 0; cookie < cookies.length; cookie++){
         var this_cookie = cookies[cookie].split("=");
+
         var cookie_key = this_cookie[0];
         var cookie_value = this_cookie[1];
 
-        if(cookie_key == "fase_id"){
+        if(cookie_key.trim() == "fase_id"){
           document.cookie = 'fase_id' + '=; expires=' + Date.now().toString() + '; path=/';
           return cookie_value;
         }

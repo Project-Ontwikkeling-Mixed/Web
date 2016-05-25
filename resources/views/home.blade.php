@@ -26,79 +26,80 @@
           </div>
           <div class="project-description">
             <div class="row">
-              <div class="col-md-10">
-                <div class="image-large-holder">
-                  <iframe width="100" height="100"
-                  src="@{{ medium.link }}">
-                </iframe>
+              <div class="col-md-12">
+                <div v-if="project.media.length">
+                  <div v-for="medium in project.media">
+                    <div id="media-@{{ $index }}" class="media-item">
+                      <span v-if="medium.type == 'youtube'" data-type="youtube">
+                        <iframe width="100%" height="350px" src="@{{ medium.link }}"></iframe>
+                      </span>
+                      <span v-if="medium.type == 'image'">
+                        <img width="100%" src="@{{ medium.link }}" alt=""  data-type="image"/>
+                      </span>
+                      <span v-if="medium.type == ''"></span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="col-md-2">
-              <ul class="image-list">
-                <li v-for="medium in project.media">
-                  <span v-if="medium.type == 'youtube'" data-type="youtube">
-                    <iframe width="100" height="100" src="@{{ medium.link }}"></iframe>
-                    <img src="" alt="" />
-                  </span>
-                  <span v-if="medium.type == 'image'">
-                    <img src="@{{ medium.link }}" alt=""  data-type="image"/>
-                  </span>
-                  <span v-if="medium.type == 'video'">
-                    <video src="@{{ medium.link }}" data-type="video"></video>
-                  </span>
-                </li>
-              </ul>
+            <div class="row media-controls">
+              <div class="col-md-6">
+                <button class="btn btn-block" v-on:click="previous" name="button">Vorige</button>
+              </div>
+              <div class="col-md-6">
+                <button class="btn btn-block" v-on:click="next" name="button">Volgende</button>
+              </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="col-md-12 project-text">
-              <p>
-                @{{ project.beschrijving }}
-              </p>
+            <div class="row">
+              <div class="col-md-12 project-text">
+                <p>
+                  @{{ project.beschrijving }}
+                </p>
+              </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="col-md-12">
-              <h4>Huidige fase: @{{ activeFase.naam }}</h4>
+            <div class="row">
+              <div class="col-md-12">
+                <h4>Huidige fase: @{{ activeFase.naam }}</h4>
+              </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="col-md-12 fase-beschrijving">
-              <p>
-                @{{ activeFase.beschrijving }}
-              </p>
+            <div class="row">
+              <div class="col-md-12 fase-beschrijving">
+                <p>
+                  @{{ activeFase.beschrijving }}
+                </p>
+              </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="col-md-12 inspraakvragen-box separator-top">
-              <h2>Inspraakvragen</h2>
-              <br />
-              <h4>Welke bomen wil je op de groenplaats?</h4>
+            <div class="row">
+              <div class="col-md-12 inspraakvragen-box separator-top">
+                <h2>Inspraakvragen</h2>
+                <br />
+                <h4>Welke bomen wil je op de groenplaats?</h4>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="col-md-4">
-        <div class="tijdlijn">
-          <div class="row">
-            <div class="page-title tijdlijn-title">
-              <h2>Tijdlijn</h2>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-4 tijdlijn-progress">
-              <div v-for="fase in project.fases">
-                <div class="tijdpunt">
-
-                </div>
-                <div v-if="$index < (project.fases.length - 1)" class="tijdlijnstuk">
-
-                </div>
+        <div class="col-md-4">
+          <div class="tijdlijn">
+            <div class="row">
+              <div class="page-title tijdlijn-title">
+                <h2>Tijdlijn</h2>
               </div>
             </div>
-            <div class="col-md-8">
-              <div v-for="fase in project.fases" class="tijdlijn-fase-ballon">
-                @{{ fase.naam }}
+            <div class="row">
+              <div class="col-md-4 tijdlijn-progress">
+                <div v-for="fase in project.fases">
+                  <div class="tijdpunt">
+
+                  </div>
+                  <div v-if="$index < (project.fases.length - 1)" class="tijdlijnstuk">
+
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-8">
+                <div v-for="fase in project.fases" class="tijdlijn-fase-ballon">
+                  @{{ fase.naam }}
+                </div>
               </div>
             </div>
           </div>
@@ -106,7 +107,6 @@
       </div>
     </div>
   </div>
-</div>
 
 @endsection
 

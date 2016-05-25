@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Fase as Fase;
 use Symfony\Component\HttpFoundation\Session\Session;
+use Illuminate\Http\Response;
+use Illuminate\Cookie\CookieJar;
+
+use Validator;
 
 class ProjectFaseController extends Controller
 {
@@ -25,11 +29,11 @@ class ProjectFaseController extends Controller
 
   public function create(Request $request)
   {
-    $validated = $this->validate($request, [
+    $validated = Validator::make($request->all(), [
       'naam' => 'required',
       'beschrijving' => 'required',
       'begin' => 'required',
-      'einde' => 'required',
+      'einde' => 'required|greater_than_field:begin',
       'project_id' => 'required'
     ]);
 
@@ -52,15 +56,29 @@ class ProjectFaseController extends Controller
   {
     $fase = new Fase();
 
-    $fase->updateFase($fase_id,[
-      'naam' => $request->input('naam'),
-      'beschrijving' => $request->input('beschrijving'),
-      'begin' => $request->input('begin'),
-      'einde' => $request->input('einde'),
+    $validated = Validator::make($request->all(), [
+      'naam' => 'required',
+      'beschrijving' => 'required',
+      'begin' => 'required',
+      'einde' => 'required|greater_than_field:begin',
+      'project_id' => 'required'
     ]);
 
+    if(!$validated->fails()){
+      $fase->updateFase($fase_id,[
+        'naam' => $request->input('naam'),
+        'beschrijving' => $request->input('beschrijving'),
+        'begin' => $request->input('begin'),
+        'einde' => $request->input('einde'),
+      ]);
+    }
+
+
     $project_id = $request->input('project_id');
-    return redirect('project/' . $project_id);
+
+    return redirect('project/' . $project_id)
+    ->withErrors($validated)
+    ->withCookie('fase_id', $fase_id, 30, null, null, false, false);
   }
 
   public function delete($fase_id, Request $request)

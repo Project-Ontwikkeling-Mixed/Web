@@ -114,9 +114,6 @@
           <label>
             <input type="radio" name="uploadType" v-model="type" value="image"> Afbeelding
           </label>
-          <label>
-            <input type="radio" name="uploadType" v-model="type" value="video"> Video
-          </label>
           @if ($errors->has('uploadType'))
             <span class="help-block">
               <strong>{{ $errors->first('uploadType') }}</strong>
@@ -128,7 +125,7 @@
           <div v-if="type == 'youtube'">
             <input type="text" class="form-control" name="link" placeholder="Plaats Youtube link hier">
           </div>
-          <div v-if="type == 'image' || type == 'video'">
+          <div v-if="type == 'image'">
             <input type="file" name="file">
           </div>
           <div v-if="type == null">
