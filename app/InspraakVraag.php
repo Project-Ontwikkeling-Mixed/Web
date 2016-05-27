@@ -24,18 +24,16 @@ class InspraakVraag extends Model
               ->take($aantal)
               ->get();
     }
-<<<<<<< HEAD
-    
+
     public function getByFase($id){
       return DB::table('inspraakvraag')
       ->where('fase_id', $id)
       ->get();
-=======
+    }
 
     public function getQuestions($project_id){
       return $this->with('antwoorden')
               ->where('fase_id', $project_id)
               ->get();
->>>>>>> 8e98ab14e5cb33234b9ac5d43081ab0e1584d86d
     }
 }

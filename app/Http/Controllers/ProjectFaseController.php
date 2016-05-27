@@ -40,13 +40,16 @@ class ProjectFaseController extends Controller
     $project_id = $request->input('project_id');
 
     $fase = new Fase();
-    $fase->createNew([
-      'naam' => $request->input('naam'),
-      'beschrijving' => $request->input('beschrijving'),
-      'begin' => $request->input('begin'),
-      'einde' => $request->input('einde'),
-      'project_id' => $project_id
-    ]);
+
+    if(!$validated->fails()){
+      $fase->createNew([
+        'naam' => $request->input('naam'),
+        'beschrijving' => $request->input('beschrijving'),
+        'begin' => $request->input('begin'),
+        'einde' => $request->input('einde'),
+        'project_id' => $project_id
+      ]);
+    }
 
     return redirect('project/' . $project_id)->withErrors($validated);
 

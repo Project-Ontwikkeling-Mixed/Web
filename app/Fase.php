@@ -17,16 +17,7 @@ class Fase extends Model
 
     public function createNew($fase)
     {
-      $faseOverlap = DB::table('project_fase')
-      ->where('begin', '>', $fase->einde)
-      ->where('einde', '<', $fase->begin)
-      ->get();
-
-      if(empty($faseOverlap)){
-        return DB::table('project_fase')->insert($fase);
-      }else{
-        return false;
-      }
+      return DB::table('project_fase')->insert($fase);
     }
 
     public function getFaseById($id)

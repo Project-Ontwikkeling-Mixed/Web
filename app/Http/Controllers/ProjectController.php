@@ -48,15 +48,8 @@ class ProjectController extends Controller
     $projectfase = new Fase();
 
     if($request->isMethod('post')){
-<<<<<<< HEAD
-        
-        $this->validate($request, [
-        'naam' => 'required|unique',
-=======
-
       $this->validate($request, [
-        'naam' => 'required',
->>>>>>> 8e98ab14e5cb33234b9ac5d43081ab0e1584d86d
+        'naam' => 'required|unique',
         'beschrijving' => 'required',
         'locatie' => 'required'
       ]);

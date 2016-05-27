@@ -121,133 +121,72 @@
         @endif
       </div>
 
-      <div class="form-group{{ $errors->has('file') ? ' has-error' : '' }}{{ $errors->has('link') ? ' has-error' : '' }}">
+      <div class="form-group{{ $errors->has('link') ? ' has-error' : '' }}">
         <div v-if="type == 'youtube'">
           <input type="text" class="form-control" name="link" placeholder="Plaats Youtube link hier">
+          @if ($errors->has('link'))
+            <span class="help-block">
+              <strong>{{ $errors->first('link') }}</strong>
+            </span>
+          @endif
         </div>
-<<<<<<< HEAD
-        <div class="form-group{{ $errors->has('uploadType') ? ' has-error' : '' }}">
-          <label>
-            <input type="radio" name="uploadType" v-model="type" value="youtube"> Youtube link
-          </label>
-          <label>
-            <input type="radio" name="uploadType" v-model="type" value="image"> Afbeelding
-          </label>
-          <label>
-            <input type="radio" name="uploadType" v-model="type" value="video"> Video
-          </label>
-            @if ($errors->has('uploadType'))
-                  <span class="help-block">
-                    <strong>{{ $errors->first('uploadType') }}</strong>
-                  </span>
-            @endif
-        </div>
-          
-        <div class="form-group{{ $errors->has('link') ? ' has-error' : '' }}">
-          <div v-if="type == 'youtube'">
-            <input type="text" class="form-control" name="link" placeholder="Plaats Youtube link hier">
-          </div>
-          <div v-if="type == 'image' || type == 'video'">
-            <input type="file" name="file">
-          </div>
-          <div v-if="type == null">
-            <p>
-              Geen media soort gekozen
-            </p>
-          </div>
-            @if ($errors->has('link'))
-                  <span class="help-block">
-                    <strong>{{ $errors->first('link') }}</strong>
-                  </span>
-                @endif
-=======
         <div v-if="type == 'image'">
           <input type="file" name="file">
->>>>>>> 8e98ab14e5cb33234b9ac5d43081ab0e1584d86d
         </div>
         <div v-if="type == null">
           <p>
             Geen media soort gekozen
           </p>
         </div>
-<<<<<<< HEAD
-      </form>
-      
+
       <div class="spacer"></div>
-      
-      <div id="questionSection" data-id='1'>
-        <h5>Inspraakvragen</h5>
-          <div class="col-md-3 vragen-menu" >
-            <nav>
-              <ul id="">
-                <li><a href="{{ url('admin/project/new') }}" class="nieuwe-vraag">Nieuwe Vraag</a></li>
-                <li class="vragen-menu-title">Huidige Vragen</li>
-                <li>@{{ test }}</li>
-                <li v-for="question in questions">
-                  <a href="#">@{{ question.vraag }}</a>
-                </li>
-              </ul>
-            </nav>
-          </div>
-      </div>
-      
-=======
-        @if ($errors->has('file'))
-          <span class="help-block">
-            <strong>{{ $errors->first('file') }}</strong>
-          </span>
-        @endif
-        @if ($errors->has('link'))
-          <span class="help-block">
-            <strong>{{ $errors->first('link') }}</strong>
-          </span>
-        @endif
-      </div>
-      <div class="form-group">
-        <input type="submit" class="btn btn-primary" value="Media toevoegen aan fase">
-      </div>
-    </form>
 
-    <div class="spacer"></div>
+      @if ($errors->has('file'))
+        <span class="help-block">
+          <strong>{{ $errors->first('file') }}</strong>
+        </span>
+      @endif
+      @if ($errors->has('link'))
+        <span class="help-block">
+          <strong>{{ $errors->first('link') }}</strong>
+        </span>
+      @endif
+    </div>
+    <div class="form-group">
+      <input type="submit" class="btn btn-primary" value="Media toevoegen aan fase">
+    </div>
+  </form>
 
-    <div v-if="selectedFase.id != 'new'">
-      <h5>Inpsraakvragen beheren</h5>
-      <div class="row vragen-sectie">
-        <div class="col-md-8" class="vragen-menu">
-          <ul>
-            <li v-for="question in questions">
-              <a class="vragen-menu-item" v-on:click="chooseAnswer($index)">
-                @{{ question.vraag }}
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div class="col-md-4">
-          <div class="answers-holder">
-            <div v-for="answer in questions[id].antwoorden">
-              <div class="answer">
-                <b>@{{ answer.antwoord }}</b> - <i>@{{ answer.aantal_gekozen }}</i>
-              </div>
+  <div class="spacer"></div>
+
+  <div v-if="selectedFase.id != 'new'">
+    <h5>Inpsraakvragen beheren</h5>
+    <div class="row vragen-sectie">
+      <div class="col-md-8" class="vragen-menu">
+        <ul>
+          <li v-for="question in questions">
+            <a class="vragen-menu-item" v-on:click="chooseAnswer($index)">
+              @{{ question.vraag }}
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <div class="answers-holder">
+          <div v-for="answer in questions[id].antwoorden">
+            <div class="answer">
+              <b>@{{ answer.antwoord }}</b> - <i>@{{ answer.aantal_gekozen }}</i>
             </div>
           </div>
         </div>
       </div>
->>>>>>> 8e98ab14e5cb33234b9ac5d43081ab0e1584d86d
     </div>
   </div>
+</div>
 @endsection
 
-<<<<<<< HEAD
-  @section('scripts')
-    <script type="text/javascript" src="{{ asset('js/vendor/moment.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/vendor/datetimepicker.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/Admin/project-fases.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/Admin/inspraakvragen.js') }}"></script>
-  @endsection
-=======
 @section('scripts')
   <script type="text/javascript" src="{{ asset('js/vendor/moment.min.js') }}"></script>
   <script type="text/javascript" src="{{ asset('js/vendor/datetimepicker.js') }}"></script>
   <script type="text/javascript" src="{{ asset('js/Admin/project-fases.js') }}"></script>
 @endsection
->>>>>>> 8e98ab14e5cb33234b9ac5d43081ab0e1584d86d
