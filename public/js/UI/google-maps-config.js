@@ -8,7 +8,6 @@ var map = new GMaps({
 });
 
 GMaps.on('click', map.map, function(event) {
-  console.log(thereIsAMarker);
 
   if(thereIsAMarker){
     map.removeMarkers();
@@ -18,7 +17,8 @@ GMaps.on('click', map.map, function(event) {
   var lat = event.latLng.lat();
   var lng = event.latLng.lng();
 
-  $('#locatie-input').val(lat+','+lng);
+  var locatie_input = document.getElementById("locatie-input");
+  locatie_input.value = lat + "," + lng;
 
   map.addMarker({
     lat: lat,

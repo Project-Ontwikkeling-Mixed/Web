@@ -8,6 +8,14 @@ var map = new GMaps({
 new Vue({
   el: '#home-page',
 
+
+  data: function(){
+    return{
+      mediaItem: 0,
+      mediaItems: document.getElementsByClassName('media-item')
+    }
+  },
+
   ready: function(){
     this.fetchAProject();
     this.fetchProjects();
@@ -15,19 +23,58 @@ new Vue({
   },
 
   methods: {
-
     fetchAProject: function(){
       var that = this;
       this.$http.get('/json/project/1', function(project){
         that.$set('project', project);
-        //console.log(project.project);
+        var active = that;
+        active.$http.get('/json/fases/active/1', function(fase){
+          if(fase[0] == null){
+            active.$set('activeFase', {naam: "Geen fase actief"})
+          }else{
+            active.$set('activeFase', fase[0]);
+          }
+        })
       });
+    },
+
+    setMediaItem: function(){
+      for(var item = 0; item < this.mediaItems.length; item++){
+        this.mediaItems[item].style.display = "none";
+      }
+      var toView = document.getElementById("media-" + this.mediaItem.toString());
+      toView.style.display = "block";
+    },
+
+    next: function(){
+      this.mediaItem++;
+
+      if(this.mediaItem > this.mediaItems.length - 1){
+        this.mediaItem = this.mediaItems.length - 1;
+      }
+
+
+      this.setMediaItem();
+    },
+
+    previous: function(){
+      this.mediaItem--;
+
+      if(this.mediaItem < this.mediaItems.length - 1){
+        this.mediaItem = 0;
+      }
+
+      this.setMediaItem();
     },
 
     fetchMedia: function(){
       this.$http.get('/json/media/all', function(media){
         this.$set('media', media);
+
+        //prepare image data
+        this.setMediaItem();
       });
+
     },
 
     fetchProjects: function(){
@@ -41,15 +88,21 @@ new Vue({
           map.addMarker({
             lat: location[0],
             lng: location[1],
-            title: 'Klik hier om het project '+value.naam+'te bekijken.',
+            title: 'Klik hier om het project ' + value.naam + 'te bekijken.',
             infoWindow: {
               content : value.naam
             },
             click: function(e){
-              //console.log(thisThing);
               thisThing.$http.get('/json/project/' + value.id, function(project){
                 thisThing.$set('project', project);
-                console.log(project.project);
+                var active = thisThing;
+                active.$http.get('/json/fases/active/' + value.id, function(fase){
+                  if(fase[0] == null){
+                    active.$set('activeFase', {naam: "Geen fase actief"})
+                  }else{
+                    active.$set('activeFase', fase[0]);
+                  }
+                })
               });
             }
           });
@@ -58,5 +111,3 @@ new Vue({
     }
   }
 });
-
-

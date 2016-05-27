@@ -70,6 +70,7 @@ return [
     'required_without'     => ':attribute is verplicht als :values niet ingevuld is.',
     'required_without_all' => ':attribute is verplicht als :values niet ingevuld zijn.',
     'same'                 => ':attribute en :other moeten overeenkomen.',
+    'greater_than_field'   => ':attribute moet groter zijn dan :field',
     'size'                 => [
         'numeric' => ':attribute moet :size zijn.',
         'file'    => ':attribute moet :size kilobyte zijn.',

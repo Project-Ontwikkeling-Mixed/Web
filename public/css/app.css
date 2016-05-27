@@ -6147,6 +6147,9 @@ p {
 section {
   padding: 25px; }
 
+iframe {
+  border: 0px solid transparent; }
+
 .red {
   color: #DC003C; }
 
@@ -6258,7 +6261,9 @@ section {
 .project-holder {
   border: 1px solid lightgray;
   border-top: 0px;
-  padding: 0px 25px; }
+  padding: 0; }
+  .project-holder .row {
+    padding: 25px; }
 
 .project-text {
   padding: 50px 15px; }
@@ -6281,6 +6286,38 @@ section {
   width: 100%;
   height: 400px;
   background-color: #CCC; }
+
+.fase-beschrijving {
+  padding: 15px; }
+
+.vragen-sectie {
+  margin: 25px 0px;
+  border: 1px solid lightgray; }
+  .vragen-sectie div {
+    margin: 0px -15px; }
+  .vragen-sectie ul {
+    margin: 0;
+    padding: 0; }
+    .vragen-sectie ul li {
+      list-style: none; }
+      .vragen-sectie ul li a {
+        padding: 15px;
+        text-align: center;
+        text-decoration: none;
+        background: #ddd;
+        color: #333;
+        transition: all .5s ease;
+        display: block; }
+      .vragen-sectie ul li a:hover {
+        background: #eaeaea; }
+
+.answers-holder div {
+  display: block;
+  margin: 15px;
+  padding: 0px 10px; }
+
+.answer {
+  padding: 10px 10px; }
 
 /*
 
@@ -6362,6 +6399,7 @@ Administratie navigatie
 .admin-menu nav li .nieuw-project:hover {
   background: #0bb0d9; }
 
+<<<<<<< HEAD
 /* 
     Inspraakvragen navigatie
 */
@@ -6402,35 +6440,29 @@ Administratie navigatie
 .vragen-menu nav li .nieuwe-vraag:hover {
   background: #0bb0d9; }
 
+=======
+.vragen-menu {
+  border-right: 1px solid lightgray; }
+
+.vragen-menu-item {
+  cursor: pointer;
+  border-bottom: 1px solid lightgray; }
+
+>>>>>>> 8e98ab14e5cb33234b9ac5d43081ab0e1584d86d
 .image-large-holder {
   overflow: hidden; }
 
 .image-large-holder img {
   height: 450px; }
 
-.image-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box; }
+.media-controls {
+  padding-top: 0px; }
+  .media-controls div {
+    margin: 0;
+    padding: 0; }
 
-.image-list li {
-  overflow: hidden;
-  width: 80px;
-  height: 80px;
-  margin: 0;
-  padding: 0;
-  margin-bottom: 10px;
-  transition: all .5s ease; }
-
-.image-list li:hover {
-  opacity: .7; }
-
-.image-list li img {
-  height: 80px; }
-
-.image-list li img:hover {
-  cursor: pointer; }
+.media-controls > :first-child {
+  border-right: 1px solid gray; }
 
 .tijdpunt, .tijdpunt-done {
   width: 30px;
@@ -6539,7 +6571,7 @@ Administratie navigatie
   border: 2px solid #0A9CC1; }
 
 input[type="file"] {
-  padding: 15px 0 0 0; }
+  padding: 15px 0 15px 0; }
 
 footer {
   text-align: center;

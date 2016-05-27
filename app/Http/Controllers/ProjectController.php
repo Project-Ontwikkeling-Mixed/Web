@@ -17,7 +17,6 @@ class ProjectController extends Controller
     return response()->json($project->getAll());
   }
 
-    
   public function getProjectJson($id){
     $project = new Project();
     $fase = new Fase();
@@ -28,20 +27,20 @@ class ProjectController extends Controller
     $projectId = $myProject[0]->id;
 
     return response()->json(
-      array(
-        "id" => $myProject[0]->id,
-        "naam" => $myProject[0]->naam,
-        "beschrijving" => $myProject[0]->beschrijving,
-        "locatie" => $myProject[0]->locatie,
-        "media" => $media->getByProject($projectId),
-        "fases" => $fase->getByProject($projectId)
+    array(
+      "id" => $myProject[0]->id,
+      "naam" => $myProject[0]->naam,
+      "beschrijving" => $myProject[0]->beschrijving,
+      "locatie" => $myProject[0]->locatie,
+      "media" => $media->getByProject($projectId),
+      "fases" => $fase->getByProject($projectId)
       )
     );
   }
 
   /*
-    Als er een POST word verzonden steek dan waarden van formulier in database
-    Als er geen POST is verzonden toon dan de creatie-pagina.
+  Als er een POST word verzonden steek dan waarden van formulier in database
+  Als er geen POST is verzonden toon dan de creatie-pagina.
   */
   public function create(Request $request)
   {
@@ -49,13 +48,19 @@ class ProjectController extends Controller
     $projectfase = new Fase();
 
     if($request->isMethod('post')){
+<<<<<<< HEAD
         
         $this->validate($request, [
         'naam' => 'required|unique',
+=======
+
+      $this->validate($request, [
+        'naam' => 'required',
+>>>>>>> 8e98ab14e5cb33234b9ac5d43081ab0e1584d86d
         'beschrijving' => 'required',
         'locatie' => 'required'
-        ]);
-        
+      ]);
+
       $naam = $request->input('naam');
       $beschrijving = $request->input('beschrijving');
       $locatie = $request->input('locatie');

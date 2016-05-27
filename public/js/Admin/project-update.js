@@ -11,8 +11,7 @@ new Vue({
 
   methods: {
     fetchProject: function(){
-      var id = $('#project-update').attr('data-id');
-
+      var id = document.getElementById('project-update').getAttribute('data-id');
       var This = this;
 
       this.$http.get('/json/project/' + id, function(project){
@@ -42,7 +41,6 @@ new Vue({
       });
 
       GMaps.on('click', map.map, function(event) {
-        console.log(thereIsAMarker);
 
         if(thereIsAMarker){
           map.removeMarkers();
@@ -52,7 +50,8 @@ new Vue({
         var lat = event.latLng.lat();
         var lng = event.latLng.lng();
 
-        $('#locatie-input').val(lat+','+lng);
+        var locatie_input = document.getElementById('locatie-input');
+        locatie_input.value = lat + ',' + lng;
 
         map.addMarker({
           lat: lat,
@@ -61,13 +60,9 @@ new Vue({
 
         thereIsAMarker = true;
 
-
       });
 
     }
-  },
-
-
-
+  }
 
 });

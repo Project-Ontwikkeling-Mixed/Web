@@ -38,9 +38,15 @@ Route::group(['middleware' => ['web']], function () {
 
     //media routes
     Route::post('/media/{fase_id}', 'ProjectMediaController@create');
+<<<<<<< HEAD
     
     //vragen routes
     Route::get('/admin/vraag/new', 'VragenController@create');
+=======
+
+    //antwoord routes
+    Route::post('/antwoord/{answer_id}', 'VragenController@answer');
+>>>>>>> 8e98ab14e5cb33234b9ac5d43081ab0e1584d86d
 
     //JSON endpoints
     Route::get('/json/project/all', 'ProjectController@allJson');
@@ -48,7 +54,12 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/json/media/all', 'ProjectMediaController@getJson');
     Route::get('/json/fases/all', 'ProjectFaseController@getJson');
     Route::get('/json/fases/{fase_id}', 'ProjectFaseController@getFaseJson');
+<<<<<<< HEAD
     Route::get('/json/inspraakvraag/all/{fase_id}', 'VragenController@getAllJson');
+=======
+    Route::get('/json/fases/active/{project_id}', 'ProjectFaseController@getCurrent');
+    Route::get('/json/inspraakvragen/{fase_id}', 'VragenController@allQuestions');
+>>>>>>> 8e98ab14e5cb33234b9ac5d43081ab0e1584d86d
 
     //Spel routes
     Route::get('/spel/genereervragen/{aantal_vragen}', 'VragenController@genereerVragen');
