@@ -18,6 +18,13 @@ class VragenController extends Controller
       return response()->json($random_vragen);
     }
 
+    public function allQuestions($fase_id){
+      $question = new InspraakVraag();
+
+      $allQuestions = $question->getQuestions($fase_id);
+      return response()->json($allQuestions);
+    }
+
     public function answer($answer_id){
       $answer = new InspraakVraagAntwoord();
 

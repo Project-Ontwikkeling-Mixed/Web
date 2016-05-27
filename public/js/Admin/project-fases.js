@@ -4,7 +4,8 @@ new Vue({
   data: function(){
     return{
       nieuw: true,
-      selectedFase: 'new'
+      selectedFase: 'new',
+      id: 0
     };
   },
 
@@ -65,7 +66,15 @@ new Vue({
       this.$http.get('/json/fases/' + faseId, function(currentFase){
         this.$set('selectedFase', currentFase[0]);
         this.nieuw = false;
+
+        this.$http.get('/json/inspraakvragen/' + faseId, function(questions){
+          this.$set('questions', questions);
+        });
       });
+    },
+
+    chooseAnswer: function(id){
+      this.$set('id', id);
     },
 
     sessionChooseFase: function(faseId){

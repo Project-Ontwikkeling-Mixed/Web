@@ -94,3 +94,12 @@ Administratie navigatie
 .admin-menu nav li .nieuw-project:hover{
   background: lighten($primary-button-background, 5%);
 }
+
+.vragen-menu{
+  border-right: 1px solid lightgray;
+}
+
+.vragen-menu-item{
+  cursor: pointer;
+  border-bottom: 1px solid lightgray;
+}

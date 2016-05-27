@@ -24,4 +24,10 @@ class InspraakVraag extends Model
               ->take($aantal)
               ->get();
     }
+
+    public function getQuestions($project_id){
+      return $this->with('antwoorden')
+              ->where('fase_id', $project_id)
+              ->get();
+    }
 }

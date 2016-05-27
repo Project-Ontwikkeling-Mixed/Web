@@ -42,7 +42,6 @@ Route::group(['middleware' => ['web']], function () {
     //antwoord routes
     Route::post('/antwoord/{answer_id}', 'VragenController@answer');
 
-
     //JSON endpoints
     Route::get('/json/project/all', 'ProjectController@allJson');
     Route::get('/json/project/{project_id}', 'ProjectController@getProjectJson');
@@ -50,6 +49,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/json/fases/all', 'ProjectFaseController@getJson');
     Route::get('/json/fases/{fase_id}', 'ProjectFaseController@getFaseJson');
     Route::get('/json/fases/active/{project_id}', 'ProjectFaseController@getCurrent');
+    Route::get('/json/inspraakvragen/{fase_id}', 'VragenController@allQuestions');
 
     //Spel routes
     Route::get('/spel/genereervragen/{aantal_vragen}', 'VragenController@genereerVragen');
