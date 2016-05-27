@@ -17,6 +17,32 @@ class VragenController extends Controller
 
       return response()->json(array("vragen" => $random_vragen));
     }
+<<<<<<< HEAD
+    
+    public function getAllJson($fase_id)
+  {
+    $inspraakVraag = new InspraakVraag();
+    $myInspraakVraag = $inspraakVraag->getByFase($fase_id);
+    return response()->json($myInspraakVraag);
+  }
+    
+     public function create(Request $request)
+  {
+    $InspraakVraag = new InspraakVraag();
+
+    
+
+    $vraag = $project->getAll();
+    return view('admin/project/project', ['title' => 'Nieuw Project']);
+  }
+=======
+
+    public function allQuestions($fase_id){
+      $question = new InspraakVraag();
+
+      $allQuestions = $question->getQuestions($fase_id);
+      return response()->json($allQuestions);
+    }
 
     public function allQuestions($fase_id){
       $question = new InspraakVraag();
@@ -32,4 +58,5 @@ class VragenController extends Controller
 
       $answer->chooseAnswer($answer_id);
     }
+>>>>>>> 8e98ab14e5cb33234b9ac5d43081ab0e1584d86d
 }

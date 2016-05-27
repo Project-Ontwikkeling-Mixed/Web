@@ -35,6 +35,7 @@ class ProjectMediaController extends Controller
       ->withCookie('fase_id', $fase_id, 30, null, null, false, false);
     }
 
+<<<<<<< HEAD
 
     public function create($fase_id, Request $request){
         $uploadType = $request->input('uploadType');
@@ -52,11 +53,31 @@ class ProjectMediaController extends Controller
             'link' => 'required'
             ]);
 
+=======
+<<<<<<< HEAD
+    public function create($fase_id, Request $request){
+        $uploadType = $request->input('uploadType');
+        
+        $validated = $this->validate($request, [
+            'uploadType' => 'required'
+            ]);
+        
+        
+        if ($uploadType =='youtube'){
+         
+            $media = new Media();
+        
+            $validated = $this->validate($request, [
+            'link' => 'required'
+            ]);
+            
+>>>>>>> 99893ad9059b622e18a9bcf7d661ee79570088ef
               $media->createNew([
                 'link' => $request->input('link'),
                 'type' => $request->input('uploadType'),
                 'fase_id' => $fase_id
               ]);
+<<<<<<< HEAD
 
 
         }
@@ -80,11 +101,37 @@ class ProjectMediaController extends Controller
 
 
 
+=======
+            
+            
+        } 
+        elseif($uploadType =='image'){
+            
+            $validated = $this->validate($request, [
+            'file' => 'required'
+            ]);
+            
+            $media = new Media();
+        
+            $file = Input::file('file');
+            
+            $imageName = 'fase-'.$fase_id.'-id-'.$media->id.'-'.$file->getClientOriginalName();
+        
+            
+            $file->move('img/catalog/', $imageName);
+            
+            $filePath = 'img/catalog/'.$imageName;
+            
+            
+            
+        
+>>>>>>> 99893ad9059b622e18a9bcf7d661ee79570088ef
               $media->createNew([
                 'link' => $filePath,
                 'type' => $request->input('uploadType'),
                 'fase_id' => $fase_id
               ]);
+<<<<<<< HEAD
 
         }
         elseif($uploadType =='video'){
@@ -107,21 +154,55 @@ class ProjectMediaController extends Controller
 
 
 
+=======
+            
+        }
+        elseif($uploadType =='video'){
+            
+            $validated = $this->validate($request, [
+            'file' => 'required'
+            ]);
+            
+            $media = new Media();
+        
+            $file = Input::file('file');
+            
+            $imageName = 'fase-'.$fase_id.'-id-'.$media->id.'-'.$file->getClientOriginalName();
+        
+            
+            $file->move('video/catalog/', $imageName);
+            
+            $filePath = 'video/catalog/'.$imageName;
+            
+            
+            
+        
+>>>>>>> 99893ad9059b622e18a9bcf7d661ee79570088ef
               $media->createNew([
                 'link' => $filePath,
                 'type' => $request->input('uploadType'),
                 'fase_id' => $fase_id
               ]);
+<<<<<<< HEAD
 
         }
 //
+=======
+            
+        }
+//        
+>>>>>>> 99893ad9059b622e18a9bcf7d661ee79570088ef
 //        if($validated->fails()){
 //
 //            return redirect('/media/'.$fase_id)
 //                    ->withErrors($validator)
 //                    ->withCookie(cookie('current_id',$fase_id));
 //        }
+<<<<<<< HEAD
 //
+=======
+//        
+>>>>>>> 99893ad9059b622e18a9bcf7d661ee79570088ef
       return redirect('/admin');
 =======
     if ($uploadType == 'youtube'){
