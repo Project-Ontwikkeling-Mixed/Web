@@ -89,12 +89,18 @@
   border-top: 0px;
   padding: 0;
   .row{
-    padding: 25px;
+    padding: 10px 25px;
   }
 }
 
 .project-text{
-  padding: 50px 15px;
+  padding: 10px 15px;
+  h4{
+    color: #333;
+  }
+  p{
+    margin: 20px 0px;
+  }
 }
 
 //inspraakvragen
@@ -129,4 +135,44 @@
 
 .fase-beschrijving{
   padding: 15px;
+}
+
+// Vragen gedeelte
+
+.vragen-sectie{
+  margin: 25px 0px;
+  border: 1px solid lightgray;
+  div{
+    margin: 0px -15px;
+  }
+  ul{
+    margin: 0; padding: 0;
+    li{
+      list-style: none;
+      a{
+        padding: 15px;
+        text-align: center;
+        text-decoration: none;
+        background: $default-button-background;
+        color: #333;
+        transition: all .5s ease;
+        display: block;
+      }
+      a:hover{
+        background: lighten($default-button-background, 5%);
+      }
+    }
+  }
+}
+
+.answers-holder{
+  div{
+    display: block;
+    margin: 15px;
+    padding: 0px 10px;
+  }
+}
+
+.answer{
+  padding: 10px 10px;
 }

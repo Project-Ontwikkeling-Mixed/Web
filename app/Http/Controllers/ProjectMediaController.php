@@ -9,6 +9,7 @@ use Illuminate\Cookie\CookieJar;
 use Validator;
 
 use App\Media;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 use Input;
 
@@ -34,6 +35,95 @@ class ProjectMediaController extends Controller
       ->withCookie('fase_id', $fase_id, 30, null, null, false, false);
     }
 
+
+    public function create($fase_id, Request $request){
+        $uploadType = $request->input('uploadType');
+
+        $validated = $this->validate($request, [
+            'uploadType' => 'required'
+            ]);
+
+
+        if ($uploadType =='youtube'){
+
+            $media = new Media();
+
+            $validated = $this->validate($request, [
+            'link' => 'required'
+            ]);
+
+              $media->createNew([
+                'link' => $request->input('link'),
+                'type' => $request->input('uploadType'),
+                'fase_id' => $fase_id
+              ]);
+
+
+        }
+        elseif($uploadType =='image'){
+
+            $validated = $this->validate($request, [
+            'file' => 'required'
+            ]);
+
+            $media = new Media();
+
+            $file = Input::file('file');
+
+            $imageName = 'fase-'.$fase_id.'-id-'.$media->id.'-'.$file->getClientOriginalName();
+
+
+            $file->move('img/catalog/', $imageName);
+
+            $filePath = 'img/catalog/'.$imageName;
+
+
+
+
+              $media->createNew([
+                'link' => $filePath,
+                'type' => $request->input('uploadType'),
+                'fase_id' => $fase_id
+              ]);
+
+        }
+        elseif($uploadType =='video'){
+
+            $validated = $this->validate($request, [
+            'file' => 'required'
+            ]);
+
+            $media = new Media();
+
+            $file = Input::file('file');
+
+            $imageName = 'fase-'.$fase_id.'-id-'.$media->id.'-'.$file->getClientOriginalName();
+
+
+            $file->move('video/catalog/', $imageName);
+
+            $filePath = 'video/catalog/'.$imageName;
+
+
+
+
+              $media->createNew([
+                'link' => $filePath,
+                'type' => $request->input('uploadType'),
+                'fase_id' => $fase_id
+              ]);
+
+        }
+//
+//        if($validated->fails()){
+//
+//            return redirect('/media/'.$fase_id)
+//                    ->withErrors($validator)
+//                    ->withCookie(cookie('current_id',$fase_id));
+//        }
+//
+      return redirect('/admin');
+=======
     if ($uploadType == 'youtube'){
 
       $validator = Validator::make($request->all(), [
@@ -76,6 +166,7 @@ class ProjectMediaController extends Controller
         ->withErrors($validator)
         ->withCookie('fase_id', $fase_id, 30, null, null, false, false);
       }
+>>>>>>> 8e98ab14e5cb33234b9ac5d43081ab0e1584d86d
     }
 
     return redirect('/project/' . $media->getProjectIdOfMedia($fase_id))

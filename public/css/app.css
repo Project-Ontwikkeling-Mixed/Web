@@ -4517,6 +4517,12 @@ a.thumbnail.active {
   .alert-danger .alert-link {
     color: #843534; }
 
+@-webkit-keyframes progress-bar-stripes {
+  from {
+    background-position: 40px 0; }
+  to {
+    background-position: 0 0; } }
+
 @keyframes progress-bar-stripes {
   from {
     background-position: 40px 0; }
@@ -4550,6 +4556,7 @@ a.thumbnail.active {
 
 .progress.active .progress-bar,
 .progress-bar.active {
+  -webkit-animation: progress-bar-stripes 2s linear infinite;
   animation: progress-bar-stripes 2s linear infinite; }
 
 .progress-bar-success {
@@ -5163,9 +5170,12 @@ button.close {
   -webkit-overflow-scrolling: touch;
   outline: 0; }
   .modal.fade .modal-dialog {
+    -webkit-transform: translate(0, -25%);
     transform: translate(0, -25%);
+    transition: -webkit-transform 0.3s ease-out;
     transition: transform 0.3s ease-out; }
   .modal.in .modal-dialog {
+    -webkit-transform: translate(0, 0);
     transform: translate(0, 0); }
 
 .modal-open .modal {
@@ -5508,16 +5518,22 @@ button.close {
       line-height: 1; }
     @media all and (transform-3d), (-webkit-transform-3d) {
       .carousel-inner > .item {
+        transition: -webkit-transform 0.6s ease-in-out;
         transition: transform 0.6s ease-in-out;
+        -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
+        -webkit-perspective: 1000px;
         perspective: 1000px; }
         .carousel-inner > .item.next, .carousel-inner > .item.active.right {
+          -webkit-transform: translate3d(100%, 0, 0);
           transform: translate3d(100%, 0, 0);
           left: 0; }
         .carousel-inner > .item.prev, .carousel-inner > .item.active.left {
+          -webkit-transform: translate3d(-100%, 0, 0);
           transform: translate3d(-100%, 0, 0);
           left: 0; }
         .carousel-inner > .item.next.left, .carousel-inner > .item.prev.right, .carousel-inner > .item.active {
+          -webkit-transform: translate3d(0, 0, 0);
           transform: translate3d(0, 0, 0);
           left: 0; } }
   .carousel-inner > .active,
@@ -6247,10 +6263,14 @@ iframe {
   border-top: 0px;
   padding: 0; }
   .project-holder .row {
-    padding: 25px; }
+    padding: 10px 25px; }
 
 .project-text {
-  padding: 50px 15px; }
+  padding: 10px 15px; }
+  .project-text h4 {
+    color: #333; }
+  .project-text p {
+    margin: 20px 0px; }
 
 .inspraakvragen-box {
   padding: 25px; }
@@ -6273,6 +6293,35 @@ iframe {
 
 .fase-beschrijving {
   padding: 15px; }
+
+.vragen-sectie {
+  margin: 25px 0px;
+  border: 1px solid lightgray; }
+  .vragen-sectie div {
+    margin: 0px -15px; }
+  .vragen-sectie ul {
+    margin: 0;
+    padding: 0; }
+    .vragen-sectie ul li {
+      list-style: none; }
+      .vragen-sectie ul li a {
+        padding: 15px;
+        text-align: center;
+        text-decoration: none;
+        background: #ddd;
+        color: #333;
+        transition: all .5s ease;
+        display: block; }
+      .vragen-sectie ul li a:hover {
+        background: #eaeaea; }
+
+.answers-holder div {
+  display: block;
+  margin: 15px;
+  padding: 0px 10px; }
+
+.answer {
+  padding: 10px 10px; }
 
 /*
 
@@ -6354,6 +6403,56 @@ Administratie navigatie
 .admin-menu nav li .nieuw-project:hover {
   background: #0bb0d9; }
 
+<<<<<<< HEAD
+/* 
+    Inspraakvragen navigatie
+*/
+.vragen-menu {
+  padding: 0; }
+  .vragen-menu nav ul {
+    margin: 0;
+    padding: 0; }
+    .vragen-menu nav ul li {
+      margin: 0;
+      padding: 0;
+      list-style: none; }
+      .vragen-menu nav ul li a {
+        display: block;
+        padding: 5px 0 5px 25px;
+        background: #f1f1f1;
+        border-bottom: 1px solid lightgray;
+        color: #333;
+        font-weight: 700; }
+      .vragen-menu nav ul li a:hover {
+        background: #f5f5f5;
+        text-decoration: none; }
+
+.vragen-menu nav .vragen-menu-title {
+  padding: 10px;
+  padding-left: 25px;
+  font-size: 15px;
+  text-transform: uppercase;
+  background: white;
+  border-bottom: 1px solid lightgray; }
+
+.vragen-menu nav li .nieuwe-vraag {
+  color: white;
+  background: #0A9CC1;
+  transition: background .5s ease;
+  border: none; }
+
+.vragen-menu nav li .nieuwe-vraag:hover {
+  background: #0bb0d9; }
+
+=======
+.vragen-menu {
+  border-right: 1px solid lightgray; }
+
+.vragen-menu-item {
+  cursor: pointer;
+  border-bottom: 1px solid lightgray; }
+
+>>>>>>> 8e98ab14e5cb33234b9ac5d43081ab0e1584d86d
 .image-large-holder {
   overflow: hidden; }
 
@@ -6361,13 +6460,15 @@ Administratie navigatie
   height: 450px; }
 
 .media-controls {
-  padding-top: 0px; }
-  .media-controls div {
-    margin: 0;
-    padding: 0; }
-
-.media-controls > :first-child {
-  border-right: 1px solid gray; }
+  background: #eee;
+  position: relative;
+  padding: 10px;
+  text-align: center; }
+  .media-controls .media-item {
+    background: black; }
+  .media-controls button {
+    display: inline-block;
+    margin-top: 10px; }
 
 .tijdpunt, .tijdpunt-done {
   width: 30px;
@@ -6405,6 +6506,7 @@ Administratie navigatie
   height: 12px;
   background: gray;
   display: inline-block;
+  -webkit-transform: translate(-10px, 4px) rotate(45deg);
   transform: translate(-10px, 4px) rotate(45deg); }
 
 .tijdlijn-fase-ballon-done {
@@ -6415,6 +6517,9 @@ Administratie navigatie
 
 .alert {
   border-radius: 0px; }
+
+.vraag {
+  padding: 15px 0px; }
 
 .btn, .btn-lg, .btn-group-lg > .btn, .btn-red, .btn-project {
   border-radius: 0px;

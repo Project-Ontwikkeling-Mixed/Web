@@ -15,10 +15,19 @@ class VragenController extends Controller
 
       $random_vragen = $vraag->getRandomVragen($aantal_vragen);
 
-      return response()->json($random_vragen);
+      return response()->json(array("vragen" => $random_vragen));
     }
 
-    public function answer($answer_id){
+    public function allQuestions($fase_id){
+      $question = new InspraakVraag();
+
+      $allQuestions = $question->getQuestions($fase_id);
+      return response()->json($allQuestions);
+    }
+
+    public function answer(Request $request){
+      $answer_id = $request->json("answer_id");
+
       $answer = new InspraakVraagAntwoord();
 
       $answer->chooseAnswer($answer_id);

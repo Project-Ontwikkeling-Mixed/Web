@@ -17,6 +17,11 @@ class RedirectIfAuthenticated
      */
     public function handle($request, Closure $next, $guard = null)
     {
+
+        if ($request->ajax() || $request->wantsJson()) {
+          return $next($request);
+        }
+
         if (Auth::guard($guard)->check()) {
             return redirect('/');
         }

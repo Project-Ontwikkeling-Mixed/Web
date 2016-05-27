@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use DB;
 
 class InspraakVraagAntwoord extends Model
 {
@@ -15,6 +16,8 @@ class InspraakVraagAntwoord extends Model
     }
 
     public function chooseAnswer($answer_id){
-      return DB::table('inspraakvraag_antwoord')->increment('aantal_gekozen');
+      return DB::table('inspraakvraag_antwoord')
+      ->where("id", $answer_id)
+      ->increment('aantal_gekozen');
     }
 }

@@ -12,31 +12,24 @@ new Vue({
   data: function(){
     return{
       mediaItem: 0,
-      mediaItems: document.getElementsByClassName('media-item')
+      mediaItems: document.getElementsByClassName('media-item'),
+      questionAnswers: "",
+      currentQuestion: 0
     }
   },
 
   ready: function(){
-    this.fetchAProject();
+    var value = {
+      id: 1
+    };
+
+    this.fetchProjectData(this, value);
     this.fetchProjects();
     this.fetchMedia();
+
   },
 
   methods: {
-    fetchAProject: function(){
-      var that = this;
-      this.$http.get('/json/project/1', function(project){
-        that.$set('project', project);
-        var active = that;
-        active.$http.get('/json/fases/active/1', function(fase){
-          if(fase[0] == null){
-            active.$set('activeFase', {naam: "Geen fase actief"})
-          }else{
-            active.$set('activeFase', fase[0]);
-          }
-        })
-      });
-    },
 
     setMediaItem: function(){
       for(var item = 0; item < this.mediaItems.length; item++){
@@ -46,35 +39,50 @@ new Vue({
       toView.style.display = "block";
     },
 
+    answerQuestion: function(id){
+      this.$http.post('/antwoord', {"answer_id": id});
+      this.currentQuestion++;
+    },
+
     next: function(){
       this.mediaItem++;
-
       if(this.mediaItem > this.mediaItems.length - 1){
         this.mediaItem = this.mediaItems.length - 1;
       }
-
-
       this.setMediaItem();
     },
 
     previous: function(){
       this.mediaItem--;
-
       if(this.mediaItem < this.mediaItems.length - 1){
         this.mediaItem = 0;
       }
-
       this.setMediaItem();
     },
 
     fetchMedia: function(){
       this.$http.get('/json/media/all', function(media){
         this.$set('media', media);
-
-        //prepare image data
         this.setMediaItem();
       });
+    },
 
+    fetchProjectData: function(scope, value){
+      scope.$http.get('/json/project/' + value.id, function(project){
+        scope.$set('project', project);
+
+        scope.$http.get('/json/fases/active/' + value.id, function(fase){
+          if(fase[0] == null){
+            scope.$set('activeFase', {naam: "Geen fase actief"})
+          }else{
+            scope.$set('activeFase', fase[0]);
+          }
+        });
+
+        scope.$http.get('/json/inspraakvragen/' + value.id, function(questions){
+          scope.$set('questions', questions);
+        });
+      });
     },
 
     fetchProjects: function(){
@@ -93,17 +101,7 @@ new Vue({
               content : value.naam
             },
             click: function(e){
-              thisThing.$http.get('/json/project/' + value.id, function(project){
-                thisThing.$set('project', project);
-                var active = thisThing;
-                active.$http.get('/json/fases/active/' + value.id, function(fase){
-                  if(fase[0] == null){
-                    active.$set('activeFase', {naam: "Geen fase actief"})
-                  }else{
-                    active.$set('activeFase', fase[0]);
-                  }
-                })
-              });
+              thisThing.fetchProjectData(thisThing, value);
             }
           });
         });
