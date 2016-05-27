@@ -107,7 +107,7 @@
         <div class="spacer">
 
         </div>
-        <div class="form-group">
+        <div class="form-group{{ $errors->has('uploadType') ? ' has-error' : '' }}">
           <label>
             <input type="radio" name="uploadType" v-model="type" value="youtube"> Youtube link
           </label>
@@ -117,8 +117,14 @@
           <label>
             <input type="radio" name="uploadType" v-model="type" value="video"> Video
           </label>
+            @if ($errors->has('uploadType'))
+                  <span class="help-block">
+                    <strong>{{ $errors->first('uploadType') }}</strong>
+                  </span>
+            @endif
         </div>
-        <div class="form-group">
+          
+        <div class="form-group{{ $errors->has('link') ? ' has-error' : '' }}">
           <div v-if="type == 'youtube'">
             <input type="text" class="form-control" name="link" placeholder="Plaats Youtube link hier">
           </div>
@@ -130,12 +136,35 @@
               Geen media soort gekozen
             </p>
           </div>
+            @if ($errors->has('link'))
+                  <span class="help-block">
+                    <strong>{{ $errors->first('link') }}</strong>
+                  </span>
+                @endif
         </div>
         <div class="form-group">
           <input type="submit" class="btn btn-primary" value="Media toevoegen aan fase">
         </div>
       </form>
-
+      
+      <div class="spacer"></div>
+      
+      <div id="questionSection" data-id='1'>
+        <h5>Inspraakvragen</h5>
+          <div class="col-md-3 vragen-menu" >
+            <nav>
+              <ul id="">
+                <li><a href="{{ url('admin/project/new') }}" class="nieuwe-vraag">Nieuwe Vraag</a></li>
+                <li class="vragen-menu-title">Huidige Vragen</li>
+                <li>@{{ test }}</li>
+                <li v-for="question in questions">
+                  <a href="#">@{{ question.vraag }}</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+      </div>
+      
     </div>
   @endsection
 
@@ -143,4 +172,5 @@
     <script type="text/javascript" src="{{ asset('js/vendor/moment.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/vendor/datetimepicker.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/Admin/project-fases.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/Admin/inspraakvragen.js') }}"></script>
   @endsection

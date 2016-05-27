@@ -16,4 +16,21 @@ class VragenController extends Controller
 
       return response()->json($random_vragen);
     }
+    
+    public function getAllJson($fase_id)
+  {
+    $inspraakVraag = new InspraakVraag();
+    $myInspraakVraag = $inspraakVraag->getByFase($fase_id);
+    return response()->json($myInspraakVraag);
+  }
+    
+     public function create(Request $request)
+  {
+    $InspraakVraag = new InspraakVraag();
+
+    
+
+    $vraag = $project->getAll();
+    return view('admin/project/project', ['title' => 'Nieuw Project']);
+  }
 }

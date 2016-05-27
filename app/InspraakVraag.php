@@ -24,4 +24,10 @@ class InspraakVraag extends Model
               ->take($aantal)
               ->get();
     }
+    
+    public function getByFase($id){
+      return DB::table('inspraakvraag')
+      ->where('fase_id', $id)
+      ->get();
+    }
 }

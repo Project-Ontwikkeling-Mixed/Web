@@ -51,7 +51,7 @@ class ProjectController extends Controller
     if($request->isMethod('post')){
         
         $this->validate($request, [
-        'naam' => 'required',
+        'naam' => 'required|unique',
         'beschrijving' => 'required',
         'locatie' => 'required'
         ]);
@@ -66,7 +66,7 @@ class ProjectController extends Controller
     }
 
     $projecten = $project->getAll();
-    return view('admin/project/new', ['projecten' => $projecten, 'title' => 'Nieuw Project']);
+    return view('admin/project/new', ['title' => 'Nieuw Project']);
   }
 
   public function update($project_id, Request $request)
@@ -79,6 +79,7 @@ class ProjectController extends Controller
       'locatie' => $request->input('locatie')
     ]);
 
+    var_dump($request->cookie('current_fase'));
     $project_id = $request->input('project_id');
     return redirect('project/' . $project_id);
   }

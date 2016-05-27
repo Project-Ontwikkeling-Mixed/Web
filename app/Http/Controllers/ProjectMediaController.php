@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 
 use App\Media;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 use Input;
 
@@ -20,10 +21,19 @@ class ProjectMediaController extends Controller
     public function create($fase_id, Request $request){
         $uploadType = $request->input('uploadType');
         
+        $validated = $this->validate($request, [
+            'uploadType' => 'required'
+            ]);
+        
+        
         if ($uploadType =='youtube'){
          
             $media = new Media();
         
+            $validated = $this->validate($request, [
+            'link' => 'required'
+            ]);
+            
               $media->createNew([
                 'link' => $request->input('link'),
                 'type' => $request->input('uploadType'),
@@ -33,6 +43,10 @@ class ProjectMediaController extends Controller
             
         } 
         elseif($uploadType =='image'){
+            
+            $validated = $this->validate($request, [
+            'file' => 'required'
+            ]);
             
             $media = new Media();
         
@@ -46,6 +60,7 @@ class ProjectMediaController extends Controller
             $filePath = 'img/catalog/'.$imageName;
             
             
+            
         
               $media->createNew([
                 'link' => $filePath,
@@ -54,9 +69,41 @@ class ProjectMediaController extends Controller
               ]);
             
         }
+        elseif($uploadType =='video'){
+            
+            $validated = $this->validate($request, [
+            'file' => 'required'
+            ]);
+            
+            $media = new Media();
         
+            $file = Input::file('file');
+            
+            $imageName = 'fase-'.$fase_id.'-id-'.$media->id.'-'.$file->getClientOriginalName();
         
-
-      //return redirect('/admin');
+            
+            $file->move('video/catalog/', $imageName);
+            
+            $filePath = 'video/catalog/'.$imageName;
+            
+            
+            
+        
+              $media->createNew([
+                'link' => $filePath,
+                'type' => $request->input('uploadType'),
+                'fase_id' => $fase_id
+              ]);
+            
+        }
+//        
+//        if($validated->fails()){
+//
+//            return redirect('/media/'.$fase_id)
+//                    ->withErrors($validator)
+//                    ->withCookie(cookie('current_id',$fase_id));
+//        }
+//        
+      return redirect('/admin');
     }
 }

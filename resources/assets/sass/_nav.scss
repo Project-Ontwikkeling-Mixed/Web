@@ -94,3 +94,50 @@ Administratie navigatie
 .admin-menu nav li .nieuw-project:hover{
   background: lighten($primary-button-background, 5%);
 }
+
+/* 
+    Inspraakvragen navigatie
+*/
+
+.vragen-menu{
+    padding: 0;
+    nav ul {
+        margin: 0; padding: 0;
+        li{
+          margin: 0; padding: 0;
+          list-style: none;
+          a{
+            display: block;
+            padding: 5px 0 5px 25px;
+            background: $admin-menu-bg-color;
+            border-bottom: 1px solid lightgray;
+            color: #333;
+            font-weight: 700;
+          }
+          a:hover{
+            background: $admin-menu-bg-hover-color;
+            text-decoration: none;
+          }
+        }
+  }
+}
+
+.vragen-menu nav .vragen-menu-title{
+  padding: 10px;
+  padding-left: 25px;
+  font-size: 15px;
+  text-transform: uppercase;
+  background: white;
+  border-bottom: 1px solid lightgray;
+}
+
+.vragen-menu nav li .nieuwe-vraag{
+    color: white;
+      background: $primary-button-background;
+      transition: background .5s ease;
+      border: none;
+}
+
+.vragen-menu nav li .nieuwe-vraag:hover{
+  background: lighten($primary-button-background, 5%);
+}
