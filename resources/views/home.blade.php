@@ -72,6 +72,10 @@
                   </ol>
                 </div>
               </div>
+              <div v-if="questions.length == currentQuestion">
+                <h4>Geen vragen meer om te antwoorden</h4>
+              </div>
+
             </div>
           </div>
         </div>

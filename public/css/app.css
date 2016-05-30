@@ -6495,8 +6495,8 @@ Administratie navigatie
   padding: 15px 0px; }
 
 .question {
-  padding-bottom: 20px;
-  padding-top: 10px; }
+  margin-bottom: 20px;
+  margin-top: 10px; }
 
 .question div ol li::before {
   color: red; }
