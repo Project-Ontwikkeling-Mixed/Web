@@ -65,11 +65,11 @@
               <div v-for="question in questions" class="question">
                 <div v-if="currentQuestion == $index">
                   <h4>@{{ question.vraag }}</h4>
-                  <ul>
+                  <ol>
                     <li v-for="answer in question.antwoorden">
-                      <a v-on:click="answerQuestion($index)">@{{ answer.antwoord }}</a>
+                      <a v-on:click="answerQuestion($index)" class="antwoord">@{{ answer.antwoord }}</a>
                     </li>
-                  </ul>
+                  </ol>
                 </div>
               </div>
             </div>

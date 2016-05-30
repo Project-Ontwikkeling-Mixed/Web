@@ -19,8 +19,6 @@ Route::group(['middleware' => ['web']], function () {
         return view('welcome');
     });
 
-
-
     Route::get('/home', 'HomeController@index');
 
     Route::get('/admin', 'AdminController@index');
@@ -46,6 +44,7 @@ Route::group(['middleware' => ['web']], function () {
 
     //vragen routes
     Route::get('/admin/vraag/new', 'VragenController@create');
+    Route::get('/vragen/export', 'VragenController@generateCsv');
 
 
     //antwoord routes

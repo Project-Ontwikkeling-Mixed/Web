@@ -25,6 +25,11 @@ class InspraakVraag extends Model
               ->get();
     }
 
+    public function getForCsv(){
+      return $this->with('antwoorden')
+              ->get();
+    }
+
     public function getByFase($id){
       return DB::table('inspraakvraag')
       ->where('fase_id', $id)

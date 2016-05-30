@@ -4517,12 +4517,6 @@ a.thumbnail.active {
   .alert-danger .alert-link {
     color: #843534; }
 
-@-webkit-keyframes progress-bar-stripes {
-  from {
-    background-position: 40px 0; }
-  to {
-    background-position: 0 0; } }
-
 @keyframes progress-bar-stripes {
   from {
     background-position: 40px 0; }
@@ -4556,7 +4550,6 @@ a.thumbnail.active {
 
 .progress.active .progress-bar,
 .progress-bar.active {
-  -webkit-animation: progress-bar-stripes 2s linear infinite;
   animation: progress-bar-stripes 2s linear infinite; }
 
 .progress-bar-success {
@@ -5170,12 +5163,9 @@ button.close {
   -webkit-overflow-scrolling: touch;
   outline: 0; }
   .modal.fade .modal-dialog {
-    -webkit-transform: translate(0, -25%);
     transform: translate(0, -25%);
-    transition: -webkit-transform 0.3s ease-out;
     transition: transform 0.3s ease-out; }
   .modal.in .modal-dialog {
-    -webkit-transform: translate(0, 0);
     transform: translate(0, 0); }
 
 .modal-open .modal {
@@ -5518,22 +5508,16 @@ button.close {
       line-height: 1; }
     @media all and (transform-3d), (-webkit-transform-3d) {
       .carousel-inner > .item {
-        transition: -webkit-transform 0.6s ease-in-out;
         transition: transform 0.6s ease-in-out;
-        -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
-        -webkit-perspective: 1000px;
         perspective: 1000px; }
         .carousel-inner > .item.next, .carousel-inner > .item.active.right {
-          -webkit-transform: translate3d(100%, 0, 0);
           transform: translate3d(100%, 0, 0);
           left: 0; }
         .carousel-inner > .item.prev, .carousel-inner > .item.active.left {
-          -webkit-transform: translate3d(-100%, 0, 0);
           transform: translate3d(-100%, 0, 0);
           left: 0; }
         .carousel-inner > .item.next.left, .carousel-inner > .item.prev.right, .carousel-inner > .item.active {
-          -webkit-transform: translate3d(0, 0, 0);
           transform: translate3d(0, 0, 0);
           left: 0; } }
   .carousel-inner > .active,
@@ -6403,8 +6387,7 @@ Administratie navigatie
 .admin-menu nav li .nieuw-project:hover {
   background: #0bb0d9; }
 
-<<<<<<< HEAD
-/* 
+/*
     Inspraakvragen navigatie
 */
 .vragen-menu {
@@ -6444,15 +6427,6 @@ Administratie navigatie
 .vragen-menu nav li .nieuwe-vraag:hover {
   background: #0bb0d9; }
 
-=======
-.vragen-menu {
-  border-right: 1px solid lightgray; }
-
-.vragen-menu-item {
-  cursor: pointer;
-  border-bottom: 1px solid lightgray; }
-
->>>>>>> 8e98ab14e5cb33234b9ac5d43081ab0e1584d86d
 .image-large-holder {
   overflow: hidden; }
 
@@ -6506,7 +6480,6 @@ Administratie navigatie
   height: 12px;
   background: gray;
   display: inline-block;
-  -webkit-transform: translate(-10px, 4px) rotate(45deg);
   transform: translate(-10px, 4px) rotate(45deg); }
 
 .tijdlijn-fase-ballon-done {
@@ -6520,6 +6493,42 @@ Administratie navigatie
 
 .vraag {
   padding: 15px 0px; }
+
+.question {
+  padding-bottom: 20px;
+  padding-top: 10px; }
+
+.question div ol li::before {
+  color: red; }
+
+.question div ol li a {
+  position: relative;
+  list-style: none;
+  margin-top: 15px;
+  padding: 25px -20px;
+  text-decoration: none;
+  font-size: 18px;
+  font-style: "Antwerpen";
+  color: #333;
+  display: block;
+  font-weight: 900;
+  z-index: 10; }
+
+.question div ol li a:before {
+  content: ' ';
+  position: relative;
+  z-index: -1;
+  left: -27px;
+  top: 10px;
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  background: lightgray;
+  border-radius: 150px; }
+
+.question div ol li a:hover {
+  cursor: pointer;
+  text-decoration: underline; }
 
 .btn, .btn-lg, .btn-group-lg > .btn, .btn-red, .btn-project {
   border-radius: 0px;

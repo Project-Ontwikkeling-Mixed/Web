@@ -7,6 +7,7 @@ use App\InspraakVraagAntwoord;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use SoapBox\Formatter\Formatter;
 
 class VragenController extends Controller
 {
@@ -23,6 +24,23 @@ class VragenController extends Controller
     $inspraakVraag = new InspraakVraag();
     $myInspraakVraag = $inspraakVraag->getByFase($fase_id);
     return response()->json($myInspraakVraag);
+  }
+
+  public function generateCsv(){
+    $question = new InspraakVraag();
+    $allQuestionData = $question->getForCsv();
+
+    $formatter = Formatter::make($allQuestionData, Formatter::ARR);
+    $csv = $formatter->toCsv();
+
+    header('Content-Disposition: attachment; filename="antwoord_data.csv"');
+    header("Cache-control: private");
+    header("Content-type: application/force-download");
+    header("Content-transfer-encoding: binary\n");
+
+    echo $csv;
+
+    exit;
   }
 
   public function create(Request $request)
