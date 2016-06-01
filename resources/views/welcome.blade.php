@@ -18,7 +18,7 @@
           <h2>Populaire projecten</h2>
           <div class="spacer"></div>
           <div v-for="project in projects">
-            <h4><a href="">@{{ project.naam }}</a></h4>
+            <h4>@{{ project.naam }}</h4>
             <p>
               @{{ project.beschrijving }}
             </p>
@@ -26,6 +26,8 @@
         </div>
         <div class="col-md-4">
           <h2>Ontdek de app</h2>
+          <br>
+          <img src="{{ asset('img/app.png')}}" alt="Screenshot app" />
         </div>
       </div>
     </section>

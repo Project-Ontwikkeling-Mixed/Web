@@ -16,7 +16,7 @@
           <h1>@{{ project.naam }}</h1>
         </div>
         <div class="col-md-2">
-          <button class="btn-project horizontal-center"><span class="icon-abonnement"></span> Abonneer</button>
+          <!-- <button class="btn-project horizontal-center"><span class="icon-abonnement"></span> Abonneer</button> -->
         </div>
       </div>
       <div class="row project-holder">
