@@ -7,6 +7,7 @@
   font-size: 16px;
   //border: none;
   padding: 8px 25px;
+  transition: all .2s ease;
 }
 
 .btn-lg{
@@ -33,6 +34,11 @@
   color: white;
 }
 
+//black text out of focus fix
+.btn.btn-red:focus{
+  color: white;
+}
+
 .btn-red:hover{
   background: darken($red-button-background, 5%);
   color: white;
@@ -44,15 +50,22 @@
   margin-top: 15px;
 }
 
+.btn-darker{
+  background: lighten($default-button-background, 15%);
+}
 
-//forms
+.btn-darker:hover{
+  background: lighten($default-button-background, 10%);
+}
 
+//Forms
 .input-group-addon{
   border-radius: 0px;
   background: $input-border-color;
   border: 0px solid $input-background-color;
   color: white;
 }
+
 .form-control{
   border: 2px solid $input-border-color;
   background: $input-background-color;
@@ -63,4 +76,8 @@
 .form-control:focus{
   box-shadow: none;
   border: 2px solid $input-glow-color;
+}
+
+input[type="file"]{
+  padding: 15px 0 15px 0;
 }

@@ -7,6 +7,8 @@ use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Illuminate\Http\Request;
+use Auth;
 
 class AuthController extends Controller
 {
@@ -54,6 +56,17 @@ class AuthController extends Controller
             'email' => 'required|email|max:255|unique:gebruikers',
             'password' => 'required|min:6|confirmed',
         ]);
+    }
+
+    public function authApp(Request $request){
+      $email = $request->input("email");
+      $password = $request->input("password");
+
+      if (Auth::attempt(['email' => $email, 'password' => $password])) {
+        return response()->json(Auth::user());
+      }else{
+        return response()->json([201 => "Authentication failed"]);
+      }
     }
 
     /**

@@ -6,6 +6,11 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Fase as Fase;
+use Symfony\Component\HttpFoundation\Session\Session;
+use Illuminate\Http\Response;
+use Illuminate\Cookie\CookieJar;
+
+use Validator;
 
 class ProjectFaseController extends Controller
 {
@@ -24,34 +29,76 @@ class ProjectFaseController extends Controller
 
   public function create(Request $request)
   {
-    $fase = new Fase();
-    $project_id = $request->input('project_id');
-
-
-    $fase->createNew([
-      'naam' => $request->input('naam'),
-      'beschrijving' => $request->input('beschrijving'),
-      'begin' => $request->input('begin'),
-      'einde' => $request->input('einde'),
-      'project_id' => $request->input('project_id')
+    $validated = Validator::make($request->all(), [
+      'naam' => 'required',
+      'beschrijving' => 'required',
+      'begin' => 'required',
+      'einde' => 'required|greater_than_field:begin',
+      'project_id' => 'required'
     ]);
 
-    return redirect('project/' . $project_id);
+    $project_id = $request->input('project_id');
+
+    $fase = new Fase();
+
+    if(!$validated->fails()){
+      $fase->createNew([
+        'naam' => $request->input('naam'),
+        'beschrijving' => $request->input('beschrijving'),
+        'begin' => $request->input('begin'),
+        'einde' => $request->input('einde'),
+        'project_id' => $project_id
+      ]);
+    }
+
+    return redirect('project/' . $project_id)->withErrors($validated);
+
   }
 
   public function update($fase_id, Request $request)
   {
     $fase = new Fase();
 
-    $fase->updateFase($fase_id,[
-      'naam' => $request->input('naam'),
-      'beschrijving' => $request->input('beschrijving'),
-      'begin' => $request->input('begin'),
-      'einde' => $request->input('einde'),
+    $validated = Validator::make($request->all(), [
+      'naam' => 'required',
+      'beschrijving' => 'required',
+      'begin' => 'required',
+      'einde' => 'required|greater_than_field:begin',
+      'project_id' => 'required'
     ]);
 
+    if(!$validated->fails()){
+      $fase->updateFase($fase_id,[
+        'naam' => $request->input('naam'),
+        'beschrijving' => $request->input('beschrijving'),
+        'begin' => $request->input('begin'),
+        'einde' => $request->input('einde'),
+      ]);
+    }
+
+
     $project_id = $request->input('project_id');
-    return redirect('project/' . $project_id);
+
+    return redirect('project/' . $project_id)
+    ->withErrors($validated)
+    ->withCookie('fase_id', $fase_id, 30, null, null, false, false);
+  }
+
+  public function delete($fase_id, Request $request)
+  {
+    $fase = new Fase();
+    $fase->deleteFase($fase_id);
+
+    $request->session()->put('message', 'Project fase succesvol verwijderd');
+    return redirect('admin/');
+  }
+
+  public function getCurrent($project_id)
+  {
+    $fase = new Fase();
+    $currentFase = $fase->getActiveByProject($project_id);
+
+    return response()->json($currentFase);
   }
 
 }

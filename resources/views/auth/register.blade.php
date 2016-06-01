@@ -4,8 +4,7 @@
   <div class="container login-box" id="login-box">
     <h1>Registreren</h1>
     <form role="form" method="POST" action="{{ url('/register') }}">
-      {!! csrf_field() !!}
-
+      
       <div class="form-group{{ $errors->has('voornaam') ? ' has-error' : '' }}">
         <label>Naam</label>
 

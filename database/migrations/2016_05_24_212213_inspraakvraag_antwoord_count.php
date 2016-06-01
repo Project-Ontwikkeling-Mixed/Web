@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateInspraakvraagAntwoordTable extends Migration
+class InspraakvraagAntwoordCount extends Migration
 {
     /**
      * Run the migrations.
@@ -12,10 +12,9 @@ class CreateInspraakvraagAntwoordTable extends Migration
      */
     public function up()
     {
-        Schema::create('inspraakvraag_antwoord', function(Blueprint $table){
-          $table->increments('id');
-          $table->string('antwoord');
-        });
+      Schema::table('inspraakvraag_antwoord', function(Blueprint $table) {
+          $table->integer('aantal_gekozen');
+      });
     }
 
     /**
@@ -25,6 +24,6 @@ class CreateInspraakvraagAntwoordTable extends Migration
      */
     public function down()
     {
-        Schema::down('inspraakvraag_antwoord');
+        //
     }
 }

@@ -4517,12 +4517,6 @@ a.thumbnail.active {
   .alert-danger .alert-link {
     color: #843534; }
 
-@-webkit-keyframes progress-bar-stripes {
-  from {
-    background-position: 40px 0; }
-  to {
-    background-position: 0 0; } }
-
 @keyframes progress-bar-stripes {
   from {
     background-position: 40px 0; }
@@ -4556,7 +4550,6 @@ a.thumbnail.active {
 
 .progress.active .progress-bar,
 .progress-bar.active {
-  -webkit-animation: progress-bar-stripes 2s linear infinite;
   animation: progress-bar-stripes 2s linear infinite; }
 
 .progress-bar-success {
@@ -5170,12 +5163,9 @@ button.close {
   -webkit-overflow-scrolling: touch;
   outline: 0; }
   .modal.fade .modal-dialog {
-    -webkit-transform: translate(0, -25%);
     transform: translate(0, -25%);
-    transition: -webkit-transform 0.3s ease-out;
     transition: transform 0.3s ease-out; }
   .modal.in .modal-dialog {
-    -webkit-transform: translate(0, 0);
     transform: translate(0, 0); }
 
 .modal-open .modal {
@@ -5518,22 +5508,16 @@ button.close {
       line-height: 1; }
     @media all and (transform-3d), (-webkit-transform-3d) {
       .carousel-inner > .item {
-        transition: -webkit-transform 0.6s ease-in-out;
         transition: transform 0.6s ease-in-out;
-        -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
-        -webkit-perspective: 1000px;
         perspective: 1000px; }
         .carousel-inner > .item.next, .carousel-inner > .item.active.right {
-          -webkit-transform: translate3d(100%, 0, 0);
           transform: translate3d(100%, 0, 0);
           left: 0; }
         .carousel-inner > .item.prev, .carousel-inner > .item.active.left {
-          -webkit-transform: translate3d(-100%, 0, 0);
           transform: translate3d(-100%, 0, 0);
           left: 0; }
         .carousel-inner > .item.next.left, .carousel-inner > .item.prev.right, .carousel-inner > .item.active {
-          -webkit-transform: translate3d(0, 0, 0);
           transform: translate3d(0, 0, 0);
           left: 0; } }
   .carousel-inner > .active,
@@ -6133,12 +6117,22 @@ h4 {
   text-transform: uppercase;
   font-weight: 200; }
 
+h5 {
+  font-family: "SunAntwerpenBold";
+  font-size: 24px;
+  color: #333;
+  text-transform: uppercase;
+  font-weight: 200; }
+
 p {
   font-family: "SunAntwerpen";
   font-size: 16px; }
 
 section {
   padding: 25px; }
+
+iframe {
+  border: 0px solid transparent; }
 
 .red {
   color: #DC003C; }
@@ -6164,6 +6158,13 @@ section {
 
 .body-white {
   background: white; }
+
+.bootstrap-datetimepicker-widget table td.active, .bootstrap-datetimepicker-widget table td.active:hover {
+  border-radius: 0px;
+  background: #0A9CC1; }
+
+.bootstrap-datetimepicker-widget table td, .bootstrap-datetimepicker-widget table td:hover {
+  border-radius: 0px; }
 
 .icon, .icon-abonnement {
   height: 25px;
@@ -6244,10 +6245,16 @@ section {
 .project-holder {
   border: 1px solid lightgray;
   border-top: 0px;
-  padding: 0px 25px; }
+  padding: 0; }
+  .project-holder .row {
+    padding: 10px 25px; }
 
 .project-text {
-  padding: 50px 15px; }
+  padding: 10px 15px; }
+  .project-text h4 {
+    color: #333; }
+  .project-text p {
+    margin: 20px 0px; }
 
 .inspraakvragen-box {
   padding: 25px; }
@@ -6267,6 +6274,38 @@ section {
   width: 100%;
   height: 400px;
   background-color: #CCC; }
+
+.fase-beschrijving {
+  padding: 15px; }
+
+.vragen-sectie {
+  margin: 25px 0px;
+  border: 1px solid lightgray; }
+  .vragen-sectie div {
+    margin: 0px -15px; }
+  .vragen-sectie ul {
+    margin: 0;
+    padding: 0; }
+    .vragen-sectie ul li {
+      list-style: none; }
+      .vragen-sectie ul li a {
+        padding: 15px;
+        text-align: center;
+        text-decoration: none;
+        background: #ddd;
+        color: #333;
+        transition: all .5s ease;
+        display: block; }
+      .vragen-sectie ul li a:hover {
+        background: #eaeaea; }
+
+.answers-holder div {
+  display: block;
+  margin: 15px;
+  padding: 0px 10px; }
+
+.answer {
+  padding: 10px 10px; }
 
 /*
 
@@ -6348,37 +6387,80 @@ Administratie navigatie
 .admin-menu nav li .nieuw-project:hover {
   background: #0bb0d9; }
 
+/*
+    Inspraakvragen navigatie
+*/
+.vragen-menu {
+  padding: 0; }
+  .vragen-menu nav ul {
+    margin: 0;
+    padding: 0; }
+    .vragen-menu nav ul li {
+      margin: 0;
+      padding: 0;
+      list-style: none; }
+      .vragen-menu nav ul li a {
+        display: block;
+        padding: 5px 0 5px 25px;
+        background: #f1f1f1;
+        border-bottom: 1px solid lightgray;
+        color: #333;
+        font-weight: 700; }
+      .vragen-menu nav ul li a:hover {
+        background: #f5f5f5;
+        text-decoration: none; }
+
+.vragen-menu nav .vragen-menu-title {
+  padding: 10px;
+  padding-left: 25px;
+  font-size: 15px;
+  text-transform: uppercase;
+  background: white;
+  border-bottom: 1px solid lightgray; }
+
+.vragen-menu nav li .nieuwe-vraag {
+  color: white;
+  background: #0A9CC1;
+  transition: background .5s ease;
+  border: none; }
+
+.vragen-menu nav li .nieuwe-vraag:hover {
+  background: #0bb0d9; }
+
 .image-large-holder {
   overflow: hidden; }
 
 .image-large-holder img {
   height: 450px; }
 
-.image-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box; }
+.media-controls {
+  background: #eee;
+  position: relative;
+  padding: 10px;
+  text-align: center; }
+  .media-controls .media-item {
+    background: black; }
+  .media-controls button {
+    display: inline-block;
+    margin-top: 10px; }
 
-.image-list li {
-  overflow: hidden;
-  width: 80px;
+.tijdpunt, .tijdpunt-done {
+  width: 30px;
+  height: 30px;
+  border-radius: 30px;
+  background-color: gray;
+  margin: 0 auto; }
+
+.tijdpunt-done {
+  background-color: #DC003C; }
+
+.tijdlijnstuk {
+  width: 5px;
   height: 80px;
-  margin: 0;
-  padding: 0;
-  margin-bottom: 10px;
-  transition: all .5s ease; }
+  margin: 0 auto;
+  background-color: gray; }
 
-.image-list li:hover {
-  opacity: .7; }
-
-.image-list li img {
-  height: 80px; }
-
-.image-list li img:hover {
-  cursor: pointer; }
-
-.tijdpunt {
+.tijdpunt, .tijdpunt-done {
   border-radius: 50%;
   width: 50%;
   height: 5px;
@@ -6418,7 +6500,6 @@ Administratie navigatie
   height: 12px;
   background: gray;
   display: inline-block;
-  -webkit-transform: translate(-10px, 4px) rotate(45deg);
   transform: translate(-10px, 4px) rotate(45deg); }
 
 .tijdlijn-fase-ballon-done {
@@ -6427,12 +6508,55 @@ Administratie navigatie
 .tijdlijn-fase-ballon-done::before {
   background: #DC003C; }
 
+.alert {
+  border-radius: 0px; }
+
+.vraag {
+  padding: 15px 0px; }
+
+.question {
+  margin-bottom: 20px;
+  margin-top: 10px; }
+
+.question div ol li::before {
+  color: red; }
+
+.question div ol li a {
+  position: relative;
+  list-style: none;
+  margin-top: 15px;
+  padding: 25px -20px;
+  text-decoration: none;
+  font-size: 18px;
+  font-style: "Antwerpen";
+  color: #333;
+  display: block;
+  font-weight: 900;
+  z-index: 10; }
+
+.question div ol li a:before {
+  content: ' ';
+  position: relative;
+  z-index: -1;
+  left: -27px;
+  top: 10px;
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  background: lightgray;
+  border-radius: 150px; }
+
+.question div ol li a:hover {
+  cursor: pointer;
+  text-decoration: underline; }
+
 .btn, .btn-lg, .btn-group-lg > .btn, .btn-red, .btn-project {
   border-radius: 0px;
   font-family: "SunAntwerpenBold";
   text-transform: uppercase;
   font-size: 16px;
-  padding: 8px 25px; }
+  padding: 8px 25px;
+  transition: all .2s ease; }
 
 .btn-lg, .btn-group-lg > .btn, .btn-group-lg > .btn-lg, .btn-group-lg > .btn-red, .btn-group-lg > .btn-project {
   font-size: 18px;
@@ -6451,6 +6575,9 @@ Administratie navigatie
   background: #DC003C;
   color: white; }
 
+.btn.btn-red:focus, .btn-red:focus, .btn-project:focus {
+  color: white; }
+
 .btn-red:hover, .btn-project:hover {
   background: #c30035;
   color: white; }
@@ -6458,6 +6585,12 @@ Administratie navigatie
 .btn-project {
   padding: 12px 30px;
   margin-top: 15px; }
+
+.btn-darker {
+  background: white; }
+
+.btn-darker:hover {
+  background: #f7f7f7; }
 
 .input-group-addon {
   border-radius: 0px;
@@ -6474,6 +6607,9 @@ Administratie navigatie
 .form-control:focus {
   box-shadow: none;
   border: 2px solid #0A9CC1; }
+
+input[type="file"] {
+  padding: 15px 0 15px 0; }
 
 footer {
   text-align: center;

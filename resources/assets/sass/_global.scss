@@ -30,6 +30,14 @@ h4{
   font-weight: 200;
 }
 
+h5{
+  font-family: $subtitle-font;
+  font-size: 24px;
+  color: #333;
+  text-transform: uppercase;
+  font-weight: 200;
+}
+
 p{
   font-family: $regular-text-font;
   font-size: 16px;
@@ -37,6 +45,10 @@ p{
 
 section{
   padding: 25px;
+}
+
+iframe{
+  border: 0px solid transparent;
 }
 
 .red{

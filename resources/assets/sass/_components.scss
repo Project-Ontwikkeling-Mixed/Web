@@ -10,33 +10,48 @@
   height: 450px;
 }
 
-.image-list{
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+.media-controls{
+  background: #eee;
+  position: relative;
+  padding: 10px;
+  text-align: center;
+  .media-item{
+    background: black;
+  }
+  button{
+    display: inline-block;
+    margin-top: 10px;
+  }
 }
 
-.image-list li{
-  overflow: hidden;
-  width: 80px;
-  height: 80px;
-  margin: 0; padding: 0;
-  margin-bottom: 10px;
-  transition: all .5s ease;
+
+
+//Timeline components
+
+.tijdlijn-progress{
+
 }
 
-.image-list li:hover{
-  opacity: .7;
+.tijdpunt{
+    width:30px;
+    height: 30px;
+    border-radius:30px;
+    background-color: $tijdpunt-color;
+    margin: 0 auto;
 }
 
-.image-list li img{
-  height: 80px;
+.tijdpunt-done{
+    @extend .tijdpunt;
+    background-color: $tijdpunt-done-color;
 }
 
-.image-list li img:hover{
-  cursor: pointer;
+.tijdlijnstuk{
+    width: 5px;
+    height: 80px;
+    margin: 0 auto;
+    background-color: $tijdpunt-color;
 }
+
 
 //Timeline components
 .tijdpunt{
@@ -98,4 +113,55 @@
 .tijdlijn-fase-ballon-done::before{
   @extend .tijdlijn-fase-ballon::before;
   background: $ballon-done-color;
+}
+
+.alert{
+  border-radius: 0px;
+}
+
+//Home vragen component
+
+.vraag{
+  padding: 15px 0px;
+}
+
+.question{
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+
+.question div ol li::before{
+  color: red;
+}
+
+.question div ol li a{
+  position: relative;
+  list-style: none;
+  margin-top: 15px;
+  padding: 25px -20px;
+  text-decoration: none;
+  font-size: 18px;
+  font-style: $title-font;
+  color: #333;
+  display: block;
+  font-weight: 900;
+  z-index: 10;
+}
+
+.question div ol li a:before{
+  content: ' ';
+  position: relative;
+  z-index: -1;
+  left: -27px;
+  top: 10px;
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  background: lightgray;
+  border-radius: 150px;
+}
+
+.question div ol li a:hover{
+  cursor: pointer;
+  text-decoration: underline;
 }
