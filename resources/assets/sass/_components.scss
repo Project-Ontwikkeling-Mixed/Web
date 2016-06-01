@@ -99,3 +99,44 @@
 .vraag{
   padding: 15px 0px;
 }
+
+.question{
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+
+.question div ol li::before{
+  color: red;
+}
+
+.question div ol li a{
+  position: relative;
+  list-style: none;
+  margin-top: 15px;
+  padding: 25px -20px;
+  text-decoration: none;
+  font-size: 18px;
+  font-style: $title-font;
+  color: #333;
+  display: block;
+  font-weight: 900;
+  z-index: 10;
+}
+
+.question div ol li a:before{
+  content: ' ';
+  position: relative;
+  z-index: -1;
+  left: -27px;
+  top: 10px;
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  background: lightgray;
+  border-radius: 150px;
+}
+
+.question div ol li a:hover{
+  cursor: pointer;
+  text-decoration: underline;
+}
