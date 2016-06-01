@@ -6278,9 +6278,63 @@ iframe {
 .fase-beschrijving {
   padding: 15px; }
 
+.nieuwe-vraag {
+  cursor: pointer;
+  margin: 25px 0 0 0; }
+  .nieuwe-vraag a {
+    padding: 15px;
+    text-align: center;
+    text-decoration: none;
+    font-family: "SunAntwerpenBold";
+    background: #0A9CC1;
+    font-size: 16px;
+    color: #fff;
+    transition: all .5s ease;
+    display: block; }
+  .nieuwe-vraag a:hover {
+    background: #0bb0d9; }
+
+.nieuwe-vraag-geopend {
+  cursor: pointer; }
+  .nieuwe-vraag-geopend a {
+    background-color: #DC003C;
+    color: #fff; }
+  .nieuwe-vraag-geopend a:hover {
+    background: #f60043; }
+
+.nieuwe-vraag-sectie {
+  margin: 0;
+  padding-top: 25px; }
+  .nieuwe-vraag-sectie input {
+    margin-bottom: 5px; }
+
+.link-toevoegen {
+  text-align: center;
+  margin-bottom: 25px;
+  cursor: pointer;
+  text-decoration: none; }
+
+.link-verwijderen {
+  text-align: center;
+  margin-bottom: 25px;
+  cursor: pointer; }
+  .link-verwijderen a {
+    color: #DC003C; }
+
+.huidige-vraag {
+  border: 1px solid lightgray;
+  margin: 25px 0 0 0;
+  padding: 15px;
+  font-family: "SunAntwerpenBold";
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  color: #333; }
+
 .vragen-sectie {
-  margin: 25px 0px;
-  border: 1px solid lightgray; }
+  margin: 0 0 25px 0;
+  border: 1px solid lightgray;
+  border-top: none; }
   .vragen-sectie div {
     margin: 0px -15px; }
   .vragen-sectie ul {
@@ -6426,6 +6480,10 @@ Administratie navigatie
 
 .vragen-menu nav li .nieuwe-vraag:hover {
   background: #0bb0d9; }
+
+.vragen-menu-item {
+  cursor: pointer;
+  border-bottom: 1px solid lightgray; }
 
 .image-large-holder {
   overflow: hidden; }

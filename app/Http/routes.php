@@ -40,10 +40,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::post('/media/{fase_id}', 'ProjectMediaController@create');
 
     //vragen routes
-    Route::get('/admin/vraag/new', 'VragenController@create');
-
-    //vragen routes
-    Route::get('/admin/vraag/new', 'VragenController@create');
+    Route::get('/vraag/new', 'VragenController@create');
     Route::get('/vragen/export', 'VragenController@generateCsv');
 
 

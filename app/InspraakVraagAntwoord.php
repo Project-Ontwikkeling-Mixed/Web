@@ -20,4 +20,8 @@ class InspraakVraagAntwoord extends Model
       ->where("id", $answer_id)
       ->increment('aantal_gekozen');
     }
+    
+    public function createNew($antwoord){
+      return DB::table('inspraakvraag_antwoord')->insert($antwoord);
+    }
 }

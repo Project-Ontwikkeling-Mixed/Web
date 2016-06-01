@@ -139,9 +139,78 @@
 
 // Vragen gedeelte
 
+.nieuwe-vraag{
+    cursor: pointer;
+    margin: 25px 0 0 0;
+    a{
+        padding: 15px;
+        text-align: center;
+        text-decoration: none;
+        font-family: $button-text;
+        background: $primary-button-background;
+        font-size: 16px;
+        color: #fff;
+        transition: all .5s ease;
+        display: block;
+    }
+    a:hover{
+        background: lighten($primary-button-background, 5%);
+    }
+}
+
+.nieuwe-vraag-geopend{
+    cursor:pointer;
+    a{
+        background-color: $red-button-background;
+        color: #fff;
+    }
+    a:hover{
+        background: lighten($red-button-background, 5%);
+    }
+}
+
+.nieuwe-vraag-sectie{
+    margin: 0;
+    padding-top: 25px;
+    input{
+        margin-bottom: 5px;
+    }
+    
+}
+
+.link-toevoegen{
+    text-align: center;
+    margin-bottom: 25px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.link-verwijderen{
+    text-align: center;
+    margin-bottom: 25px;
+    cursor: pointer;
+    a{
+        color: $main-red;
+    }
+    
+    
+}
+
+.huidige-vraag{
+    border: 1px solid lightgray;
+    margin:25px 0 0 0;
+    padding: 15px;
+    font-family: $button-text;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+}
+
 .vragen-sectie{
-  margin: 25px 0px;
+  margin: 0 0 25px 0;
   border: 1px solid lightgray;
+    border-top: none;
   div{
     margin: 0px -15px;
   }
