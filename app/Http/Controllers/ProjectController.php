@@ -26,13 +26,15 @@ class ProjectController extends Controller
 
     $projectId = $myProject[0]->id;
 
+    $currentFaseId = $fase->getActiveByProject($projectId)[0]->id;
+
     return response()->json(
     array(
       "id" => $myProject[0]->id,
       "naam" => $myProject[0]->naam,
       "beschrijving" => $myProject[0]->beschrijving,
       "locatie" => $myProject[0]->locatie,
-      "media" => $media->getByProject($projectId),
+      "media" => $media->getByProject($currentFaseId),
       "fases" => $fase->getByProject($projectId)
       )
     );
@@ -49,7 +51,7 @@ class ProjectController extends Controller
 
     if($request->isMethod('post')){
       $this->validate($request, [
-        'naam' => 'required|unique',
+        'naam' => 'required',
         'beschrijving' => 'required',
         'locatie' => 'required'
       ]);
