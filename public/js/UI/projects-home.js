@@ -26,7 +26,7 @@ new Vue({
     this.fetchProjectData(this, value);
     this.fetchProjects();
     this.fetchMedia();
-
+    this.setMediaItem();
   },
 
   methods: {
