@@ -49,7 +49,7 @@ class ProjectController extends Controller
 
     if($request->isMethod('post')){
       $this->validate($request, [
-        'naam' => 'required|unique',
+        'naam' => 'required',
         'beschrijving' => 'required',
         'locatie' => 'required'
       ]);
