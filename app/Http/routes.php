@@ -48,7 +48,7 @@ Route::group(['middleware' => ['web']], function () {
 
     //antwoord routes
     Route::post('/antwoord', 'VragenController@answer');
-    Route::post('/antwoord/{answer_id}', 'VragenController@answer');
+    Route::get('/antwoord/{answer_id}', 'VragenController@answer');
 
     //JSON endpoints
     Route::get('/json/project/all', 'ProjectController@allJson');

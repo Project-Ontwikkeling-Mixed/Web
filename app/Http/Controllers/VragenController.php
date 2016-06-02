@@ -95,11 +95,12 @@ class VragenController extends Controller
     return response()->json($allQuestions);
   }
 
-  public function answer(Request $request){
-    $answer_id = $request->json("answer_id");
+  public function answer(Request $request, $answer_id){
 
     $answer = new InspraakVraagAntwoord();
 
     $answer->chooseAnswer($answer_id);
+
+    return response()->json(["id" => $answer_id]);
   }
 }

@@ -67,7 +67,7 @@
                   <h4>@{{ question.vraag }}</h4>
                   <ol>
                     <li v-for="answer in question.antwoorden">
-                      <a v-on:click="answerQuestion($index)" class="antwoord">@{{ answer.antwoord }}</a>
+                      <a v-on:click="answerQuestion(answer.id)" class="antwoord">@{{ answer.antwoord }}</a>
                     </li>
                   </ol>
                 </div>
