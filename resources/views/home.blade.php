@@ -98,16 +98,8 @@
                 </div>
               </div>
               <div class="col-md-8">
-<<<<<<< HEAD
-                <div class="tijdlijn-fase-ballon-done">
-                  ontwerpfase
-                </div>
-                <div class="tijdlijn-fase-ballon">
-                  designfase
-=======
                 <div v-for="fase in project.fases" class="tijdlijn-fase-ballon">
                   @{{ fase.naam }}
->>>>>>> df244dc00ad3f477d96a0f2799fd8ba00566f118
                 </div>
               </div>
             </div>

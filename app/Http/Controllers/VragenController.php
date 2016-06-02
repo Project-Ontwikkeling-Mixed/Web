@@ -45,32 +45,47 @@ class VragenController extends Controller
 
   public function create(Request $request)
   {
-            
+
     $inspraakvraag = new InspraakVraag();
-    
-        
+
+
     $inspraakvraag_id = $inspraakvraag->createNew([
       'vraag' => $request->input('nieuweVraag'),
       'fase_id' => $request->input('fase_id')
     ]);
-        
-      
-      
+
+
+
     $antwoorden = $request->input('nieuwAntwoord');
-    
-      
-        
+
+    var_dump($antwoorden);
+
+
+
     foreach ($antwoorden as $antwoord)
-        {
-            $inspraakVraagAntwoord = new inspraakVraagAntwoord();
-            
-            $inspraakVraagAntwoord->createNew([
-              'antwoord' => $antwoord,
-              'inspraakvraag_id' => $inspraakvraag_id
-            ]);
-        }
+    {
+      $inspraakVraagAntwoord = new InspraakVraagAntwoord();
+
+      $inspraakVraagAntwoord->createNew([
+        'antwoord' => $antwoord,
+        'inspraakvraag_id' => $inspraakvraag_id
+      ]);
+    }
 
     return redirect('/admin');
+  }
+
+  public function delete($question_id, Request $request)
+  {
+    $question = new InspraakVraag();
+
+    if($question->deleteQuestion($question_id))
+    {
+      return response()->json(["message" => "Inspraakvraag successvol verwijderd"]);
+    }else{
+      return response()->json(["message" => "Kon de vraag niet verwijderen"]);
+    }
+
   }
 
   public function allQuestions($fase_id){

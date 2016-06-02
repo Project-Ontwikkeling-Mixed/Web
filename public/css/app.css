@@ -6335,27 +6335,36 @@ iframe {
   margin: 0 0 25px 0;
   border: 1px solid lightgray;
   border-top: none; }
-  .vragen-sectie div {
-    margin: 0px -15px; }
   .vragen-sectie ul {
     margin: 0;
     padding: 0; }
     .vragen-sectie ul li {
       list-style: none; }
+      .vragen-sectie ul li .row div {
+        margin: 0;
+        padding: 0; }
+      .vragen-sectie ul li .red {
+        background: #DC003C;
+        color: white;
+        font-weight: 900; }
+      .vragen-sectie ul li .red:hover {
+        cursor: pointer;
+        background: #c30035; }
       .vragen-sectie ul li a {
-        padding: 15px;
+        padding: 15px 15px;
         text-align: center;
         text-decoration: none;
         background: #ddd;
         color: #333;
         transition: all .5s ease;
-        display: block; }
+        display: block;
+        margin: 0; }
       .vragen-sectie ul li a:hover {
         background: #eaeaea; }
 
 .answers-holder div {
   display: block;
-  margin: 15px;
+  margin: 10px;
   padding: 0px 10px; }
 
 .answer {
@@ -6442,7 +6451,7 @@ Administratie navigatie
   background: #0bb0d9; }
 
 /*
-    Inspraakvragen navigatie
+Inspraakvragen navigatie
 */
 .vragen-menu {
   padding: 0; }
@@ -6453,14 +6462,17 @@ Administratie navigatie
       margin: 0;
       padding: 0;
       list-style: none; }
-      .vragen-menu nav ul li a {
-        display: block;
-        padding: 5px 0 5px 25px;
+      .vragen-menu nav ul li div .col-md-2, .vragen-menu nav ul li div .col-md-10 {
+        padding-left: 0;
+        padding-right: 0px;
+        margin: 0; }
+      .vragen-menu nav ul li div div a {
+        padding: 5px 0 5px 0px;
         background: #f1f1f1;
         border-bottom: 1px solid lightgray;
         color: #333;
         font-weight: 700; }
-      .vragen-menu nav ul li a:hover {
+      .vragen-menu nav ul li div div a:hover {
         background: #f5f5f5;
         text-decoration: none; }
 
@@ -6518,29 +6530,6 @@ Administratie navigatie
   margin: 0 auto;
   background-color: gray; }
 
-.tijdpunt, .tijdpunt-done {
-  border-radius: 50%;
-  width: 50%;
-  height: 5px;
-  padding-top: 50%;
-  background: gray; }
-
-.tijdpunt-done {
-  background: #DC003C; }
-
-.tijdlijnstuk {
-  background: gray;
-  height: 70px;
-  width: 5px;
-  margin: 0 15px;
-  display: inline-block; }
-
-.tijdlijnstuk-done {
-  background: #DC003C; }
-
-.tijdlijn-progress {
-  padding-left: 40 px; }
-
 .tijdlijn-fase-ballon, .tijdlijn-fase-ballon-done {
   background: gray;
   color: white;
@@ -6575,9 +6564,6 @@ Administratie navigatie
 .question {
   margin-bottom: 20px;
   margin-top: 10px; }
-
-.question div ol li::before {
-  color: red; }
 
 .question div ol li a {
   position: relative;
@@ -6627,7 +6613,7 @@ Administratie navigatie
   background: #0A9CC1; }
 
 .btn-primary:hover {
-  background: #0988a9; }
+  background: #0bb0d9; }
 
 .btn-red, .btn-project {
   background: #DC003C;

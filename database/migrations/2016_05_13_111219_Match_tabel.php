@@ -17,11 +17,13 @@ class MatchTabel extends Migration
             $table->integer('gebruiker_id')->unsigned();
             $table->foreign('gebruiker_id')
               ->references('id')
-              ->on('gebruikers');
+              ->on('gebruikers')
+              ->onDelete('cascade');;
             $table->integer('tegenstander_id')->unsigned();
             $table->foreign('tegenstander_id')
               ->references('id')
-              ->on('gebruikers');
+              ->on('gebruikers')
+              ->onDelete('cascade');;
             $table->integer('score');
         });
     }

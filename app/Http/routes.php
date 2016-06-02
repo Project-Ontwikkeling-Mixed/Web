@@ -41,6 +41,8 @@ Route::group(['middleware' => ['web']], function () {
 
     //vragen routes
     Route::get('/vraag/new', 'VragenController@create');
+    Route::post('/vraag/new', 'VragenController@create');
+    Route::get('/vraag/delete/{question_id}', 'VragenController@delete');
     Route::get('/vragen/export', 'VragenController@generateCsv');
 
 

@@ -6,8 +6,9 @@ new Vue({
       nieuw: true,
       selectedFase: 'new',
       id: 0,
-        nieuweVraag: false,
-        extraAntwoordTeller: 1
+      nieuweVraag: false,
+      extraAntwoordTeller: 1,
+      questions: []
     };
   },
 
@@ -88,22 +89,34 @@ new Vue({
       });
     },
 
+    deleteQuestion: function(questionId, item){
+      var questionItem = item;
+      this.$http.get('/vraag/delete/' + questionId, function(){
+        this.questions.$remove(item);
+        this.questions.$set(item, {});
+      });
+    },
+
     nieuwProject: function(){
       this.$set('selectedFase', {id:'new'});
     },
+
     openQuestionSection: function(){
-        this.nieuweVraag = true;
+      this.nieuweVraag = true;
     },
-      closeQuestionSection: function(){
-        this.nieuweVraag = false;
+
+    closeQuestionSection: function(){
+      this.nieuweVraag = false;
     },
+
     extraAntwoordToevoegen: function(){
-        this.extraAntwoordTeller++;
+      this.extraAntwoordTeller++;
     },
+
     extraAntwoordVerwijderen: function(){
-        if(this.extraAntwoordTeller!=1){
-            this.extraAntwoordTeller--;
-        }
+      if(this.extraAntwoordTeller!=1){
+        this.extraAntwoordTeller--;
+      }
     }
   }
 });

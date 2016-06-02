@@ -16,10 +16,9 @@ class CreateProjectTable extends Migration
           $table->increments('id');
           $table->string('naam')->unique();
           $table->text('beschrijving');
-            
         });
-        
-    
+
+
     }
 
     /**

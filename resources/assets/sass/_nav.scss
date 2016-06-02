@@ -96,19 +96,25 @@ Administratie navigatie
 }
 
 /*
-    Inspraakvragen navigatie
+Inspraakvragen navigatie
 */
 
 .vragen-menu{
-    padding: 0;
-    nav ul {
-        margin: 0; padding: 0;
-        li{
-          margin: 0; padding: 0;
-          list-style: none;
+  padding: 0;
+  nav ul {
+    margin: 0; padding: 0;
+    li{
+      margin: 0; padding: 0;
+      list-style: none;
+      div{
+        .col-md-2, .col-md-10{
+          padding-left: 0;
+          padding-right: 0px;
+          margin: 0;
+        }
+        div{
           a{
-            display: block;
-            padding: 5px 0 5px 25px;
+            padding: 5px 0 5px 0px;
             background: $admin-menu-bg-color;
             border-bottom: 1px solid lightgray;
             color: #333;
@@ -119,9 +125,11 @@ Administratie navigatie
             text-decoration: none;
           }
         }
+
+      }
+    }
   }
 }
-
 .vragen-menu nav .vragen-menu-title{
   padding: 10px;
   padding-left: 25px;
@@ -132,10 +140,10 @@ Administratie navigatie
 }
 
 .vragen-menu nav li .nieuwe-vraag{
-    color: white;
-      background: $primary-button-background;
-      transition: background .5s ease;
-      border: none;
+  color: white;
+  background: $primary-button-background;
+  transition: background .5s ease;
+  border: none;
 }
 
 .vragen-menu nav li .nieuwe-vraag:hover{
