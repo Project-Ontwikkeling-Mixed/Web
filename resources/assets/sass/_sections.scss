@@ -175,7 +175,7 @@
     input{
         margin-bottom: 5px;
     }
-    
+
 }
 
 .link-toevoegen{
@@ -192,8 +192,8 @@
     a{
         color: $main-red;
     }
-    
-    
+
+
 }
 
 .huidige-vraag{
@@ -211,25 +211,38 @@
   margin: 0 0 25px 0;
   border: 1px solid lightgray;
     border-top: none;
-  div{
-    margin: 0px -15px;
-  }
   ul{
     margin: 0; padding: 0;
     li{
       list-style: none;
-      a{
-        padding: 15px;
-        text-align: center;
-        text-decoration: none;
-        background: $default-button-background;
-        color: #333;
-        transition: all .5s ease;
-        display: block;
-      }
-      a:hover{
-        background: lighten($default-button-background, 5%);
-      }
+        .row div{
+          margin: 0;
+          padding: 0;
+        }
+        .red{
+          background: $main-red;
+          color: white;
+          font-weight: 900;
+        }
+        .red:hover{
+          cursor: pointer;
+          background: darken($main-red, 5%);
+        }
+        a{
+          padding: 15px 15px;
+          text-align: center;
+          text-decoration: none;
+          background: $default-button-background;
+          color: #333;
+          transition: all .5s ease;
+          display: block;
+          margin: 0;
+        }
+        a:hover{
+          background: lighten($default-button-background, 5%);
+        }
+
+
     }
   }
 }
@@ -237,7 +250,7 @@
 .answers-holder{
   div{
     display: block;
-    margin: 15px;
+    margin: 10px;
     padding: 0px 10px;
   }
 }

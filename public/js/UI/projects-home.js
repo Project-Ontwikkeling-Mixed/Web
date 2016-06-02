@@ -26,7 +26,7 @@ new Vue({
     this.fetchProjectData(this, value);
     this.fetchProjects();
     this.fetchMedia();
-
+    this.setMediaItem();
   },
 
   methods: {
@@ -40,8 +40,10 @@ new Vue({
     },
 
     answerQuestion: function(id){
-      this.$http.post('/antwoord', {"answer_id": id});
-      this.currentQuestion++;
+      console.log(id);
+      this.$http.get('/antwoord/' + id, function(){
+        this.currentQuestion++;
+      });
     },
 
     next: function(){

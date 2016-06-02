@@ -16,7 +16,8 @@ class InspraakvraagAntwoordReferentie extends Migration
         $table->integer('inspraakvraag_id')->unsigned();
         $table->foreign('inspraakvraag_id')
               ->references('id')
-              ->on('inspraakvraag');
+              ->on('inspraakvraag')
+              ->onDelete('cascade');
       });
     }
 

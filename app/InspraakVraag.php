@@ -30,6 +30,13 @@ class InspraakVraag extends Model
               ->get();
     }
 
+    public function deleteQuestion($question_id)
+    {
+      return DB::table('inspraakvraag')
+        ->where('id', $question_id)
+        ->delete();
+    }
+
     public function getByFase($id){
       return DB::table('inspraakvraag')
       ->where('fase_id', $id)
@@ -41,7 +48,7 @@ class InspraakVraag extends Model
               ->where('fase_id', $project_id)
               ->get();
     }
-    
+
     public function createNew($vraag){
       return DB::table('inspraakvraag')->insertGetId($vraag);
     }

@@ -25,7 +25,7 @@
 }
 
 .btn-primary:hover{
-  background: darken($primary-button-background, 5%);
+  background: lighten($primary-button-background, 5%);
 }
 
 .btn-red{

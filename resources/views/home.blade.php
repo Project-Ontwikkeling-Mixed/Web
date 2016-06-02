@@ -16,7 +16,7 @@
           <h1>@{{ project.naam }}</h1>
         </div>
         <div class="col-md-2">
-          <button class="btn-project horizontal-center"><span class="icon-abonnement"></span> Abonneer</button>
+          <!-- <button class="btn-project horizontal-center"><span class="icon-abonnement"></span> Abonneer</button> -->
         </div>
       </div>
       <div class="row project-holder">
@@ -67,7 +67,7 @@
                   <h4>@{{ question.vraag }}</h4>
                   <ol>
                     <li v-for="answer in question.antwoorden">
-                      <a v-on:click="answerQuestion($index)" class="antwoord">@{{ answer.antwoord }}</a>
+                      <a v-on:click="answerQuestion(answer.id)" class="antwoord">@{{ answer.antwoord }}</a>
                     </li>
                   </ol>
                 </div>
@@ -98,16 +98,8 @@
                 </div>
               </div>
               <div class="col-md-8">
-<<<<<<< HEAD
-                <div class="tijdlijn-fase-ballon-done">
-                  ontwerpfase
-                </div>
-                <div class="tijdlijn-fase-ballon">
-                  designfase
-=======
                 <div v-for="fase in project.fases" class="tijdlijn-fase-ballon">
                   @{{ fase.naam }}
->>>>>>> df244dc00ad3f477d96a0f2799fd8ba00566f118
                 </div>
               </div>
             </div>

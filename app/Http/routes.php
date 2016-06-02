@@ -41,12 +41,14 @@ Route::group(['middleware' => ['web']], function () {
 
     //vragen routes
     Route::get('/vraag/new', 'VragenController@create');
+    Route::post('/vraag/new', 'VragenController@create');
+    Route::get('/vraag/delete/{question_id}', 'VragenController@delete');
     Route::get('/vragen/export', 'VragenController@generateCsv');
 
 
     //antwoord routes
     Route::post('/antwoord', 'VragenController@answer');
-    Route::post('/antwoord/{answer_id}', 'VragenController@answer');
+    Route::get('/antwoord/{answer_id}', 'VragenController@answer');
 
     //JSON endpoints
     Route::get('/json/project/all', 'ProjectController@allJson');

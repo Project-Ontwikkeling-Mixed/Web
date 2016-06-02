@@ -18,7 +18,8 @@ class CreateInspraakvraagTable extends Migration
           $table->integer('fase_id')->unsigned();
           $table->foreign('fase_id')
             ->references('id')
-            ->on('project_fase');
+            ->on('project_fase')
+            ->onDelete('cascade');
         });
     }
 

@@ -26,7 +26,8 @@ class CreateProjectFaseTable extends Migration
           $table->integer('project_id')->unsigned();
           $table->foreign('project_id')
             ->references('id')
-            ->on('project');
+            ->on('project')
+            ->onDelete('cascade');
         });
     }
 
