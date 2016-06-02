@@ -45,11 +45,32 @@ class VragenController extends Controller
 
   public function create(Request $request)
   {
-    $InspraakVraag = new InspraakVraag();
+            
+    $inspraakvraag = new InspraakVraag();
+    
+        
+    $inspraakvraag_id = $inspraakvraag->createNew([
+      'vraag' => $request->input('nieuweVraag'),
+      'fase_id' => $request->input('fase_id')
+    ]);
+        
+      
+      
+    $antwoorden = $request->input('nieuwAntwoord');
+    
+      
+        
+    foreach ($antwoorden as $antwoord)
+        {
+            $inspraakVraagAntwoord = new inspraakVraagAntwoord();
+            
+            $inspraakVraagAntwoord->createNew([
+              'antwoord' => $antwoord,
+              'inspraakvraag_id' => $inspraakvraag_id
+            ]);
+        }
 
-
-    $vraag = $project->getAll();
-    return view('admin/project/project', ['title' => 'Nieuw Project']);
+    return redirect('/admin');
   }
 
   public function allQuestions($fase_id){

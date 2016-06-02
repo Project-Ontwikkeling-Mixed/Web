@@ -161,6 +161,48 @@
 
   <div v-if="selectedFase.id != 'new'">
     <h5>Inpsraakvragen beheren</h5>
+      
+    <div  v-if="!nieuweVraag" class="row nieuwe-vraag">
+        <a v-on:click="openQuestionSection()">Nieuwe inspraakvraag aanmaken</a>
+    </div>
+    <div  v-if="nieuweVraag" class="row nieuwe-vraag nieuwe-vraag-geopend">
+        <a v-on:click="closeQuestionSection()">Geen nieuwe inspraakvraag aanmaken</a>
+    </div>
+    <div v-if="nieuweVraag" class="row nieuwe-vraag-sectie">
+        <form action="/vraag/new" method="post">
+            {!! csrf_field() !!}
+            
+            <input type="hidden" name="fase_id" value="@{{ selectedFase.id }}">
+            
+            <div class="form-group">
+                <label>Nieuwe Vraag</label>                
+                <input type="text" class="form-control" name="nieuweVraag" placeholder="Typ hier je nieuwe vraag">
+            </div>
+            
+            <div class="form-group">
+                <label>Mogelijke antwoorden</label>
+                <input v-for="n in extraAntwoordTeller" type="text" class="form-control" ame="nieuwAntwoord[@{{$index}}]" placeholder="Typ hier antwoord @{{$index+1}}">
+            </div>
+            
+            
+            
+            <div class="link-toevoegen">
+                <a v-on:click="extraAntwoordToevoegen()">Antwoord Toevoegen</a>
+            </div>
+            <div class="link-verwijderen">
+                <a v-on:click="extraAntwoordVerwijderen()">Antwoord Verwijderen</a>
+            </div>
+            
+            
+            <input type="submit" name="name" class="btn btn-primary" value="Nieuwe vraag aanmaken">
+            
+            
+        </form>
+    </div>
+    
+    <div class="row huidige-vraag">
+        Huidige inspraakvragen
+    </div>
     <div class="row vragen-sectie">
       <div class="col-md-8" class="vragen-menu">
         <ul>

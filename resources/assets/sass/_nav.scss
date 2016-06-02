@@ -141,3 +141,8 @@ Administratie navigatie
 .vragen-menu nav li .nieuwe-vraag:hover{
   background: lighten($primary-button-background, 5%);
 }
+
+.vragen-menu-item{
+  cursor: pointer;
+  border-bottom: 1px solid lightgray;
+}

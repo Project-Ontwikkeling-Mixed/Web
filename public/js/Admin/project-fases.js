@@ -5,7 +5,9 @@ new Vue({
     return{
       nieuw: true,
       selectedFase: 'new',
-      id: 0
+      id: 0,
+        nieuweVraag: false,
+        extraAntwoordTeller: 1
     };
   },
 
@@ -88,6 +90,20 @@ new Vue({
 
     nieuwProject: function(){
       this.$set('selectedFase', {id:'new'});
+    },
+    openQuestionSection: function(){
+        this.nieuweVraag = true;
+    },
+      closeQuestionSection: function(){
+        this.nieuweVraag = false;
+    },
+    extraAntwoordToevoegen: function(){
+        this.extraAntwoordTeller++;
+    },
+    extraAntwoordVerwijderen: function(){
+        if(this.extraAntwoordTeller!=1){
+            this.extraAntwoordTeller--;
+        }
     }
   }
 });

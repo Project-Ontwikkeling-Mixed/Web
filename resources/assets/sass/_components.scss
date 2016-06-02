@@ -44,12 +44,37 @@
     background-color: $tijdpunt-color;
 }
 
-.tijdlijnstuk-done{
-    @extend .tijdlijnstuk;
-    background-color: $tijdlijnstuk-done-color;
+
+//Timeline components
+.tijdpunt{
+    border-radius: 50%;
+    width: 50%;
+    height: 5px;
+    padding-top: 50%;
+    background: $tijdpunt-color;
 }
 
+.tijdpunt-done{
+    background: $tijdpunt-done-color;
+}
 
+.tijdlijnstuk{
+    background: $tijdlijnstuk-color;
+    height: 70px;
+    width: 5px;
+    margin: 0 15px;
+    display: inline-block;
+  
+    
+}
+
+.tijdlijnstuk-done{
+    background: $tijdlijnstuk-done-color;
+}
+
+.tijdlijn-progress{
+    padding-left: 40 px;
+}
 
 .tijdlijn-fase-ballon{
   background: $ballon-color;

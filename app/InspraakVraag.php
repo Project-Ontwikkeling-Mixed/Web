@@ -41,4 +41,8 @@ class InspraakVraag extends Model
               ->where('fase_id', $project_id)
               ->get();
     }
+    
+    public function createNew($vraag){
+      return DB::table('inspraakvraag')->insertGetId($vraag);
+    }
 }
