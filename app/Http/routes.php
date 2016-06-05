@@ -20,10 +20,19 @@ Route::group(['middleware' => ['web']], function () {
     });
 
     Route::get('/home', 'HomeController@index');
-
+    
     Route::get('/admin', 'AdminController@index');
     Route::get('/admin/project/new', 'ProjectController@create');
     Route::post('/admin/project/new', 'ProjectController@create');
+    
+    Route::post('/admin/gebruiker/zoeken', 'AdminController@searchUser');
+    Route::get('/admin/gebruiker/delete/{id}', 'AdminController@deleteUser');
+    Route::get('/admin/gebruiker/toggleAdminRights/{id}', 'AdminController@toggleAdminRights');
+    
+    //profiel routes
+    Route::get('/profiel', 'ProfielController@index');
+    Route::post('/profiel/wijzigen', 'ProfielController@update');
+    Route::get('/profiel/delete', 'ProfielController@delete');
 
     //project routes
     Route::get('/project/{id}', 'ProjectController@get');

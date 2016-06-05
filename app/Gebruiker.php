@@ -31,5 +31,26 @@ class Gebruiker extends Authenticatable
       ->where('id', $user)
       ->get()[0]->isAdmin;
     }
+    
+    public function updateGebruiker($id, $gebruiker)
+    {
+      return DB::table('gebruikers')
+      ->where('id', $id)
+      ->update($gebruiker);
+    }
+    
+    public function deleteGebruiker($id)
+    {
+      return DB::table('gebruikers')
+      ->where('id', $id)
+      ->delete();
+    }
+    
+    public function getByName($naam){
+      return DB::table('gebruikers')
+        ->where('voornaam', 'like','%'.$naam.'%')
+        ->orWhere('achternaam', 'like','%'.$naam.'%')
+        ->get();
+    }
 
 }

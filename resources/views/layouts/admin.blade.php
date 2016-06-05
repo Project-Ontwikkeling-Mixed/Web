@@ -14,8 +14,8 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a href="{{ url('/home') }}" class="pull-left logo"><img src="{{ asset('img/logo.jpg') }}" height="71"></a>
-        <a class="navbar-brand" href="{{ url('/home') }}">Projectplatform</a>
+        <a href="{{ url('/') }}" class="pull-left logo"><img src="{{ asset('img/logo.jpg') }}" height="71"></a>
+        <a class="navbar-brand" href="{{ url('/') }}">Projectplatform</a>
       </div>
 
       <div id="navbar" class="navbar-collapse collapse">
@@ -34,7 +34,11 @@
             </li>
             <li><a href="{{ url('/register') }}">Registreren </a></li>
           @else
-            <li><a href="">Ingelogd als {{ Auth::user()['voornaam'] }} {{ Auth::user()['achternaam'] }} </a></li>
+            <li><a href="{{ url('/home') }}">Projecten </a></li>
+            @if (Auth::user()['isAdmin'] == 1)
+              <li><a href="{{ url('/admin') }}">Administratie</a></li>
+            @endif
+            <li><a href="/profiel">Ingelogd als {{ Auth::user()['voornaam'] }} {{ Auth::user()['achternaam'] }} </a></li>
             <li><a href="{{ url('/logout') }}">Afmelden</a></li>
           @endif
         </ul>
