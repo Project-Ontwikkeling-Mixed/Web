@@ -38,7 +38,7 @@
             @if (Auth::user()['isAdmin'] == 1)
               <li><a href="{{ url('/admin') }}">Administratie</a></li>
             @endif
-          <li><a href="">Ingelogd als {{ Auth::user()['voornaam'] }} {{ Auth::user()['achternaam'] }} </a></li>
+          <li><a href="/profiel">Ingelogd als {{ Auth::user()['voornaam'] }} {{ Auth::user()['achternaam'] }} </a></li>
           <li><a href="{{ url('/logout') }}">Afmelden</a></li>
           @endif
         </ul>
